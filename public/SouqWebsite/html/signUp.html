@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en"  ng-app="souqUser">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Katibeh&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+  <script src="../generaljs/SouqUserGeneral.js"></script>
+  
+
+  <script>
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+    console.log('statusChangeCallback');
+    console.log(response);                   // The current login status of the person.
+    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+        console.log("Successfully connected ");
+        console.log(response);
+        testAPI();  
+    } else {                                 // Not logged into your webpage or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this webpage.';
+    }
+  }
+
+
+  function checkLoginState() {               // Called when a person is finished with the Login Button.
+    FB.getLoginStatus(function(response) {   // See the onlogin handler
+      statusChangeCallback(response);
+    });
+  }
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '2505817829737529',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v5.0'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+
+     FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+});
+
+FB.login(function(response) {
+  if (response.status === 'connected') {
+      console.log("Successfully connected ");
+      console.log(response);
+    // Logged into your webpage and Facebook.
+  } else {
+    // The person is not logged into your webpage or we are unable to tell. 
+  }
+});
+
+function testAPI() {                      
+    // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+        console.log( response);
+        console.log('Successful login for: ' + response.name);
+        $('#fullname').val(response.name) ;
+        if(!response.email || !response.mobile){
+            alert("لا يوجد ايميل فى الداتا ، يرجى  كتابة ايميل و استكمال البيانات");
+         
+        }
+        if(response.email){
+            $('#email').val(response.email) ;
+         
+        }
+        if(response.mobile){
+            $('#mobile').val(response.mobile) ;
+         
+        }
+        
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+  function fb_login (){
+      checkLoginState();
+  }
+  </script>
+  <title> SOUQ APPS </title>
+</head>
+
+
+<body ng-controller="HomeCtrl" style="overflow-x: hiddden">
+    <div class="addAppDiv"  style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+        <!-- MAIN  NAV -->
+        <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
+            <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+            <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+            <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+                alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pl-5" id="navbar-list-2">
+                <ul class="navbar-nav m-auto pl-5 mt-2 mt-md-0 nav-mid">
+                    <li  class="nav-item ">
+                      <a  class="nav-link" href="http://157.230.25.241/SouqWebsite/html/main.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/apps-.html">App Auction </a>
+                    </li>
+                    <li  class="nav-item ">
+                      <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/add-app.html">Add App </a>
+                    </li>
+                    <li  class="nav-item ">
+                      <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/contact-us.html">Contact us </a>
+                    </li>
+                </ul>
+            <ul class="navbar-nav ml-auto">
+            
+                <li id="navID5"  class="nav-item  mr-5 mt-2">
+                    <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button nav-link-signIn-button-active"
+                      href=""> Sign In <span class="sr-only">(current)</span></a>
+                  </li>
+                <!-- <li class="nav-item ">
+                <a class="nav-link " href="#"> <i class="fas fa-bell fa-lg"></i></a>
+                </li> -->
+
+                <li class="nav-item nav-lang m-1">
+                <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item nav-lang  m-1">
+                <a  id="navIDLangeEn" class="nav-link  nav-link-sign" ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+
+        <div style="margin-top: 58px;"></div>
+        <div  class="addAppDiv-overlay">
+            <div class="container px-5">
+                <div class="px-5" >
+                    <div class="row">
+                        <div class="col-md-1">
+    
+                        </div>
+                        <div style="background-color: #fff; border-radius: 7px;" class="col-md-10 col-sm-12 pb-4 mb-5">
+                            <div class="row">
+                                <div  ng-controller="SignUpCtrl" class="col-md-12">
+                                    <div class="row pt-5">
+    
+                                        <div class="col-sm-11 col-md-8 text-center m-auto">
+                                            <h4 class="m-auto font-weight-bolder"
+                                                style="color: #F67534; font-weight: bolder; ">
+    
+                                                New Account
+                                            </h4>
+                                            <!-- <h6 class="small py-2">Enter data to create an account
+                                            </h6> -->
+                                        </div>
+    
+    
+                                    </div>
+                                    <div class="signInBorder" class="row py-3 text-center  m-auto">
+                                        <form ng-submit="createNewUser()">
+                                        <div class="col-sm-11 col-md-7 text-center m-auto">
+                                            <div class="row text-center m-auto pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">Full
+                                                    Name</label>
+                                                <input style="background-color: #fff !important;" type="text" class="form-control text-center custom-input"
+                                                    id="fullname" placeholder="Full Name" minlength="4" required
+                                                    autocomplete="off">
+    
+                                            </div>
+                                            <div class="row text-center m-auto  pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">Mobile</label>
+    
+                                                <input minlength="7" style="background-color: #fff !important;" type="text" class="form-control text-center custom-input"
+                                                    id="mobile" placeholder="Mobile" 
+                                                     required autocomplete="off">
+    
+                                            </div>
+    
+    
+                                            <div class="row text-center m-auto  pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">Email
+                                                </label>
+    
+                                                <input style="background-color: #fff !important;" type="email" class="form-control text-center custom-input"
+                                                    id="email" placeholder="Email"
+                                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" required
+                                                    autocomplete="off">
+    
+                                            </div>
+                                            <div class="row text-center m-auto  pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">Password</label>
+    
+                                                <input style="background-color: #fff !important;" type="password" class="form-control text-center custom-input"
+                                                    id="Password" placeholder="password" minlength="6" required
+                                                    autocomplete="off">
+    
+                                            </div>
+    
+    
+                                            <div class="row text-left   py-2">
+                                                <p class="text-left">
+                                                    <input ng-model="agreeTerms" type="checkbox" id="test1" />
+                                                    <!-- <label style="font-size: 0.7rem;" for="test1">Agree Terms &
+                                                        Conditions</label> -->
+                                                        <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important; font-size: 0.8rem; font-weight: bold;">Agree Terms &
+                                                    Conditions
+                                                </label>
+                                                </p>
+                                            </div>
+                                            <div class="row">
+                                                <button style="background-color: #F67534; border-radius: 5px;font-weight: bold; border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                                type="submit" class="btn btn-primary px-5 form-control text-center">Sign Up 
+                                                </button>
+                                            </div>
+
+                                            <div class="row mt-5">
+                                                <button style="background-color: #878988; border-radius: 20px;font-weight: bold; border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                                type="button" ng-click="changeSignIn(1)" class="btn btn-primary px-5 form-control text-center"> Have Account 
+                                                </button>
+                                            </div>
+    
+    
+                                        </div>
+    
+                                        </form>
+    
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+    
+                        <div class="col-md-1">
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </form>
+    
+            </div>
+        </div>
+    
+        <!-- FOOTER -->
+        <footer style="background-color: #868988;" class="px-3 py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+                        <h6 class="colors-white text-center m-auto pb-2">Follow us on our social media channels</h6>
+    
+                        <div class="row text-center m-auto">
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                            </a>
+                            <a class="px-1 text-center m-auto" href="">
+                                <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                        <div class="row text-center m-auto ">
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                                <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Address</h6>
+                                <h6 class="colors-white text-sm">Saudi - Ryad</h6>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                                <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Emaol</h6>
+                                <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                                <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Mobile</h6>
+                                <h6 class="colors-white text-sm">966 24376756</h6>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    
+        </footer>
+    
+        <!-- DIVIDER -->
+        <div style="background-color: #F67534; height: 50px;">
+    
+        </div>
+    </div>
+
+
+  
+       
+    </div>
+  
+    <div class="addAppDiv"  style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+        <style>
+            [type="checkbox"]:not(:checked),
+            [type="checkbox"]:checked {
+            position: absolute;
+            right: -9999px !important;
+            }    
+        </style>
+        <!-- MAIN  NAV -->
+        <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm ">
+            <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+            <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+            <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+                alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbar-collapsear   text-right" id="navbar-list-2">
+            <ul style="padding-right: 100px" class="navbar-nav m-auto mt-2 mt-md-0 nav-mid  ">
+                <li  class="nav-item ">
+                <a class="nav-link fontar"  href="http://157.230.25.241/SouqWebsite/html/main.html"> الرئيسية <span class="sr-only">(current)</span></a>
+                </li>
+                <li   class="nav-item">
+                <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/apps-.html"> مزاد التطبيقات </a>
+                </li>
+                <li  class="nav-item">
+                <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/add-app.html"> أضف تطبيق </a>
+                </li>
+                <li   class="nav-item ">
+                <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/contact-us.html"> تواصل معنا </a>
+                </li>
+            </ul>
+            <ul  class="navbar-nav mr-auto ">
+                <li class="nav-item   ml-5 mt-2">
+                <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button nav-link-signIn-button-active fontar"
+                    href="#" id="navID55"> تسجيل الدخول <span class="sr-only">(current)</span>
+                </a>
+                </li>
+                <!-- <li class="nav-item ">
+                <a class="nav-link " href="#"> <i class="fas fa-bell fa-lg"></i></a>
+                </li> -->
+        
+                <li class="nav-item nav-lang navLangUl m-1">
+                <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item nav-lang navLangUl  m-1">
+                <a id="navIDLangeEn" class="nav-link  nav-link-sign " ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+
+        <div style="margin-top: 58px;"></div>
+        <div  class="addAppDiv-overlay ">
+        <div class="container px-5">
+                <div class="px-5" >
+                    <div class="row">
+                        <div class="col-md-1">
+    
+                        </div>
+                        <div style="background-color: #fff; border-radius: 7px;" class="col-md-10 col-sm-12 pb-4 mb-5">
+                            <div class="row">
+                                <div  ng-controller="SignUpCtrl" class="col-md-12">
+                                    <div class="row pt-5">
+    
+                                        <div class="col-sm-11 col-md-8 text-center m-auto pb-3">
+                                            <h4 class="m-auto font-weight-bolder fontar"
+                                                style="color: #F67534; font-weight: bolder; ">
+    
+                                                حساب جديد
+                                            </h4>
+                                            <!-- <h6 class="small py-2">أدخل البيانات التالية لأنشاء حسابك
+                                            </h6> -->
+                                        </div>
+    
+    
+                                    </div>
+                                    <div class="signInBorder"  class="row py-3 text-center  m-auto">
+                                    <form ng-submit="createNewUser()">
+                                        <div class="col-sm-11 col-md-7 text-center m-auto">
+                                            <div class="row text-center m-auto pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">الأسم بالكامل</label>
+                                                <input style="background-color: #fff !important;" type="text" class="form-control text-center custom-input"
+                                                    id="fullname" placeholder="الأسم بالكامل" minlength="4" required
+                                                    autocomplete="off">
+    
+                                            </div>
+                                            <div class="row text-center m-auto  pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">رقم الجوال</label>
+    
+                                                <input  minlength="7" style="background-color: #fff !important;" type="text" class="form-control text-center custom-input"
+                                                    id="mobile" placeholder="رقم الجوال" required autocomplete="off">
+    
+                                            </div>
+    
+    
+                                            <div class="row text-center m-auto  pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">البريد الألكترونى
+                                                </label>
+    
+                                                <input style="background-color: #fff !important;"  type="email" class="form-control text-center custom-input"
+                                                    id="email" placeholder="البريد الألكترونى"
+                                                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" required
+                                                    autocomplete="off">
+    
+                                            </div>
+                                            <div class="row text-center m-auto  pb-3">
+                                                <label
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important;">كلمة المرور</label>
+    
+                                                <input style="background-color: #fff !important;" type="password" class="form-control text-center custom-input"
+                                                    id="Password" placeholder="كلمة المرور" minlength="6" required
+                                                    autocomplete="off">
+    
+                                            </div>
+    
+                                            <!-- <div class="row text-center m-auto  py-2">
+                                                <p class=" text-center m-auto">
+                                                    <input ng-model="agreeTerms" type="checkbox" id="test1" />
+                                                    <label style="font-size: 0.7rem;" for="test1">Agree Terms &
+                                                        Conditions</label>
+                                                </p>
+                                            </div> -->
+    
+                                            <!-- <div class="row  py-2">
+                                             
+
+                                                <p class="text-right  clearfix">
+                                                    <input class="ml-auto" ng-model="agreeTerms"  type="checkbox" id="test1" />
+
+                                                    <label for="test1" class="mr-auto"
+                                                    style="padding-bottom: 0px !important; margin-bottom: 0px !important; font-size: 0.8rem; font-weight: bold;">موافق على الشروط والأحكام
+                                                </label>
+
+                                                </p>
+                                                <span style="clear: both;"></span>
+                                            </div>
+    
+                                            <button style="background-color: #F67534; border-radius: 20px; border: none;-webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                            -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                            box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                                type="submit" class="btn btn-primary px-5">تسجيل الدخول 
+                                            </button> -->
+                                            <div style="direction: rtl;" class="row text-right   py-2">
+                                                <p class="text-right">
+                                                    <input class="mr-auto" ng-model="agreeTerms" type="checkbox" id="test1" />
+                                                    <!-- <label style="font-size: 0.7rem;" for="test1">Agree Terms &
+                                                        Conditions</label> -->
+                                                        <label  class="ml-auto" style="padding-bottom: 0px !important; margin-bottom: 0px !important; font-size: 0.8rem; font-weight: bold;">موافق على الشروط والأحكام
+                                                    </label>
+                                                </p>
+                                            </div>
+                                            <div class="row">
+                                                <button style="background-color: #F67534; border-radius: 5px;font-weight: bold; border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                                type="submit" class="btn btn-primary px-5 form-control text-center">أنشاء حساب  
+                                                </button>
+                                            </div>
+
+                                            <div class="row mt-5">
+                                                <button style="background-color: #878988; border-radius: 20px;font-weight: bold; border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                                type="button" ng-click="changeSignIn(1)" class="btn btn-primary px-5 form-control text-center"> تسجيل الدخول  
+                                                </button>
+                                            </div>
+    
+    
+                                        </div>
+    
+                                        </form>
+    
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+    
+                        <div class="col-md-1">
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+    
+        </div>
+
+         <!-- FOOTER -->
+        <footer style="background-color: #868988;" class="px-3 py-5">
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+                        <h6 class="colors-white text-center m-auto pb-2 fontar">تابعنا على قنوات التواصل الاجتماعي الخاصة بنا</h6>
+        
+                    <div class="row text-center m-auto">
+                        <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                        </a>
+                        <a class="px-1 text-center m-auto" href="">
+                            <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                        </a>
+                    </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-7">
+                    <div class="row text-center m-auto ">
+                        <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                            <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                            <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">العنوان</h6>
+                            <h6 class="colors-white text-sm">الرياض - السعودية</h6>
+                            </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 fontar" >
+                            <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                            <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">البريد الألكترونى</h6>
+                            <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                            </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                            <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                            <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">رقم الهاتف</h6>
+                            <h6 class="colors-white text-sm">966 24376756</h6>
+                        </div>
+                    
+                    </div>
+                    </div>
+                </div>
+            </div>
+        
+        
+        </footer>
+        
+        <!-- DIVIDER -->
+        <div style="background-color: #F67534; height: 50px;">
+        
+        </div>
+    </div>
+    
+
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+  
+
+
+</body>
+
+</html>

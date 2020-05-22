@@ -1,0 +1,593 @@
+<div class="howitwork">
+    <div  ng-if="!souqLang || souqLang == 'en'" class="addAppDiv-overlay">
+        <div style="margin-top: 58px;"></div>
+        <div class="container">
+                  <div class="" >
+                      <div class="row">
+                          <div class="col-md-1">
+      
+                          </div>
+                          <div style="background-color: #fff; border-radius: 7px;" class="col-md-10 col-sm-12 pb-4">
+                            <div class="row  text-center py-4 px-3">
+                                <div class="col-md-1 col-sm-12">
+                                    <span style="color: #F67534;  font-weight: bolder; font-size: 1.3rem;">   
+                                        <i  style="position: relative; color: #000; position: relative;" class=" fas fa-bell fa-lg ml-4 mt-2">
+                                          <div ng-if="notifications.length > 0" style="position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                                            {{notifications.length}}
+                                          </div>
+                                        </i>
+                                              
+                                        
+                                             
+                                      </span>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                        <div class="mt-3 text-right" style="border-bottom: 1px solid #777777;">
+                                       
+                                            </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="text-center m-auto">
+                                        <span style="color: #000; font-size: 20px; font-weight: bolder; font-size: 1.3rem;">                           
+                                            Notifications
+                                               
+                                        </span>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-3 col-sm-12">
+                                        <div class="mt-3 text-left" style="border-bottom: 1px solid #777777;">
+                                       
+                                        </div>
+                                </div>
+                                <div class="col-md-1 col-sm-12">
+    
+                                </div>
+                               
+                        </div>
+                            <div class="p-3" >
+                                <!-- <div class="text-center m-auto">
+                                  <span style="color: #F67534;  font-weight: bolder; font-size: 1.3rem;">   
+                                    <i style="position: relative; color: #000; position: relative;" class="float-left fas fa-bell fa-lg ml-4 mt-2">
+                                      <div style="position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                                        3
+                                      </div>
+                                    </i>
+                                          
+                                       Notifications
+                                         
+                                  </span>
+                                 <div class="clearfix"></div>
+                                </div> -->
+                              
+                             <div style="max-height: 500px; min-height: 300px; overflow-y: scroll;">
+                                <div class="row m-0 px-5">
+                                    <div ng-repeat="c in notifications" class="col-md-12 col-sm-12">
+                                       <div class="row">
+                                         <div class="col-sm-12 col-md-2">
+
+                                         </div>
+                                         <div  class="col-sm-12 col-md-8">
+                                          <div ng-click="goToAppDetails(c.auctionID._id)"  ng-if="c.type == 1" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; cursor: pointer;" class="row m-2 py-2">
+                                            <div class="col-4 py-3">
+                                              <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                                <img style="width: 100px; max-height: 100px" src="{{c.auctionID.img1 || c.auctionID.img2 || c.auctionID.img3 || c.auctionID.img4 || c.auctionID.img5 || c.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                              </div>
+                                            </div>
+                                            <div class="col-8">
+                                              <div  class="m-auto text-center pb-2">
+                                                <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd'}}</span>
+                                                <h5 class="w-50">
+                                                  <span style="font-size: 11px;" >new app added</span>
+                              
+                                                </h5>
+                              
+                                              </div>
+                                              <div class="">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                                                    <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> category </span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.auctionID.categoryID.titleEN || 'No Category'}} </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class=" py-1">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.auctionID.startPrice}} SAR  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                              
+                                            <div class="col-12">
+                                              <div class="row px-2">
+                                                <h5 class="px-4" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.auctionID.appName}}</h5>
+                              
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 2" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;cursor: pointer; " class="row m-2 py-2">
+                                            <div class="col-4 py-3">
+                                              <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                                <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                              </div>
+                                            </div>
+                                            <div class="col-8">
+                                              <div  class="m-auto text-center pb-2">
+                                                <span style="font-size: 11px;" class="float-right">{{c.createdAt | cmdate:'yyyy-MM-dd'}}</span>
+                                                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                              </div>
+                                              <div class="">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                                                    <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> subscriber</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.userID.fullname}}  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class=" py-1">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                                                    <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;">Amount</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 3" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;cursor: pointer;" class="row m-2 py-2">
+                                            <div class="col-4 py-3">
+                                              <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                                <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                              </div>
+                                            </div>
+                                            <div class="col-8">
+                                              <div  class="m-auto text-center pb-2">
+                                                <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                                                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                              </div>
+                                              <div class="">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Winner</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.userID.fullname}}  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class=" py-1">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 4" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;cursor: pointer;" class="row m-2 py-2">
+                                            <div class="col-4 py-3">
+                                              <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                                <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                              </div>
+                                            </div>
+                                            <div class="col-8">
+                                              <div  class="m-auto text-center pb-2">
+                                                <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                                                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                              </div>
+                                              <div class="">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class=" py-1">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-12">
+                                              <div class="row">
+                                                <div class="col-2">
+                                                  <i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i>
+                              
+                                                </div>
+                                                <div class="col-10">
+                                                  <p style="font-size: 11px;" class="fontar px-3">Note that the amount was deducted from your account</p>
+                              
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 5" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;cursor: pointer;" class="row m-2 py-2">
+                                            <div class="col-4 py-3">
+                                              <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                                <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                              </div>
+                                            </div>
+                                            <div class="col-8">
+                                              <div  class="m-auto text-center pb-2">
+                                                <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                                                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                              </div>
+                                              <div class="">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              <div class=" py-1">
+                                                <div class="w-75">
+                                                  <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                                                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                                                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="col-12">
+                                              <div class="row pt-1">
+                                                <div class=" col-1 pt-3"><i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i></div>
+                                                <div class="col-11">
+                                                  <p style="font-size: 11px; margin-bottom:0" class="fontar px-3">Please note that there is not enough credit for a discount
+                                                  </p>
+                                                  <p style="font-size: 11px;" class="fontar px-3">Please note that the amount must be added to the account within 24 hours or another winner will be announced.
+                                                  </p>
+                                                </div>
+                                              </div>
+                                             
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-2">
+
+                                        </div>
+                                       </div>
+                                     
+                                    </div>
+
+                                </div>
+                             
+                  
+                             
+                  
+                              
+                  
+                              
+                             
+                            </div>
+                           
+                            </div>    
+                          </div>
+      
+                          <div class="col-md-1">
+      
+                          </div>
+      
+      
+                      </div>
+      
+                    </div>
+      
+        </div>
+    </div>
+    
+  
+ 
+      
+  </div>
+  
+  
+  
+  
+  <div class="howitwork">
+    <div  ng-if="souqLang == 'ar'" class="addAppDiv-overlay">
+        <div style="margin-top: 58px;"></div>
+        <div class="container">
+                  <div class="" >
+                      <div class="row">
+                          <div class="col-md-1">
+      
+                          </div>
+                          <div style="background-color: #fff; border-radius: 7px;" class="col-md-10 col-sm-12 pb-4">
+                            <div class="row  text-center py-4 px-3">
+                                <div class="col-md-1 col-sm-12">
+                                    <span style="color: #F67534;  font-weight: bolder; font-size: 1.3rem;">   
+                                        <i  style="position: relative; color: #000; position: relative;" class=" fas fa-bell fa-lg ml-4 mt-2">
+                                          <div ng-if="notifications.length > 0" style="position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                                            {{notifications.length}}
+                                          </div>
+                                        </i>
+                                              
+                                        
+                                             
+                                      </span>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                        <div class="mt-3 text-right" style="border-bottom: 1px solid #777777;">
+                                       
+                                            </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="text-center m-auto">
+                                        <span class="fontar" style="color: #000; font-size: 20px; font-weight: bolder; font-size: 1.3rem;">                           
+                                            الأشعارات
+                                               
+                                        </span>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-3 col-sm-12">
+                                        <div class="mt-3 text-left" style="border-bottom: 1px solid #777777;">
+                                       
+                                        </div>
+                                </div>
+                                <div class="col-md-1 col-sm-12">
+    
+                                </div>
+                               
+                        </div>
+                            <div class="p-3" >
+                                <!-- <div class="text-center m-auto">
+                                  <span style="color: #F67534;  font-weight: bolder; font-size: 1.3rem;">   
+                                    <i style="position: relative; color: #000; position: relative;" class="float-left fas fa-bell fa-lg ml-4 mt-2">
+                                      <div style="position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                                        3
+                                      </div>
+                                    </i>
+                                          
+                                       Notifications
+                                         
+                                  </span>
+                                 <div class="clearfix"></div>
+                                </div> -->
+                              
+                             <div style="max-height: 500px; min-height: 300px; overflow-y: scroll;">
+                                <div class="row m-0">
+                                 
+
+                                  <div ng-repeat="c in notifications" class="col-md-12 col-sm-12">
+                                    <div class="row">
+                                      <div class="col-sm-12 col-md-2">
+
+                                      </div>
+                                      <div  class="col-sm-12 col-md-8">
+                                      <div ng-click="goToAppDetails(c.auctionID._id)" ng-if="c.type == 1" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; cursor: pointer;" class="row m-2 py-2">
+                                          <div class="col-4 py-3">
+                                            <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                              <img style="width: 100px; max-height: 100px" src="{{c.auctionID.img1 || c.auctionID.img2 || c.auctionID.img3 || c.auctionID.img4 || c.auctionID.img5 || c.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                            </div>
+                                          </div>
+                                          <div class="col-8">
+                                            <div  class="m-auto text-center pb-2">
+                                              <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd'}}</span>
+                                              <h5 class="w-50">
+                                                <span style="font-size: 11px;" >تم أضافة تطبيق جديد</span>
+                            
+                                              </h5>
+                            
+                                            </div>
+                                            <div class="">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                                                  <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2 text-center"><span class="fontar" style="color: #fff;"> فئة التطبيق</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto fontar"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.auctionID.categoryID.titleAr || 'No Category'}}  </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class=" py-1">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center"><span  class="fontar" style="color: #fff;">المبلغ</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto fontar"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.auctionID.startPrice }} ريال   </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                            
+                                          <div class="col-12">
+                                            <div class="row px-2">
+                                              <h5 class="px-4" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.auctionID.appName}}</h5>
+                            
+                                            </div>
+                                          </div>
+                                      </div>
+                                    
+                                    
+                                      <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 2" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; cursor: pointer;" class="row m-2 py-2">
+                                          <div class="col-4 py-3">
+                                            <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                              <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                            </div>
+                                          </div>
+                                          <div class="col-8">
+                                            <div  class="m-auto text-center pb-2">
+                                              <span style="font-size: 11px;" class="float-left">{{c.createdAt | cmdate:'yyyy-MM-dd'}}</span>
+                                              <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                            </div>
+                                            <div class="">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                                                  <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2 fontar text-center"><span class="fontar" style="color: #fff;"> مشترك جديد</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto fontar"> <span class="text-center m-auto fontar"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.userID.fullname}}   </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class=" py-1">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                                                  <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2  fontar text-center"><span class="fontar" style="color: #fff;">المبلغ</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.subscriptionPrice}} ريال    </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                 
+                                      <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 3" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; cursor: pointer;" class="row m-2 py-2">
+                                          <div class="col-4 py-3">
+                                            <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                              <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                            </div>
+                                          </div>
+                                          <div class="col-8">
+                                            <div  class="m-auto text-center pb-2">
+                                              <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd'}}</span>
+                                              <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                            </div>
+                                            <div class="">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center fontar"><span class="fontar" style="color: #fff;">الفائز</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar"  style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.userID.fullname}}   </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class=" py-1">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center fontar"><span class="fontar" style="color: #fff;">المبلغ</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} ريال  </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                            
+                                      <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 4"  style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; cursor: pointer;" class="row m-2 py-2">
+                                          <div class="col-4 py-3">
+                                            <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                              <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                            </div>
+                                          </div>
+                                          <div class="col-8">
+                                            <div  class="m-auto text-center pb-2">
+                                              <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                                              <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                            </div>
+                                            <div class="">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span class="fontar" style="color: #fff; font-size: 14px; font-weight: bold;">أنت الفائز
+                                                  </span>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class=" py-1">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span class="fontar" style="color: #fff;">المبلغ</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} ريال  </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-12">
+                                            <div class="row">
+                                              <div class="col-2">
+                                                <i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i>
+                            
+                                              </div>
+                                              <div class="col-10">
+                                                <p style="font-size: 11px;" class="fontar px-3 text-right pt-1">مع العلم أنه تم خصم المبغ من حسابك الخاص</p>
+                            
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+   
+                                      <div ng-click="goToAppDetails(c.subscripeID.auctionID._id)" ng-if="c.type == 5"  style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; cursor: pointer;" class="row m-2 py-2">
+                                          <div class="col-4 py-3">
+                                            <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                                              <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                                            </div>
+                                          </div>
+                                          <div class="col-8">
+                                            <div  class="m-auto text-center pb-2">
+                                              <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                                              <h5 class="w-50 fontar" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                                            </div>
+                                            <div class="">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span class="fontar" style="color: #fff; font-size: 14px; font-weight: bold;">أنت الفائز
+                                                  </span>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class=" py-1">
+                                              <div class="w-75">
+                                                <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                                                  <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center"><span style="color: #fff;">المبلغ</span></div>
+                                                  <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} ريال  </span></div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-12">
+                                            <div class="row pt-1">
+                                              <div class=" col-1 pt-3"><i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i></div>
+                                              <div class="col-11">
+                                                <p style="font-size: 11px; margin-bottom:0" class="fontar px-3 text-right">برجاء العلم أنه لا يوجد رصيد كافى لخصم مبلغ التطبيق
+                                                </p>
+                                                <p style="font-size: 11px;" class="fontar px-3 text-right">يرجى العلم بأنه يجب أضافة المبلغ في الحساب في خلال 24 ساعة أو سيتم الأعلان عن فائز أخر.                                                  </p>
+                                              </div>
+                                            </div>
+                                            
+                                          </div>
+                                      </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-2">
+
+                                      </div>
+
+                                    </div>
+                                    
+                           
+                                     
+                                    </div>
+                                    
+                                     
+                                </div>
+                             
+                  
+                             
+                  
+                              
+                  
+                              
+                             
+                            </div>
+                           
+                            </div>    
+                          </div>
+      
+                          <div class="col-md-1">
+      
+                          </div>
+      
+      
+                      </div>
+      
+                    </div>
+      
+        </div>
+    </div>
+    
+  
+ 
+      
+  </div>
+  
+  
+   

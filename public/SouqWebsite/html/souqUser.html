@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="en"  ng-app="souqUser">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Katibeh&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+  <script src="../generaljs/SouqUser.js"></script>
+  
+
+
+  <title> SOUQ APPS </title>
+
+</head>
+
+
+<body ng-controller="HomeCtrl" style="overflow-x: hiddden">
+<div style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+
+    <!-- SIDE NAV EN -->
+    <div class="wrapper">
+            <nav  style="-webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+            -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+            box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);" id="sidebar">
+              <div style="background-color: #F67534;" class="sidebar-header shadow-sm">
+                <i style="cursor: pointer;color: #fff;" ng-click="changeCoverItems('sidebarCollapseen')" class="fas fa-bars fa-2x"></i>
+      
+              </div>
+      
+              <ul class="list-unstyled components">
+                <li  id="profile"  class="nav-item">
+      
+                  <a href="/profile">
+                    <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                    Account
+                  </a>
+                </li>
+                <!-- <li class="nav-item ">
+                  <a href="/apps">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                      auction Apps</a>
+                </li>
+       -->
+                <li id="payment" class="nav-item ">
+                  <a href="/payment">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                      Online Payment
+                  </a>
+                </li>
+                <li class="nav-item ">
+      
+                  <a href="/addApp">
+                      <i style="color: transparent;" class="fas fa-mobile-alt fa-lg pl-4"></i>
+                      Add App</a>
+                </li>
+                <!-- <li class="nav-item ">
+      
+                  <a href="#">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                      My Apps</a>
+                </li> -->
+      
+                <!-- <li class="nav-item ">
+                  <a href="#">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                      Invoices Due</a>
+                </li> -->
+                <li id="contactUs" class="nav-item ">
+                  <a href="/contactUs">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+      
+                    Contact Us</a>
+                </li>
+                
+                <li class="nav-item ">
+                  <a id="terms" href="/terms">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                      Terms & Conditions </a>
+                </li>
+                <li ng-click="logOut()" class="nav-item ">
+                  <a href="">
+                      <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+                      Sign Out </a>
+                </li>
+              </ul>
+      
+      
+            </nav>
+    </div>
+    <!-- SIDE NAV EN ICONS -->
+    <div class="wrapper2">
+        <nav style="overflow: hidden;" id="sidebar2">
+        <div style="background-color: #F67534; margin-right:-10px;" class="sidebar2-header shadow-sm text-right">
+            <i style="cursor: pointer;color: #fff;" ng-click="changeCoverItems('sidebarCollapseen')" class="fas fa-bars fa-2x"></i>
+
+        </div>
+
+        <ul style="direction: rtl;" class="list-unstyled components text-right slideBarNav">
+            <li id="profile"  class="nav-item">
+
+            <a href="/profile">
+                <i class="far fa-user fa-lg pr-2"></i>
+                
+            </a>
+            </li>
+
+            <!-- <li id="apps" class="nav-item ">
+            <a href="/apps">
+
+              <i class="fas fa-tablet-alt fa-lg pr-2"></i>
+            </a>
+            </li> -->
+            <li id="payment" class="nav-item ">
+                <!-- <i class="fas fa-credit-card"></i> -->
+            <a href="/payment">
+                <i class="fas fa-credit-card fa-lg pr-2"></i>
+                </a>
+            </li>
+            <li id="addApp" class="nav-item ">
+
+            <a href="/addApp">
+                <i class="fas fa-mobile-alt fa-lg pr-2"></i>
+                </a>
+            </li>
+
+          
+            <li id="contactUs" class="nav-item ">
+            <a href="/contactUs">
+                <i class="far fa-comments fa-lg pr-2"></i>
+
+                </a>
+            </li>
+            <li id="terms" class="nav-item ">
+            <a href="/terms">
+                <i class="fas fa-file-alt fa-lg pr-2"></i>
+                </a>
+            </li>
+        
+            <li ng-click="logOut()" class="nav-item ">
+            <a href="">
+                <i class="fas fa-sign-out-alt fa-lg pr-2"></i>
+                </a>
+            </li>
+        </ul>
+
+
+        </nav>
+    </div>
+
+
+  <!-- MAIN  NAV -->
+  <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
+      <a class="navbar-brand pl-5 pt-4 nav-brand" href="/HomeDefault">
+        <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+        <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+          alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse pl-5" id="navbar-list-2">
+        <ul class="navbar-nav m-auto pl-5 mt-2 mt-md-0 nav-mid">
+          <li id="navID1" ng-click="activeNavLink('navID1' , 1)"  class="nav-item active">
+            <a class="nav-link" href="/HomeDefault">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li id="navID2" ng-click="activeNavLink('navID2' , 1)" class="nav-item">
+            <a class="nav-link" href="/apps">App Auction </a>
+          </li>
+          <li id="navID3" ng-click="activeNavLink('navID3' , 1)"  class="nav-item">
+            <a class="nav-link" href="/addApp">Add App </a>
+          </li>
+          <li id="navID4" ng-click="activeNavLink('navID4' , 1)" class="nav-item">
+            <a class="nav-link" href="/contactUs">Contact us </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+         
+          <!-- <li  class="nav-item  mr-5 mt-2">
+            <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button nav-link-signIn-button-active "
+              href="" > Sign In <span class="sr-only">(current)</span></a>
+          </li> -->
+          <li style="position: relative !important;" class="nav-item ">
+            <a ng-click="swithchNotifications();" class="nav-link " href=""> 
+
+              <i style="position: relative; color: #000; position: relative;" class="float-left fas fa-bell fa-lg ">
+                <div ng-if="notifications.length > 0" style="text-align: center;line-height: 2.6;position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                 {{notifications.length}}
+                </div>
+              </i>
+            </a>
+            <div class="top-alert" style="position: absolute; top:42px; right: 5px; width: 20px; height: 20px; background-color: #FAFAFA !important; z-index: 100000;transform: rotate(45deg);">
+              
+            </div>
+            <div class="p-3 top-alert" style="position: absolute; top:52px; right: -20px; width: 500px; min-height: 600px; background-color: #FAFAFA !important; z-index: 100000;">
+              <div class="text-center m-auto">
+                <span style="color: #F67534;  font-weight: bolder; font-size: 1.3rem;">   
+                  <i style="position: relative; color: #000; position: relative;" class="float-left fas fa-bell fa-lg ml-4 mt-2">
+                    <div ng-if="notifications.length > 0" style="position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                      {{notifications.length}}
+                    </div>
+                  </i>
+                        
+                     Notifications
+                       
+                </span>
+               <div class="clearfix"></div>
+              </div>
+            
+           <div style="max-height: 500px; overflow-y: scroll;">
+
+            <div  ng-if="notifications.length > 0" ng-repeat="c in notifications">
+                                       
+
+              <div ng-if="c.type == 1" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.auctionID.img1 || c.auctionID.img2 || c.auctionID.img3 || c.auctionID.img4 || c.auctionID.img5 || c.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd'}}</span>
+                    <h5 class="w-50">
+                      <span style="font-size: 11px;" >new app added</span>
+  
+                    </h5>
+  
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                        <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> category </span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.auctionID.categoryID.titleEN || 'No Category'}} </span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.auctionID.startPrice}} SAR  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-12">
+                  <div class="row px-2">
+                    <h5 class="px-4" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.auctionID.appName}}</h5>
+  
+                  </div>
+                </div>
+              </div>
+              <div ng-if="c.type == 2" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA; " class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-right">{{c.createdAt | cmdate:'yyyy-MM-dd'}}</span>
+                    <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                        <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> subscriber</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.userID.fullname}}  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                        <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;">Amount</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-if="c.type == 3" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                    <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Winner</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.userID.fullname}}  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-if="c.type == 4" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                    <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-2">
+                      <i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i>
+  
+                    </div>
+                    <div class="col-10">
+                      <p style="font-size: 11px;" class="fontar px-3">Note that the amount was deducted from your account</p>
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-if="c.type == 5" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-right">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                    <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} SAR  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row pt-1">
+                    <div class=" col-1 pt-3"><i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i></div>
+                    <div class="col-11">
+                      <p style="font-size: 11px; margin-bottom:0" class="fontar px-3">Please note that there is not enough credit for a discount
+                      </p>
+                      <p style="font-size: 11px;" class="fontar px-3">Please note that the amount must be added to the account within 24 hours or another winner will be announced.
+                      </p>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+
+
+              
+          </div>
+          <div class="align-middle text-center m-auto jumbotron" style="min-height:  500px; height: 100%;" ng-if="notifications.length == 0">
+                                       
+            <h3>
+              no notifications yet 
+            </h3>
+
+            
+        </div>
+            <!-- <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+              <div class="col-4 py-3">
+                <div  style="width: 100px; width: 100px;">
+                  <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+                </div>
+              </div>
+              <div class="col-8">
+                <div  class="m-auto text-center pb-2">
+                  <span style="font-size: 11px;" class="float-right">22-09-2019</span>
+                  <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+                </div>
+                <div class="">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Winner</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">Mohamed Ali  </span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" py-1">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+              <div class="col-4 py-3">
+                <div  style="width: 100px; width: 100px;">
+                  <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+                </div>
+              </div>
+              <div class="col-8">
+                <div  class="m-auto text-center pb-2">
+                  <span style="font-size: 11px;" class="float-right">22-09-2019</span>
+                  <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+                </div>
+                <div class="">
+                  <div class="w-75">
+                    <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                      <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> subscriber</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">Mohamed Ali  </span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" py-1">
+                  <div class="w-75">
+                    <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                      <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;">Amount</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #000;">25000 SAR  </span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+              <div class="col-4 py-3">
+                <div  style="width: 100px; width: 100px;">
+                  <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+                </div>
+              </div>
+              <div class="col-8">
+                <div  class="m-auto text-center pb-2">
+                  <span style="font-size: 11px;" class="float-right">22-09-2019</span>
+                  <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+                </div>
+                <div class="">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" py-1">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-2">
+                    <i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i>
+
+                  </div>
+                  <div class="col-10">
+                    <p style="font-size: 11px;" class="fontar px-3">Note that the amount was deducted from your account</p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+              <div class="col-4 py-3">
+                <div  style="width: 100px; width: 100px;">
+                  <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+                </div>
+              </div>
+              <div class="col-8">
+                <div  class="m-auto text-center pb-2">
+                  <span style="font-size: 11px;" class="float-right">22-09-2019</span>
+                  <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+                </div>
+                <div class="">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" py-1">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row pt-1">
+                  <div class=" col-1 pt-3"><i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i></div>
+                  <div class="col-11">
+                    <p style="font-size: 11px; margin-bottom:0" class="fontar px-3">Please note that there is not enough credit for a discount
+                    </p>
+                    <p style="font-size: 11px;" class="fontar px-3">Please note that the amount must be added to the account within 24 hours or another winner will be announced.
+                    </p>
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+           
+            <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+              <div class="col-4 py-3">
+                <div  style="width: 100px; width: 100px;">
+                  <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+                </div>
+              </div>
+              <div class="col-8">
+                <div  class="m-auto text-center pb-2">
+                  <span style="font-size: 11px;" class="float-right">22-09-2019</span>
+                  <h5 class="w-50">
+                    <span style="font-size: 11px;" >new app added</span>
+
+                  </h5>
+
+                </div>
+                <div class="">
+                  <div class="w-75">
+                    <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                      <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> subscriber</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">Mohamed Ali  </span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class=" py-1">
+                  <div class="w-75">
+                    <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                      <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                      <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="row px-2">
+                  <h5 class="px-4" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+
+                </div>
+              </div>
+            </div> -->
+          
+          </div>
+          <div class="text-center m-auto pt-2">
+            <span ng-click="showAllNotifications()" style="color: #949494;  font-weight: bolder; font-size: 0.9rem;text-decoration: underline; cursor: pointer;">   
+             
+                    
+                 show all Notifications
+                   
+            </span>
+           <div class="clearfix"></div>
+          </div>
+            </div>
+          </li>
+  
+          <li class="nav-item nav-lang m-1">
+            <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item nav-lang  m-1">
+            <a  id="navIDLangeEn" class="nav-link  nav-link-sign" ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+</div>
+<div style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+  <!-- MAIN  NAV -->
+  <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-md ">
+    <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+      <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+      <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+        alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse navbar-collapsear   text-right" id="navbar-list-2">
+      <ul style="padding-right: 100px" class="navbar-nav m-auto mt-2 mt-md-0 nav-mid  ">
+        <li id="navID1" ng-click="activeNavLink('navID1' , 1)" class="nav-item active">
+          <a class="nav-link fontar"  href="/HomeDefault">الرئيسية <span class="sr-only">(current)</span></a>
+        </li>
+        <li id="navID2" ng-click="activeNavLink('navID2' , 1)"  class="nav-item">
+          <a class="nav-link fontar" href="/apps">مزاد التطبيقات </a>
+        </li>
+        <li id="navID3" ng-click="activeNavLink('navID3' , 1)" class="nav-item">
+          <a class="nav-link fontar" href="/addApp">أضف تطبيق </a>
+        </li>
+        <li id="navID4" ng-click="activeNavLink('navID4' , 1)"  class="nav-item">
+          <a class="nav-link fontar" href="/contactUs">تواصل معنا </a>
+        </li>
+      </ul>
+      <ul  class="navbar-nav mr-auto ">
+        <!-- <li  class="nav-item   ml-5 mt-2">
+          <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button nav-link-signIn-button-active fontar"
+            href="" > تسجيل الدخول <span class="sr-only">(current)</span>
+          </a>
+        </li> -->
+        <li style="position: relative !important;" class="nav-item ">
+          <a ng-click="swithchNotifications();" class="nav-link " href=""> 
+
+            <i style="position: relative; color: #000; position: relative;" class="float-left fas fa-bell fa-lg ">
+              <div ng-if="notifications.length > 0" style="text-align: center;line-height: 2.6;position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                {{notifications.length}}
+              </div>
+            </i>
+          </a>
+          <div class="top-alert" style="position: absolute; top:42px; left: 5px; width: 20px; height: 20px; background-color: #FAFAFA !important; z-index: 100000;transform: rotate(45deg);">
+            
+          </div>
+          <div class="p-3 top-alert" style="position: absolute; top:52px; left: -20px; width: 500px; min-height: 600px; background-color: #FAFAFA !important; z-index: 100000;">
+            <div class="text-center m-auto">
+              <span class="fontar" style="color: #F67534;  font-weight: bolder; font-size: 1.3rem;">   
+                <i ng-if="notifications.length > 0" style="position: relative; color: #000; position: relative;" class="float-left fas fa-bell fa-lg ml-4 mt-2">
+                  <div style="position: absolute; top: -10px;left: -7px; width: 20px; height: 20px; background-color: #F67534; color: #fff; border-radius: 50%;font-size: 8px;">
+                    {{notifications.length}}
+                  </div>
+                </i>
+                      
+                الأشعـارات
+                     
+              </spanc>
+             <div class="clearfix"></div>
+            </div>
+          
+         <div style="max-height: 500px; overflow-y: scroll;">
+          <div  ng-if="notifications.length > 0" ng-repeat="c in notifications">
+            <div ng-if="c.type == 1" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.auctionID.img1 || c.auctionID.img2 || c.auctionID.img3 || c.auctionID.img4 || c.auctionID.img5 || c.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd'}}</span>
+                    <h5 class="w-50">
+                      <span style="font-size: 11px;" >تم أضافة تطبيق جديد</span>
+  
+                    </h5>
+  
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                        <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2 text-center"><span class="fontar" style="color: #fff;"> فئة التطبيق</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto fontar"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.auctionID.categoryID.titleAr || 'No Category'}}  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center"><span  class="fontar" style="color: #fff;">المبلغ</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto fontar"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.auctionID.startPrice }} ريال   </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-12">
+                  <div class="row px-2">
+                    <h5 class="px-4" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.auctionID.appName}}</h5>
+  
+                  </div>
+                </div>
+              </div>
+          
+          
+            <div ng-if="c.type == 2" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-left">{{c.createdAt | cmdate:'yyyy-MM-dd'}}</span>
+                    <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                        <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2 fontar text-center"><span class="fontar" style="color: #fff;"> مشترك جديد</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto fontar"> <span class="text-center m-auto fontar"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.userID.fullname}}   </span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                        <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2  fontar text-center"><span class="fontar" style="color: #fff;">المبلغ</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #000;">{{c.subscripeID.subscriptionPrice}} ريال    </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+       
+              <div ng-if="c.type == 3" style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                  <div class="col-4 py-3">
+                    <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                      <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                    </div>
+                  </div>
+                  <div class="col-8">
+                    <div  class="m-auto text-center pb-2">
+                      <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd'}}</span>
+                      <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                    </div>
+                    <div class="">
+                      <div class="w-75">
+                        <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                          <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center fontar"><span class="fontar" style="color: #fff;">الفائز</span></div>
+                          <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar"  style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.userID.fullname}}   </span></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" py-1">
+                      <div class="w-75">
+                        <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                          <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center fontar"><span class="fontar" style="color: #fff;">المبلغ</span></div>
+                          <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} ريال  </span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+              <div ng-if="c.type == 4"  style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                  <div class="col-4 py-3">
+                    <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                      <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                    </div>
+                  </div>
+                  <div class="col-8">
+                    <div  class="m-auto text-center pb-2">
+                      <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                      <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                    </div>
+                    <div class="">
+                      <div class="w-75">
+                        <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                          <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span class="fontar" style="color: #fff; font-size: 14px; font-weight: bold;">أنت الفائز
+                          </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class=" py-1">
+                      <div class="w-75">
+                        <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                          <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span class="fontar" style="color: #fff;">المبلغ</span></div>
+                          <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} ريال  </span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-2">
+                        <i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i>
+    
+                      </div>
+                      <div class="col-10">
+                        <p style="font-size: 11px;" class="fontar px-3 text-right pt-1">مع العلم أنه تم خصم المبغ من حسابك الخاص</p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            <div ng-if="c.type == 5"  style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+                <div class="col-4 py-3">
+                  <div  style="width: 100px; width: 100px; overflow: hidden; border-radius: 10px;">
+                    <img style="width: 100px; max-height: 100px" src="{{c.subscripeID.auctionID.img1 || c.subscripeID.auctionID.img2 || c.subscripeID.auctionID.img3 || c.subscripeID.auctionID.img4 || c.subscripeID.auctionID.img5 || c.subscripeID.auctionID.img6 || 'http://157.230.25.241/SouqWebsite/images/Capture.png' }}" alt="">
+                  </div>
+                </div>
+                <div class="col-8">
+                  <div  class="m-auto text-center pb-2">
+                    <span style="font-size: 11px;" class="float-left">{{c.createdAt  | cmdate:'yyyy-MM-dd' }}</span>
+                    <h5 class="w-50 fontar" style="font-weight: bold; font-size: 14px; color: #000; ;">{{c.subscripeID.auctionID.appName}}</h5>
+                  </div>
+                  <div class="">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span class="fontar" style="color: #fff; font-size: 14px; font-weight: bold;">أنت الفائز
+                        </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" py-1">
+                    <div class="w-75">
+                      <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                        <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2 text-center"><span style="color: #fff;">المبلغ</span></div>
+                        <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto fontar" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">{{c.subscripeID.subscriptionPrice}} ريال  </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row pt-1">
+                    <div class=" col-1 pt-3"><i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i></div>
+                    <div class="col-11">
+                      <p style="font-size: 11px; margin-bottom:0" class="fontar px-3 text-right">برجاء العلم أنه لا يوجد رصيد كافى لخصم مبلغ التطبيق
+                      </p>
+                      <p style="font-size: 11px;" class="fontar px-3 text-right">يرجى العلم بأنه يجب أضافة المبلغ في الحساب في خلال 24 ساعة أو سيتم الأعلان عن فائز أخر.                                                  </p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+   
+             
+            </div>
+
+            <div class="align-middle text-center m-auto jumbotron" style="min-height:  500px; height: 100%;" ng-if="notifications.length == 0">
+                                       
+              <h3 class="fontar">
+                لا توجد إشعارات الان  
+              </h3>
+  
+              
+          </div>
+          <!-- <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+            <div class="col-4 py-3">
+              <div  style="width: 100px; width: 100px;">
+                <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+              </div>
+            </div>
+            <div class="col-8">
+              <div  class="m-auto text-center pb-2">
+                <span style="font-size: 11px;" class="float-left">22-09-2019</span>
+                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+              </div>
+              <div class="">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Winner</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">Mohamed Ali  </span></div>
+                  </div>
+                </div>
+              </div>
+              <div class=" py-1">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+            <div class="col-4 py-3">
+              <div  style="width: 100px; width: 100px;">
+                <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+              </div>
+            </div>
+            <div class="col-8">
+              <div  class="m-auto text-center pb-2">
+                <span style="font-size: 11px;" class="float-left">22-09-2019</span>
+                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+              </div>
+              <div class="">
+                <div class="w-75">
+                  <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                    <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> subscriber</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">Mohamed Ali  </span></div>
+                  </div>
+                </div>
+              </div>
+              <div class=" py-1">
+                <div class="w-75">
+                  <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                    <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;">Amount</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #000;">25000 SAR  </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+            <div class="col-4 py-3">
+              <div  style="width: 100px; width: 100px;">
+                <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+              </div>
+            </div>
+            <div class="col-8">
+              <div  class="m-auto text-center pb-2">
+                <span style="font-size: 11px;" class="float-left">22-09-2019</span>
+                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+              </div>
+              <div class="">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class=" py-1">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-2">
+                  <i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i>
+
+                </div>
+                <div class="col-10">
+                  <p style="font-size: 11px;" class="fontar px-3">Note that the amount was deducted from your account</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+            <div class="col-4 py-3">
+              <div  style="width: 100px; width: 100px;">
+                <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+              </div>
+            </div>
+            <div class="col-8">
+              <div  class="m-auto text-center pb-2">
+                <span style="font-size: 11px;" class="float-left">22-09-2019</span>
+                <h5 class="w-50" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+              </div>
+              <div class="">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px;max-height: 44px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px;  border-radius: 10px; " class="col-12 py-2 text-center m-auto"><span style="color: #fff; font-size: 14px; font-weight: bold;">you winner</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class=" py-1">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px; max-height: 44px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row pt-1">
+                <div class=" col-1 pt-3"><i class="fas fa-info-circle fa-2x" style="vertical-align: text-bottom;"></i></div>
+                <div class="col-11">
+                  <p style="font-size: 11px; margin-bottom:0" class="fontar px-3">Please note that there is not enough credit for a discount
+                  </p>
+                  <p style="font-size: 11px;" class="fontar px-3">Please note that the amount must be added to the account within 24 hours or another winner will be announced.
+                  </p>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+         
+          <div style="background-color: #fff;  border-radius: 5px; border: 1px solid #EFEAEA;" class="row m-2 py-2">
+            <div class="col-4 py-3">
+              <div  style="width: 100px; width: 100px;">
+                <img style="max-width: 100%;" src="http://157.230.25.241/SouqWebsite/images/Capture.png" alt="">
+              </div>
+            </div>
+            <div class="col-8">
+              <div  class="m-auto text-center pb-2">
+                <span style="font-size: 11px;" class="float-left">22-09-2019</span>
+                <h5 class="w-50">
+                  <span style="font-size: 11px;" >new app added</span>
+
+                </h5>
+
+              </div>
+              <div class="">
+                <div class="w-75">
+                  <div style="border: 1px solid #B3B2B7;border-radius: 10px;" class="row">
+                    <div style="background-color: #B3B2B7; font-size: 12px; border-radius: 10px;" class="col-5 py-2"><span style="color: #fff;"> subscriber</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-7 py-2 text-center m-auto"> <span class="text-center m-auto"  style="max-width: 100%; text-overflow: ellipsis; color: #000;">Mohamed Ali  </span></div>
+                  </div>
+                </div>
+              </div>
+              <div class=" py-1">
+                <div class="w-75">
+                  <div style="border: 1px solid #F67534;border-radius: 10px;" class="row">
+                    <div style="background-color: #F67534; font-size: 12px; border-radius: 10px;" class="col-4 py-2"><span style="color: #fff;">Amount</span></div>
+                    <div style="font-size: 12px;  border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-top-left-radius: 0; border-bottom-left-radius: 0;" class="col-8 py-2 text-center m-auto"> <span class="text-center m-auto" style="max-width: 100%; text-overflow: ellipsis; color: #F67534;">25000 SAR  </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row px-2">
+                <h5 class="px-4" style="font-weight: bold; font-size: 14px; color: #000; ;">Let's go</h5>
+
+              </div>
+            </div>
+          </div> -->
+        
+        </div>
+        <div class="text-center m-auto pt-2">
+          <span class="fontar" ng-click="showAllNotifications()" style="color: #949494;  font-weight: bolder; font-size: 0.9rem;text-decoration: underline; cursor: pointer;">   
+           
+                  
+               مشاهدة كل الاشعارات 
+                 
+          </span>
+         <div class="clearfix"></div>
+        </div>
+          </div>
+        </li>
+
+        <li class="nav-item nav-lang navLangUl m-1">
+          <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item nav-lang navLangUl  m-1">
+          <a id="navIDLangeEn" class="nav-link  nav-link-sign " ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SIDE NAV AR -->
+  <div class="wrapper">
+      <nav  style="-webkit-box-shadow: 3px 0px 6px 0px rgba(112,112,112,1);
+      -moz-box-shadow:  3px 0px 6px 0px rgba(112,112,112,1);
+      box-shadow:  3px 0px 6px 0px rgba(112,112,112,1);" id="sidebarar">
+      <div style="background-color: #F67534;" class="sidebar-header shadow-sm">
+          <i style="cursor: pointer;color: #fff;" ng-click="changeCoverItems('sidebarCollapsear')" class="fas fa-bars fa-2x"></i>
+      </div>
+      <ul class="list-unstyled components">
+        <li id="profile" class="nav-item active fontar">
+
+          <a class="fontar"  href="/profile">
+            <i style="color: transparent;" class="far fa-user fa-lg pl-4 fontar"></i>
+            حسابى
+          </a>
+        </li>
+        <!-- <li class="nav-item ">
+          <a  class="fontar"  href="/apps">
+              <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+              تطبيقات المزاد 
+            </a>
+        </li> -->
+
+        <li id="payment"  class="nav-item ">
+          <a class="fontar"  href="/payment">
+              <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+              حساب الدفع الألكترونى
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="fontar"  href="/addApp">
+              <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+              أضافة تطبيق للمزاد
+            </a>
+        </li>
+       
+        <li  id="contactUs"  class="nav-item ">
+          <a class="fontar"  href="/contactUs">
+              <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+
+              تواصل معنا </a>
+        </li>
+        <li   id="terms"  class="nav-item ">
+          <a class="fontar" href="/terms">
+              <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+
+              الشروط و الأحكام  </a>
+        </li>
+        <li  ng-click="logOut()" class="nav-item ">
+          <a class="fontar" href="">
+              <i style="color: transparent;" class="far fa-user fa-lg pl-4"></i>
+              تسجيل الخروج
+          </a>
+        </li>
+      </ul>
+      </nav>
+  </div>
+
+  <!-- SIDE NAV AR ICONS-->
+  <div class="wrapper2">
+      <nav style="overflow: hidden;" id="sidebarar2">
+      <div style="background-color: #F67534;direction: ltr; margin-left: -8px !important; " class="sidebar-header shadow-sm text-left">
+          <i style="cursor: pointer;color: #fff;" ng-click="changeCoverItems('sidebarCollapsear')" class="fas fa-bars fa-2x"></i>
+
+      </div>
+
+      <ul style="direction: ltr; " class="list-unstyled components text-left slideBarNav">
+          <li  id="profile" class="nav-item">
+
+          <a href="/profile">
+              <i class="far fa-user fa-lg pl-2"></i>
+              
+          </a>
+          </li>
+
+          <!-- <li id="apps" class="nav-item ">
+          <a href="/apps">
+
+            <i class="fas fa-tablet-alt fa-lg pl-2"></i>
+          </a>
+          </li> -->
+          <li id="payment" class="nav-item ">
+          <a href="/payment">
+              <i class="fas fa-credit-card fa-lg pl-2"></i>
+              </a>
+          </li>
+          <li id="addApp" class="nav-item ">
+
+          <a href="/addApp">
+              <i class="fas fa-mobile-alt fa-lg pl-2"></i>
+              </a>
+          </li>
+
+         
+          <li id="contactUs" class="nav-item ">
+          <a href="/contactUs">
+              <i class="far fa-comments fa-lg pl-2"></i>
+
+              </a>
+          </li>
+          <li id="terms" class="nav-item ">
+            <a href="/terms">
+                <i class="fas fa-file-invoice-dollar fa-lg pl-2"></i>
+                </a>
+            </li>
+          <li ng-click="logOut()" class="nav-item ">
+          <a href="">
+              <i class="fas fa-sign-out-alt fa-lg pl-2"></i>
+              </a>
+          </li>
+      
+        
+      </ul>
+
+
+      </nav>
+  </div>
+</div>
+
+
+<ng-view id="ngView">
+        
+</ng-view>
+
+<div ng-if="!souqLang || souqLang == 'en'">
+  <!-- FOOTER -->
+  <footer style="background-color: #868988;" class="px-3 py-5">
+      <div class="container">
+          <div class="row"> 
+              <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+                  <h6 class="colors-white text-center m-auto pb-2">Follow us on our social media channels</h6>
+  
+                <div class="row text-center m-auto">
+                  <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="row text-center m-auto ">
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                        <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Address</h6>
+                        <h6 class="colors-white text-sm">Saudi - Ryad</h6>
+                      </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                        <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Emaol</h6>
+                        <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                      </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                        <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Mobile</h6>
+                        <h6 class="colors-white text-sm">966 24376756</h6>
+                    </div>
+              
+                </div>
+              </div>
+            </div>
+      </div>
+  
+  
+  </footer>
+  
+  <!-- DIVIDER -->
+  <div style="background-color: #F67534; height: 50px;">
+  
+  </div>
+</div>
+
+
+<div ng-if="souqLang == 'ar'">
+    <!-- FOOTER -->
+    <footer style="background-color: #868988;" class="px-3 py-5">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+                    <h6 class="colors-white text-center m-auto pb-2 fontar">تابعنا على قنوات التواصل الاجتماعي الخاصة بنا</h6>
+    
+                  <div class="row text-center m-auto">
+                    <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                  <div class="row text-center m-auto ">
+                      <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                          <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                          <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">العنوان</h6>
+                          <h6 class="colors-white text-sm">الرياض - السعودية</h6>
+                        </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 fontar" >
+                          <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                          <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">البريد الألكترونى</h6>
+                          <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                        </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                          <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                          <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">رقم الهاتف</h6>
+                          <h6 class="colors-white text-sm">966 24376756</h6>
+                      </div>
+                
+                  </div>
+                </div>
+              </div>
+        </div>
+    
+    
+    </footer>
+    
+    <!-- DIVIDER -->
+    <div style="background-color: #F67534; height: 50px;">
+    
+    </div>
+</div>
+
+  
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+ 
+</body>
+
+</html>

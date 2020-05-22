@@ -1,0 +1,1064 @@
+<!doctype html>
+<html lang="en"  ng-app="souqUser">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Katibeh&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+  <script src="../generaljs/SouqUserGeneral.js"></script>
+  
+
+
+  <title> SOUQ APPS </title>
+</head>
+
+
+<body ng-controller="HomeCtrl" style="overflow-x: hiddden">
+<div style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+  <!-- MAIN  NAV -->
+  <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
+      <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+        <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+        <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+          alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse pl-5" id="navbar-list-2">
+        <ul class="navbar-nav m-auto pl-5 mt-2 mt-md-0 nav-mid">
+          <li  class="nav-item active">
+            <a  class="nav-link" href="http://157.230.25.241/SouqWebsite/html/main.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/apps-.html">App Auction </a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/add-app.html">Add App </a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/contact-us.html">Contact us </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+         
+          <li   class="nav-item  mr-5 mt-2">
+            <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button"
+              href="http://157.230.25.241/SouqWebsite/html/signIn.html" id="navID55"> Sign In <span class="sr-only">(current)</span></a>
+          </li>
+          <!-- <li class="nav-item ">
+            <a class="nav-link " href="#"> <i class="fas fa-bell fa-lg"></i></a>
+          </li> -->
+  
+          <li class="nav-item nav-lang m-1">
+            <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item nav-lang  m-1">
+            <a  id="navIDLangeEn" class="nav-link  nav-link-sign" ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <!-- COVER -->
+  <div style="position: relative;" class="cover">
+    <div class="half">
+    <!-- NAV -->
+   
+    <!-- CAPTION -->
+    <div class="container pt-5">
+      <div class="row pt-5">
+        <div class="col-md-6 col-xs-12 col-sm-12 pt-5">
+          <h2 class="pt-5" style="color: #fff; line-height: 1.5; font-weight: bolder;">
+            Show your app In the largest application market
+          </h2>
+          <h2 style="color: #fff; font-size: 24px;">
+            The first and largest auction to sell applications in the Kingdom
+          </h2>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+  </div>
+  
+  <!-- DIVIDER -->
+  <div style="background-color: #F67534; height: 50px;">
+  
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about">
+    <div class="row p-5">
+      <h3 class="text-center m-auto " style="color: #F67534; font-weight: bold;">about souq apps</h3>
+    </div>
+    <div class="container">
+      <div class="row p-5">
+        <div class="col-md-9 col-x-12 col-sm-12">
+          <p style="font-size: 1.5rem;" class="px-5">
+              <span class="d-block" style="font-weight: bold;">
+                  Applications market
+              </span>
+              It is the first and largest application viewing platform and sold at auction
+              There are general conditions of application in case of a violation
+              Can the user see your application?
+          </p>
+        </div>
+        <div class="col-md-3 col-x-12 col-sm-12 text-center">
+          <img style="width: 250px; height: 250px;"  src="http://157.230.25.241/SouqWebsite/images/logo-01.png" alt="" />
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORK -->
+  <div  class="howitwork">
+    <div class="howitwork-overlay">
+        <div class="row p-5">
+            <h3 class="text-center m-auto " style="color: #fff; font-weight: bold;">How the App Market Works
+            </h3>
+          </div>
+          <div class="container">
+              <div class="row px-top p-5">
+                <div class="col-md-8 col-x-12 col-sm-12">
+                   <div class="px-5 ">
+                      <video  id="video_index" poster="http://157.230.25.241/SouqWebsite/images/Image -1@2x.png" style="width: 100%;" controls>
+                          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                          <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                        </video>
+                   </div>
+                </div>
+                <div class="col-md-4 col-x-12 col-sm-12 text-left">
+                    <p style="font-size: 1.2rem; " class="pt-4 colors-white">
+                        Display your app in the first private auction
+                        Selling applications
+                    </p>  
+                    <p  style="font-size: 1.2rem; " class="pt-4 colors-white">
+                        Is the first and largest platform to view applications and sell them in an auction and certified, can any
+                    </p>      
+                </div>
+              </div>
+            </div>
+    </div>
+     
+  </div>
+</div>
+<div style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+  <!-- MAIN  NAV -->
+  <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm ">
+    <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+      <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+      <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+        alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse navbar-collapsear   text-right" id="navbar-list-2">
+      <ul style="padding-right: 100px" class="navbar-nav m-auto mt-2 mt-md-0 nav-mid  ">
+        <li  class="nav-item active">
+          <a class="nav-link fontar"  href="http://157.230.25.241/SouqWebsite/html/main.html"> الرئيسية <span class="sr-only">(current)</span></a>
+        </li>
+        <li   class="nav-item">
+          <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/apps-.html"> مزاد التطبيقات </a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/add-app.html"> أضف تطبيق </a>
+        </li>
+        <li   class="nav-item">
+          <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/contact-us.html"> تواصل معنا </a>
+        </li>
+      </ul>
+      <ul  class="navbar-nav mr-auto ">
+        <li    class="nav-item   ml-5 mt-2">
+          <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button  fontar"
+          href="http://157.230.25.241/SouqWebsite/html/signIn.html" id="navID55"> تسجيل الدخول <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item ">
+          <a class="nav-link " href="#"> <i class="fas fa-bell fa-lg"></i></a>
+        </li> -->
+
+        <li class="nav-item nav-lang navLangUl m-1">
+          <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item nav-lang navLangUl  m-1">
+          <a id="navIDLangeEn" class="nav-link  nav-link-sign " ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- COVER -->
+  <div style="position: relative;" class="cover2">
+    <div class="half2">
+    
+    <!-- CAPTION -->
+    <div class="container pt-5">
+      <div class="row pt-5 pr-5">
+        <div class="col-md-6 col-xs-12 col-sm-12 text-right pr-3  pl-2 pt-5">
+          <h2 class="pt-5 fontar" style="color: #fff; line-height: 1.5; font-weight: bolder;">
+             أعرض تطبيقك  <br>
+              في أكبر سوق خاص بالتطبيقات
+          </h2>
+          <h2 class=" text-right fontar" style="color: #fff; word-spacing: 4px; font-size: 28px; font-family: 'Katibeh', cursive;">
+              أول وأكبر مزاد لبيع التطبيقات في المملكة
+
+          </h2>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+  </div>
+  
+  <!-- DIVIDER -->
+  <div style="background-color: #F67534; height: 50px;">
+  
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about">
+    <div class="row p-5">
+      <h3 class="text-center m-auto  fontar" style="color: #F67534; font-weight: bold;">عن سوق التطبيقات</h3>
+    </div>
+    <div class="container">
+      <div class="row p-5">
+        <div class="col-md-9 col-x-12 col-sm-12 text-right">
+          <p style="font-size: 1.5rem; " class="px-5 fontar">
+              <span class="d-block " style="font-weight: bold;">
+                  سوق التطبيقات
+
+              </span>
+              هو أول وأكبر منصة لعرض التطبيقات و بيعها في مزاد علني ومعتمد, يمكن اي مستخدم لديه افكار او تطبيقات تقديمها للادراة وتستطيع الادارة نشرها او لامكن ان يكون المزاد علي التطبيق كامل او نسبة بالمئة منه حسب شروط كل تطبيق
+              يوجد شروط عامة لاستخدام التطبيق في حال مخالفتها من جانب المستخدم يحق للادارة ايقاف حساب المستخدم كليا او لمدة معينة حسب ما تراه الإدارة
+             يستطيع المستخدم رؤية التطبيق ووصفه وروابط تحميله وسعر فتح المزاد واعلي سعر, يمكن المستخدم التقدم بالمزاد اذا توفرت لديه شروط المزاد ووضع سعر
+          </p>
+        </div>
+        <div class="col-md-3 col-x-12 col-sm-12 text-center">
+          <img style="width: 250px; height: 250px;"  src="http://157.230.25.241/SouqWebsite/images/logo-01.png" alt="" />
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORK -->
+  <div  class="howitwork">
+    <div class="howitwork-overlay">
+        <div class="row p-5">
+            <h3 class="text-center m-auto  fontar" style="color: #fff; font-weight: bold;">كيف يعمل سوق التطبيقات
+            </h3>
+          </div>
+          <div class="container">
+              <div class="row px-top p-5">
+                <div class="col-md-8 col-x-12 col-sm-12">
+                    <div class="px-5 ">
+                      <video  id="video_index" poster="http://157.230.25.241/SouqWebsite/images/Image -1@2x.png" style="width: 100%;" controls>
+                          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                          <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="col-md-4 col-x-12 col-sm-12 text-rights">
+                    <p style="font-size: 1.2rem; " class="pt-4 colors-white fontar">
+                        أعرض تطبيقك في أول مزاد خاص  ببيع التطبيقات
+                    </p>  
+                    <p  style="font-size: 1.2rem; " class="pt-4 colors-white fontar">
+                        هو أول وأكبر منصة لعرض التطبيقات و بيعها في مزاد علني ومعتمد, يمكن اي                       </p>      
+                </div>
+              </div>
+            </div>
+    </div>
+      
+  </div>
+  
+
+</div>
+  <!-- RECENTAPPS -->
+  <div style="min-height: 700px; direction: ltr !important; position: relative;" class="recentapps py-5 colors-main-bg pb-5">
+    <style>
+      section {
+        width: 35em;
+        height: 25em;
+        margin: 0 auto;
+        position: relative;
+      }
+      
+      section li {
+        width:400px;
+        height:500px;
+        background: #fff;
+        display: inline-block;
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+        overflow: hidden;
+        padding: 0 !important;
+        margin: 30px;
+        overflow: hidden;
+        
+        -webkit-box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.45);
+        -moz-box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.45);
+        box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.45);
+    
+    
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: .25rem;
+        
+    }
+    
+    section li .card{
+        
+    }
+    section li p {
+      color: white;
+      font-weight: bold;
+      font-size: 5em;
+      text-align: center;
+      margin-top: 1.175em;
+    }
+    
+    section .items {
+      position: absolute;
+    }
+    
+      .main-pos {
+      margin-left: 2em !important;
+      z-index: 3000;
+      /*background-image: url('https://dl.dropbox.com/u/32649907/imgs/shadow.png');*/
+    }
+    
+    .left-pos {
+      opacity: 1;
+      margin-left: -30em !important;
+      z-index: 1000;
+      -webkit-transform: scale(.75);
+      -moz-transform: scale(.75);
+      transform: scale(.75);
+    }
+    
+    .back-pos {
+      margin-left: 2em !important;
+      opacity: 0;
+      -webkit-transform: scale(.5);
+      -moz-transform: scale(.5);
+      transform: scale(.5);
+    }
+    
+    .right-pos {
+      opacity: 1;
+      margin-left:  30em !important;
+      z-index: 1000;
+      -webkit-transform: scale(.75);
+      -moz-transform: scale(.75);
+      transform: scale(.75);
+    }
+    
+    section span {
+      position: relative;
+      margin: 0 auto;
+      left: 17em;
+      top: 20em;
+    }
+      </style>
+       <div class="row ">
+        <h3 ng-if=" !souqLang || souqLang == 'en'"  class="text-center m-auto " style="color: #fff; font-weight: bold;">
+          Recent Apps
+        </h3>
+        <h3 ng-if="souqLang == 'ar'" class="text-center m-auto fontar" style="color: #fff; font-weight: bold;">
+          أحدث التطبيقات
+        </h3>
+        
+        
+      </div>
+      <div class="row ">
+       
+        <p ng-if=" !souqLang || souqLang == 'en'" class="text-center m-auto p-1" style="color: #fff; ">
+          The first and largest auction to sell applications in the Kingdom
+        </p>
+        <p ng-if="souqLang == 'ar'" class="text-center m-auto p-1 fontar" style="color: #fff; ">
+          مجموعة من أحدث التطبيقات المتاحة في مزاد سوق التطبيقات
+
+        </p>
+      </div>
+      <section style="direction: ltr !important; padding-bottom: 20px;">
+          <ul class="carousel">
+            <li class="items main-pos " id="1">
+              <div style="height: 500px !important" class="card defaultShadow m-auto " >
+                  <div style="height: 300px; overflow: hidden; position: relative;">
+                      <img style="height: 300px;" style="cursor: pointer;"  src="{{recentApps[0].img1}}" class="card-img-top" alt="car">
+
+                    </div>
+
+                  <div class="card-body pt-0">
+                    <div class="pb-4"  style="position: relative;">
+                            <a  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="#" class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[0].appName}}
+                            </a>
+
+                    </div>
+                    <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                    <div class="clearfix"></div>
+                    <div class="d-block w-50 float-left" style="position: relative;">
+                        <div class="my-1" style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  {{recentApps[0].endDate | cmdate:'yyyy-MM-dd' || 'No date' }}
+                                </span>
+                        </div>
+                        <div style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  <za ng-if="recentApps[0].endH > 12">
+                                    {{recentApps[0].endH - 12}}:00 PM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[0].endH <  12)">
+                                    {{recentApps[0].endH}}:00 AM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[0].endH ==  12)">
+                                    00:00 AM
+                                  </za>
+                                </span>
+                        </div>
+                    </div> 
+                    <div class="d-block w-50 float-right text-center " style="position: relative;">
+                            <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto colors-white">highest price</a>
+                            <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[0].highestPrice || 0 }} SAR
+       
+                            </a>
+
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="p-2">
+
+                    </div>
+                        
+                  </div>
+              </div>
+            </li>
+            <li class="items right-pos" id="2">
+              <div style="height: 500px !important" class="card defaultShadow m-auto " >
+                  <div style="height: 300px; overflow: hidden; position: relative;">
+                      <img style="height: 300px;" style="cursor: pointer;"  src="{{recentApps[1].img1}}" class="card-img-top" alt="car">
+
+                    </div>
+
+                  <div class="card-body pt-0">
+                    <div class="pb-4"  style="position: relative;">
+                            <a  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="#" class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[1].appName}}
+                            </a>
+
+                    </div>
+                    <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                    <div class="clearfix"></div>
+                    <div class="d-block w-50 float-left" style="position: relative;">
+                        <div class="my-1" style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  {{recentApps[1].endDate | cmdate:'yyyy-MM-dd' || 'No date' }}
+                                </span>
+                        </div>
+                        <div style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  <za ng-if="recentApps[1].endH > 12">
+                                    {{recentApps[1].endH - 12}}:00 PM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[1].endH <  12)">
+                                    {{recentApps[1].endH}}:00 AM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[1].endH ==  12)">
+                                    00:00 AM
+                                  </za>
+                                </span>
+                        </div>
+                    </div> 
+                    <div class="d-block w-50 float-right text-center " style="position: relative;">
+                            <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto colors-white">highest price</a>
+                           
+                            <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[1].highestPrice || 0 }} SAR
+       
+                            </a>
+
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="p-2">
+
+                    </div>
+                        
+                  </div>
+              </div>
+            </li>
+            <li class="items back-pos" id="3">
+              <div style="height: 500px !important" class="card defaultShadow m-auto " >
+                  <div style="height: 300px; overflow: hidden; position: relative;">
+                      <img style="height: 300px;" style="cursor: pointer;"  src="{{recentApps[2].img1}}" class="card-img-top" alt="car">
+
+                    </div>
+
+                  <div class="card-body pt-0">
+                    <div class="pb-4"  style="position: relative;">
+                      <a  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="#" class="btn btn-primary px-4 py-2 ml-auto">
+                        {{recentApps[2].appName}}
+                      </a>
+                    </div>
+                    <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                    <div class="clearfix"></div>
+                    <div class="d-block w-50 float-left" style="position: relative;">
+                        <div class="my-1" style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  {{recentApps[2].endDate | cmdate:'yyyy-MM-dd' || 'No date' }}
+                                </span>
+                        </div>
+                        <div style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  <za ng-if="recentApps[2].endH > 12">
+                                    {{recentApps[2].endH - 12}}:00 PM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[2].endH <  12)">
+                                    {{recentApps[2].endH}}:00 AM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[2].endH ==  12)">
+                                    00:00 AM
+                                  </za>
+                                </span>
+                        </div>
+                    </div> 
+                    <div class="d-block w-50 float-right text-center " style="position: relative;">
+                            <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto colors-white">highest price</a>
+                            <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[2].highestPrice || 0 }} SAR
+       
+                            </a>
+
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="p-2">
+
+                    </div>
+                        
+                  </div>
+              </div>
+            </li>
+            <li class="items back-pos" id="4">
+              <div style="height: 500px !important" class="card defaultShadow m-auto " >
+                  <div style="height: 300px; overflow: hidden; position: relative;">
+                      <img style="height: 300px;" style="cursor: pointer;"  src="{{recentApps[3].img1}}" class="card-img-top" alt="car">
+
+                    </div>
+
+                  <div class="card-body pt-0">
+                    <div class="pb-4"  style="position: relative;">
+                      <a  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="#" class="btn btn-primary px-4 py-2 ml-auto">
+                        {{recentApps[3].appName}}
+                      </a>
+                    </div>
+                    <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                    <div class="clearfix"></div>
+                    <div class="d-block w-50 float-left" style="position: relative;">
+                        <div class="my-1" style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  {{recentApps[3].endDate | cmdate:'yyyy-MM-dd' || 'No date' }}
+                                </span>
+                        </div>
+                        <div style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  <za ng-if="recentApps[3].endH > 12">
+                                    {{recentApps[3].endH - 12}}:00 PM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[3].endH <  12)">
+                                    {{recentApps[3].endH}}:00 AM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[3].endH ==  12)">
+                                    00:00 AM
+                                  </za>
+                                </span>
+                        </div>
+                    </div> 
+                    <div class="d-block w-50 float-right text-center " style="position: relative;">
+                            <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto colors-white">highest price</a>
+                            <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[3].highestPrice || 0 }} SAR
+       
+                            </a>
+
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="p-2">
+
+                    </div>
+                        
+                  </div>
+              </div>
+            </li>
+            <li class="items left-pos" id="5">
+              <div style="height: 500px !important" class="card defaultShadow m-auto " >
+                  <div style="height: 300px; overflow: hidden; position: relative;">
+                      <img style="height: 300px;" style="cursor: pointer;"  src="{{recentApps[4].img1}}" class="card-img-top" alt="car">
+
+                    </div>
+
+                  <div class="card-body pt-0">
+                    <div class="pb-4"  style="position: relative;">
+                      <a  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="#" class="btn btn-primary px-4 py-2 ml-auto">
+                        {{recentApps[4].appName}}
+                      </a>
+                    </div>
+                    <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                    <div class="clearfix"></div>
+                    <div class="d-block w-50 float-left" style="position: relative;">
+                        <div class="my-1" style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  {{recentApps[4].endDate | cmdate:'yyyy-MM-dd' || 'No date' }}
+                                </span>
+                        </div>
+                        <div style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-2" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                  <za ng-if="recentApps[4].endH > 12">
+                                    {{recentApps[4].endH - 12}}:00 PM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[4].endH <  12)">
+                                    {{recentApps[4].endH}}:00 AM
+                                  </za>
+                                  <za style="color: #000 !important;" ng-if="(recentApps[4].endH ==  12)">
+                                    00:00 AM
+                                  </za>
+                                </span>
+                        </div>
+                    </div> 
+                    <div class="d-block w-50 float-right text-center " style="position: relative;">
+                            <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto colors-white">highest price</a>
+                            <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary px-4 py-2 ml-auto">
+                              {{recentApps[4].highestPrice || 0 }} SAR
+       
+                            </a>
+
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="p-2">
+
+                    </div>
+                        
+                  </div>
+              </div>
+            </li>
+          </ul>
+        <span>
+          <input type="button" value="Prev" id="prev">
+          <input type="button" value="Next" id="next">
+        </span>
+        
+      </section>
+      <div style="padding: 100px;">
+
+      </div>
+      <ol style="margin-top: 50px;" class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" ></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"  class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+    </ol>
+  </div>
+  <div style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+  <!-- DOWNLOADAPPS -->
+  <div  class="downloadapp">
+    <div class="downloadapp-overlay py-5">
+      <div class="container pb-5">
+        <div class="row pb-5">
+          <div class="col-md-6 col-xs-12 pt-5">
+            <div class="row pt-5 px-4">
+              <h3 class="text-center m-auto " style="color: #fff; font-weight: bold;">Download  App Market app</h3>
+            </div>
+            <div class="row pb-5 px-4">
+              <p style="font-size: 1.2rem; " class="pt-4 colors-white text-center">
+                Now you can download the application on your mobile
+  Download the application now service easier and faster
+            </p>  
+            </div>
+  
+            <div class="row px-4">
+              <div class="col-md-6 col-sm-6 col-xs-6 pb-1">
+                  <img class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/appstore.png" alt="">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6 pb-1">
+                <img class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/playstore.png" alt="">
+  
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="pb-5"> 
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer style="background-color: #868988;" class="px-3 py-5">
+      <div class="container">
+          <div class="row"> 
+              <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+                  <h6 class="colors-white text-center m-auto pb-2">Follow us on our social media channels</h6>
+  
+                <div class="row text-center m-auto">
+                  <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                  </a>
+                  <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="row text-center m-auto ">
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                        <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Address</h6>
+                        <h6 class="colors-white text-sm">Saudi - Ryad</h6>
+                      </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                        <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Emaol</h6>
+                        <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                      </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4">
+                        <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                        <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Mobile</h6>
+                        <h6 class="colors-white text-sm">966 24376756</h6>
+                    </div>
+              
+                </div>
+              </div>
+            </div>
+      </div>
+  
+  
+  </footer>
+  
+  <!-- DIVIDER -->
+  <div style="background-color: #F67534; height: 50px;">
+  
+  </div>
+</div>
+
+
+
+
+
+  <div style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+    <!-- DOWNLOADAPPS -->
+    <div  class="downloadapp">
+      <div class="downloadapp-overlay py-5">
+        <div class="container pb-5">
+          <div class="row pb-5">
+            <div class="col-md-6 col-xs-12 pt-5">
+              <div class="row pt-5 px-4">
+                <h3 class="text-center m-auto fontar" style="color: #fff; font-weight: bold;">حمل تطبيق سوق التطبيقات</h3>
+              </div>
+              <div class="row pb-5 px-4">
+                <p style="font-size: 1.2rem; " class="pt-4 colors-white text-center fontar">
+                    الان يمكنك تحميل التطبيق على جوالك 
+                    حمل التطبيق الان لخدمة أسهل وأسرع
+              </p>  
+              </div>
+    
+              <div class="row px-4">
+                <div class="col-md-6 col-sm-6 col-xs-6 pb-1">
+                    <img class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/appstore.png" alt="">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 pb-1">
+                  <img class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/playstore.png" alt="">
+    
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="pb-5"> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer style="background-color: #868988;" class="px-3 py-5">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+                    <h6 class="colors-white text-center m-auto pb-2 fontar">تابعنا على قنوات التواصل الاجتماعي الخاصة بنا</h6>
+    
+                  <div class="row text-center m-auto">
+                    <a class="px-1 text-center m-auto" href="">
+                      <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                    </a>
+                    <a class="px-1 text-center m-auto" href="">
+                        <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                  <div class="row text-center m-auto ">
+                      <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                          <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                          <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">العنوان</h6>
+                          <h6 class="colors-white text-sm">الرياض - السعودية</h6>
+                        </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 fontar" >
+                          <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                          <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">البريد الألكترونى</h6>
+                          <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                        </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                          <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                          <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">رقم الهاتف</h6>
+                          <h6 class="colors-white text-sm">966 24376756</h6>
+                      </div>
+                
+                  </div>
+                </div>
+              </div>
+        </div>
+    
+    
+    </footer>
+    
+    <!-- DIVIDER -->
+    <div style="background-color: #F67534; height: 50px;">
+    
+    </div>
+</div>
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script>
+
+        //slideshow style interval
+        var autoSwap = setInterval( swap,3500);
+        
+        //pause slideshow and reinstantiate on mouseout
+        $('section ul, section span').hover(
+        function () {
+            clearInterval(autoSwap);
+        }, 
+        function () {
+        autoSwap = setInterval( swap,3500);
+        });
+        
+        //global variables
+        var items = [];
+        var startItem = 1;
+        var position = 0;
+        var itemCount = $('.carousel li.items').length;
+        var leftpos = itemCount;
+        var resetCount = itemCount;
+        
+        //unused: gather text inside items class
+        $('section li.items').each(function(index) {
+            items[index] = $(this).text();
+        });
+        
+        //swap images function
+        function swap(action) {
+        var direction = action;
+        
+        //moving carousel backwards
+        if(direction == 'counter-clockwise') {
+            var leftitem = $('.left-pos').attr('id') - 1;
+            if(leftitem == 0) {
+            leftitem = itemCount;
+            }
+            
+            $('.right-pos').removeClass('right-pos').addClass('back-pos');
+            $('.main-pos').removeClass('main-pos').addClass('right-pos');
+            $('.left-pos').removeClass('left-pos').addClass('main-pos');
+            $('#'+leftitem+'').removeClass('back-pos').addClass('left-pos');
+            
+            startItem--;
+            if(startItem < 1) {
+            startItem = itemCount;
+            }
+        }
+        
+        //moving carousel forward
+        if(direction == 'clockwise' || direction == '' || direction == null ) {
+              function pos(positionvalue) {
+              if(positionvalue != 'leftposition') {
+                  //increment image list id
+                  position++;
+                  
+                  //if final result is greater than image count, reset position.
+                  if((startItem+position) > resetCount) {
+                  position = 1-startItem;
+                  }
+              }
+              //setting the left positioned item
+              if(positionvalue == 'leftposition') {
+                  //left positioned image should always be one left than main positioned image.
+                  position = startItem - 1;
+              
+                  //reset last image in list to left position if first image is in main position
+                  if(position < 1) {
+                  position = itemCount;
+                  }
+              }
+              return position;
+              }
+          $('#'+ startItem +'').removeClass('main-pos').addClass('left-pos');
+          $('#'+ (startItem+pos()) +'').removeClass('right-pos').addClass('main-pos');
+          $('#'+ (startItem+pos()) +'').removeClass('back-pos').addClass('right-pos');
+          $('#'+ pos('leftposition') +'').removeClass('left-pos').addClass('back-pos');
+              startItem++;
+              position=0;
+              if(startItem > itemCount) {
+              startItem = 1;
+              }
+          }
+        }
+        //next button click function
+        $('#next').click(function() {
+          swap('clockwise');
+        });
+        
+        //prev button click function
+        $('#prev').click(function() {
+          swap('counter-clockwise');
+        });
+        
+        //if any visible items are clicked
+        $('li').click(function() {
+          if($(this).attr('class') == 'items left-pos') {
+              swap('counter-clockwise'); 
+          }
+          else {
+              swap('clockwise'); 
+          }
+        });
+</script>
+ 
+</body>
+
+</html>

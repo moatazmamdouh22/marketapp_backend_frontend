@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en"  ng-app="souqUser">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Katibeh&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+  <script src="../generaljs/SouqUserGeneral.js"></script>
+  
+
+
+  <title> SOUQ APPS </title>
+</head>
+
+
+<body  ng-controller="HomeCtrl" style="overflow-x: hiddden">
+
+  <div style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+    <!-- MAIN  NAV -->
+    <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
+        <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+          <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+          <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+            alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse pl-5" id="navbar-list-2">
+          <ul class="navbar-nav m-auto pl-5 mt-2 mt-md-0 nav-mid">
+            <li  class="nav-item ">
+              <a  class="nav-link" href="http://157.230.25.241/SouqWebsite/html/main.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/apps-.html">App Auction </a>
+            </li>
+            <li  class="nav-item active">
+              <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/add-app.html">Add App </a>
+            </li>
+            <li  class="nav-item ">
+              <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/contact-us.html">Contact us </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+           
+            <li  id="navID5"  class="nav-item  mr-5 mt-2">
+              <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button"
+                href="http://157.230.25.241/SouqWebsite/html/signIn.html" id="navID55"> Sign In <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item ">
+              <a class="nav-link " href="#"> <i class="fas fa-bell fa-lg"></i></a>
+            </li> -->
+    
+            <li class="nav-item nav-lang m-1">
+              <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item nav-lang  m-1">
+              <a  id="navIDLangeEn" class="nav-link  nav-link-sign" ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  
+  
+  
+        
+      
+  <div style="margin-top: 58px;"></div>
+  
+  <div class="addAppDiv">
+    <div class="addAppDiv-overlay">
+          <div class="container">
+                  <form ng-submit="loginRequired()" >
+                      <div class="row">
+                          <div class="col-md-1">
+  
+                          </div>
+                          <div  class="col-md-10 col-sm-12 pb-4">
+                                  <div class="row  text-center py-4 px-3">
+                                              <div class="col-md-1 col-sm-12">
+  
+                                              </div>
+                                              <div class="col-md-3 col-sm-12">
+                                                      <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                                                     
+                                                          </div>
+                                              </div>
+                                              <div class="col-md-4 col-sm-12">
+                                                  <div class="text-center m-auto">
+                                                      <span style="color: #F67534; font-size: 20px; font-weight: bolder; font-size: 1.5rem;">                           
+                                                           Application Info
+                                                             
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                             
+                                              <div class="col-md-3 col-sm-12">
+                                                      <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                                     
+                                                      </div>
+                                              </div>
+                                              <div class="col-md-1 col-sm-12">
+  
+                                              </div>
+                                             
+                                      </div>
+                                      <div class="container py-3 ">
+                                        <div class="row">
+                                                        <div class="col-md-7  pt-5">
+                                                                <form ng-submit="loginRequired()">
+                                                                        <div class="form-group">
+                                                                          <label style="font-weight: bolder !important; color: #707070;" for="exampleInputEmail1">Enter a simple description of the application idea
+                                                                            </label>
+                                                                            <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="Type here " rows="7"></textarea>
+                                  
+                                                                        </div>
+                                                                        <div class="form-group py-3 ">
+                                                                          <label  style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">Enter a mobile number available to connect</label>
+                                                                          <input  type="number" class="form-control text-center" minlength="7" placeholder="Mobile" id="exampleInputPassword1">
+                                                                        </div>
+                                                                      
+                                                                        <button style="background-color: #F67534; border-radius: 15px;border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                                        -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                                        box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);" type="submit" class="btn btn-primary px-5">Send </button>
+                                                                      </form>
+                                                        </div>
+                                                        <div class="col-md-5  ">
+                                                          <div class="row m-auto pb-3">
+                                                              <label class="m-auto" style="font-weight: bolder !important;  color: #707070;" for="exampleInputEmail1">
+                                                                Upload a pic or Video <img class="ml-2 p-2" style="border-radius: 50%;background-color: #F67534; width: 40px; height: 40px;" src="http://157.230.25.241/SouqWebsite/images/add.png" alt="">
+                                                              </label>
+                                                          </div>
+                                                          <div class="row pb-5 text-center m-auto">
+                                                                  <div class="col-sm-12 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d1').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(1)"
+                                                                              id="logo" name="logo" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative; border-radius: 5px;"
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d1"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!logo_wait || logo_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0; border-radius: 5px;"
+                                                                              for="logo">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="logo_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                          </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d2').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(2)"
+                                                                              id="img1" name="img1" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative; border-radius: 5px;"
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d2"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img1_wait || img1_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;border-radius: 5px;"
+                                                                              for="img1">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img1_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d3').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(3)"
+                                                                              id="img2" name="img2" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d3"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img2_wait || img2_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;border-radius: 5px;"
+                                                                              for="img2">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img2_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d4').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(4)"
+                                                                              id="img3" name="img3" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative; border-radius: 5px;"
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d4"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img3_wait || img3_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;border-radius: 5px;"
+                                                                              for="img3">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img3_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                  
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3 ">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d5').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(5)"
+                                                                              id="img4" name="img4" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d5" src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img4_wait || img4_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;border-radius: 5px;"
+                                                                              for="img4">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img4_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                  
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d6').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(6)"
+                                                                              id="img5" name="img5" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative; border-radius: 5px;"
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d6"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img5_wait || img5_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;border-radius: 5px;"
+                                                                              for="img5">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img5_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                  
+                                                  
+                                                  
+                                                  
+                                                          </div>
+                                                        </div>
+                                  
+                                        </div>      
+                                     </div>
+                          </div>
+  
+                          <div class="col-md-1">
+  
+                          </div>
+  
+  
+                      </div>
+  
+                  </form>
+  
+              </div>
+  
+  
+      
+  </div>
+          
+              
+  </div>
+  
+
+
+ <!-- FOOTER -->
+ <footer style="background-color: #868988;" class="px-3 py-5">
+  <div class="container">
+      <div class="row"> 
+          <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+              <h6 class="colors-white text-center m-auto pb-2">Follow us on our social media channels</h6>
+
+            <div class="row text-center m-auto">
+              <a class="px-1 text-center m-auto" href="">
+                <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7">
+            <div class="row text-center m-auto ">
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                    <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Address</h6>
+                    <h6 class="colors-white text-sm">Saudi - Ryad</h6>
+                  </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                    <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Emaol</h6>
+                    <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                  </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                    <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Mobile</h6>
+                    <h6 class="colors-white text-sm">966 24376756</h6>
+                </div>
+          
+            </div>
+          </div>
+        </div>
+  </div>
+
+
+</footer>
+
+<!-- DIVIDER -->
+<div style="background-color: #F67534; height: 50px;">
+
+</div>
+
+  </div>
+  
+  <div style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+ <!-- MAIN  NAV -->
+ <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm ">
+  <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+    <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+    <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+      alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-collapsear   text-right" id="navbar-list-2">
+    <ul style="padding-right: 100px" class="navbar-nav m-auto mt-2 mt-md-0 nav-mid  ">
+      <li  class="nav-item ">
+        <a class="nav-link fontar"  href="http://157.230.25.241/SouqWebsite/html/main.html"> الرئيسية <span class="sr-only">(current)</span></a>
+      </li>
+      <li   class="nav-item">
+        <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/apps-.html"> مزاد التطبيقات </a>
+      </li>
+      <li  class="nav-item active">
+        <a class="nav-link fontar " href="http://157.230.25.241/SouqWebsite/html/add-app.html"> أضف تطبيق </a>
+      </li>
+      <li   class="nav-item ">
+        <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/contact-us.html"> تواصل معنا </a>
+      </li>
+    </ul>
+    <ul  class="navbar-nav mr-auto ">
+
+     
+      <li  id="navID5"   class="nav-item   ml-5 mt-2">
+        <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button  fontar"
+        href="http://157.230.25.241/SouqWebsite/html/signIn.html" id="navID55"> تسجيل الدخول <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <!-- <li class="nav-item ">
+        <a class="nav-link" href="#"> <i class="fas fa-bell fa-lg"></i></a>
+      </li> -->
+
+      <li class="nav-item nav-lang navLangUl m-1">
+        <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item nav-lang navLangUl  m-1">
+        <a id="navIDLangeEn" class="nav-link  nav-link-sign " ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  
+  
+        
+     
+  <div style="margin-top: 58px;"></div>
+  
+  <div class="addAppDiv">
+
+  
+  
+    <div class="addAppDiv-overlay">
+          <div class="container">
+                  <form ng-submit="loginRequired()" >
+                      <div class="row">
+                          <div class="col-md-1">
+  
+                          </div>
+                          <div  class="col-md-10 col-sm-12 pb-4">
+                                  <div class="row  text-center py-4 px-3">
+                                              <div class="col-md-1 col-sm-12">
+  
+                                              </div>
+                                              <div class="col-md-3 col-sm-12">
+                                                      <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                                                     
+                                                          </div>
+                                              </div>
+                                              <div class="col-md-4 col-sm-12">
+                                                  <div class="text-center m-auto">
+                                                      <span class="fontar" style="color: #F67534; font-size: 20px; font-weight: bolder; font-size: 1.5rem;">                           
+                                                        بيانات التطبيق
+                                                             
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                             
+                                              <div class="col-md-3 col-sm-12">
+                                                      <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                                     
+                                                      </div>
+                                              </div>
+                                              <div class="col-md-1 col-sm-12">
+  
+                                              </div>
+                                             
+                                      </div>
+                                      <div class="container py-3 ">
+                                        <div class="row">
+                                                        <div class="col-md-7  pt-5">
+                                                                <form ng-submit="loginRequired()">
+                                                                        <div class="form-group text-right">
+                                                                          <label class="fontar" style="font-weight: bolder !important; color: #707070;" for="exampleInputEmail1">أدخل وصف بسيط لفكرة التطبيق</label>
+                                                                            <textarea class="form-control" id="exampleFormControlTextarea1"  placeholder="أكتب هنا  " rows="7"></textarea>
+                                  
+                                                                        </div>
+                                                                        <div class="form-group py-3 text-right">
+                                                                          <label class="fontar"  style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">أدخل رقم جوال متاح للتواصل</label>
+                                                                          <input  type="number" class="form-control text-center fontar"  minlength="7" placeholder="الهاتف  " id="exampleInputPassword1">
+                                                                        </div>
+                                                                        <div class="ml-auto text-right">
+                                                                          <button style="background-color: #F67534; border-radius: 15px;border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                                                          box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);" type="submit"  class="btn btn-primary px-5 fontar ">ارسـال  </button>
+
+                                                                        </div>
+                                                                      </form>
+                                                        </div>
+                                                        <div class="col-md-5  ">
+                                                          <div class="row m-auto pb-3">
+                                                              <label class="m-auto fontar" style="font-weight: bolder !important;  color: #707070;" for="exampleInputEmail1">
+                                                                حمل صور أو مقاطع <img class="mr-2 p-2" style="border-radius: 50%;background-color: #F67534;width: 40px; height: 40px;" src="http://157.230.25.241/SouqWebsite/images/add.png" alt="">
+                                                              </label>
+                                                          </div>
+                                                          <div class="row pb-5 text-center m-auto">
+                                                                  <div class="col-sm-12 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d1').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(1)"
+                                                                              id="logo" name="logo" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d1"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!logo_wait || logo_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;"
+                                                                              for="logo">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="logo_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                          </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d2').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(2)"
+                                                                              id="img1" name="img1" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d2"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img1_wait || img1_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;"
+                                                                              for="img1">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img1_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d3').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(3)"
+                                                                              id="img2" name="img2" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d3"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img2_wait || img2_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;"
+                                                                              for="img2">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img2_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d4').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(4)"
+                                                                              id="img3" name="img3" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d4"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img3_wait || img3_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;"
+                                                                              for="img3">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img3_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                  
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3 ">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d5').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(5)"
+                                                                              id="img4" name="img4" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d5" src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img4_wait || img4_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;"
+                                                                              for="img4">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img4_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                  
+                                                                  <div class="col-sm-6 col-md-6 text-center m-auto pb-3">
+                                                                      <div style="margin: auto;">
+                                                                          <input type='file' style="display: none;"
+                                                                              onchange="document.getElementById('d6').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(6)"
+                                                                              id="img5" name="img5" accept=".jpg, .jpeg, .png" multiple />
+                                                                      </div>
+                                                                      <div style="width: 130px; height: 130px; background-color: #000; position: relative;border-radius: 5px; "
+                                                                          class="m-auto">
+                                                                          <img style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);" id="d6"  src="http://157.230.25.241/SouqWebsite/images/Capture-26@2x.png"  />
+                                                                          <label ng-if="!img5_wait || img5_wait == false"
+                                                                              style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0;"
+                                                                              for="img5">
+                                                  
+                                                                          </label>
+                                                                          <!-- <div ng-if="img5_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                                                  <img  style="width: 130px; height: 130px; border-radius: 5px; -webkit-box-shadow: 2px 2px 5px 0px rgba(112,112,112,1);
+                                                                          -moz-box-shadow: 2px 2px 5px rgba(112,112,112,1);
+                                                                          box-shadow: 2px 2px 5px rgba(112,112,112,1);"  src="http://134.209.178.237/kayanWebsite/images/spinner.gif" alt="">
+                                                                            </div> -->
+                                                  
+                                                                      </div>
+                                                                  </div>
+                                                  
+                                                  
+                                                  
+                                                  
+                                                          </div>
+                                                        </div>
+                                  
+                                        </div>      
+                                     </div>
+                          </div>
+  
+                          <div class="col-md-1">
+  
+                          </div>
+  
+  
+                      </div>
+  
+                  </form>
+  
+              </div>
+  
+  
+      
+  </div>
+          
+              
+  </div>
+  
+
+
+  <!-- FOOTER -->
+  <footer style="background-color: #868988;" class="px-3 py-5">
+    <div class="container">
+        <div class="row"> 
+            <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3 fontar">
+                <h6 class="colors-white text-center m-auto pb-2 fontar">تابعنا على قنوات التواصل الاجتماعي الخاصة بنا</h6>
+
+              <div class="row text-center m-auto">
+                <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7">
+              <div class="row text-center m-auto ">
+                  <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                      <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                      <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">العنوان</h6>
+                      <h6 class="colors-white text-sm">الرياض - السعودية</h6>
+                    </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 fontar" >
+                      <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                      <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">البريد الألكترونى</h6>
+                      <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                    </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                      <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                      <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">رقم الهاتف</h6>
+                      <h6 class="colors-white text-sm">966 24376756</h6>
+                  </div>
+            
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+</footer>
+
+<!-- DIVIDER -->
+<div style="background-color: #F67534; height: 50px;">
+
+</div>
+  </div>
+
+
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+
+ 
+</body>
+
+</html>

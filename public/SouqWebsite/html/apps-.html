@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en"  ng-app="souqUser">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Katibeh&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Almarai&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+  <script src="../generaljs/SouqUserGeneral.js"></script>
+  
+
+
+  <title> SOUQ APPS </title>
+  <style>
+  .hoverImg{
+    pointer-events: none;
+  }
+  </style>
+</head>
+
+
+<body  ng-controller="HomeCtrl" style="overflow-x: hiddden">
+
+  <div style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+    <!-- MAIN  NAV -->
+    <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm">
+        <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+          <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+          <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+            alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse pl-5" id="navbar-list-2">
+            <ul class="navbar-nav m-auto pl-5 mt-2 mt-md-0 nav-mid">
+                <li  class="nav-item ">
+                  <a  class="nav-link" href="http://157.230.25.241/SouqWebsite/html/main.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/apps-.html">App Auction </a>
+                </li>
+                <li  class="nav-item ">
+                  <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/add-app.html">Add App </a>
+                </li>
+                <li  class="nav-item ">
+                  <a class="nav-link" href="http://157.230.25.241/SouqWebsite/html/contact-us.html">Contact us </a>
+                </li>
+            </ul>
+          <ul class="navbar-nav ml-auto">
+           
+            <li  id="navID5"  class="nav-item  mr-5 mt-2">
+              <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button "
+                href="http://157.230.25.241/SouqWebsite/html/signIn.html" id="navID55"> Sign In <span class="sr-only">(current)</span></a>
+            </li>
+            <!-- <li class="nav-item ">
+              <a class="nav-link " href="#"> <i class="fas fa-bell fa-lg"></i></a>
+            </li>
+     -->
+            <li class="nav-item nav-lang m-1">
+              <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item nav-lang  m-1">
+              <a  id="navIDLangeEn" class="nav-link  nav-link-sign" ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  
+  
+  
+        
+    <div ng-if="!souqLang || souqLang == 'en'" style="min-height: 500px;">
+
+        <div>
+          <div style="margin-top: 58px;"></div>
+          <div class="container">
+            <div class="row">
+                    
+            </div>
+        </div>
+        
+        <div class=" Exhibition container">
+          <div style="margin-top: 100px;" class="row">
+              <div  ng-repeat="app in apps"  class="col-lg-4 col-md-6 col-sm-12  col-xs-12 my-5 auctionAppCard" >
+                      <div class="card defaultShadow m-auto" >
+                          <div style="height: 250px; overflow: hidden; position: relative;">
+                              <img style="cursor: pointer; height: 250px;"  src="{{app.img1}}" class="card-img-top" alt="">
+        
+                            </div>
+        
+                          <div class="card-body pt-0">
+                            <div class="pb-4"  style="position: relative;">
+                                    <a ng-click="loginRequired()" style=" text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px;  border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="" class="btn btn-primary px-4 py-2 ml-auto">{{app.appName}}</a>
+        
+                            </div>
+                            <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                            <div class="clearfix"></div>
+                            <div class="d-block w-50 float-left mt-2" style="position: relative;">
+                                <div class="my-1" style="position: relative;">
+                                        <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                                <img class="mt-1 hoverImg" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                                
+                                        </div>
+                                        <span class=" py-1" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">{{app.endDate| cmdate:'yyyy-MM-dd' }}</span>
+                                </div>
+                                <div style="position: relative;">
+                                        <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                                <img  class="mt-1 hoverImg" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                                
+                                        </div>
+                                        <span class=" py-1" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                         <h ng-if="app.endH > 12">{{app.endH - 12}} : 00 PM</h>
+                                         <h ng-if="app.endH < 12">{{app.endH }} : 00  AM</h>
+                                         <h ng-if="app.endH == 12"> 12 : 00 PM</h>
+                                        </span>
+                                </div>
+                            </div> 
+                            <div class="d-block w-50 float-right text-center " style="position: relative;">
+                                    <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none;font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto colors-white">highest price</a>
+                                    <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534;font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto">{{app.highestPrice || 0}} SAR</a>
+        
+                                </div>
+                            <div class="clearfix"></div>
+                            <div class="p-2">
+        
+                            </div>
+                                
+                          </div>
+                        </div>
+              </div>
+           
+          </div>
+    </div>
+        
+        
+        </div>
+        
+      </div>
+
+
+ <!-- FOOTER -->
+ <footer style="background-color: #868988;" class="px-3 py-5">
+  <div class="container">
+      <div class="row"> 
+          <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3">
+              <h6 class="colors-white text-center m-auto pb-2">Follow us on our social media channels</h6>
+
+            <div class="row text-center m-auto">
+              <a class="px-1 text-center m-auto" href="">
+                <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+              </a>
+              <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-7">
+            <div class="row text-center m-auto ">
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                    <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Address</h6>
+                    <h6 class="colors-white text-sm">Saudi - Ryad</h6>
+                  </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                    <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Emaol</h6>
+                    <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                  </div>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                    <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">Mobile</h6>
+                    <h6 class="colors-white text-sm">966 24376756</h6>
+                </div>
+          
+            </div>
+          </div>
+        </div>
+  </div>
+
+
+</footer>
+
+<!-- DIVIDER -->
+<div style="background-color: #F67534; height: 50px;">
+
+</div>
+
+  </div>
+  
+  <div style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+ <!-- MAIN  NAV -->
+ <nav style="max-height: 58px;" class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm ">
+  <a class="navbar-brand pl-5 pt-4 nav-brand" href="#">
+    <!-- <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo"> -->
+    <img style="width: 100px; height: 100px; z-index: 999;" src="http://157.230.25.241/SouqWebsite/images/Logo -13@2x.png"
+      alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse navbar-collapsear   text-right" id="navbar-list-2">
+    <ul style="padding-right: 100px" class="navbar-nav m-auto mt-2 mt-md-0 nav-mid  ">
+        <li  class="nav-item ">
+          <a class="nav-link fontar"  href="http://157.230.25.241/SouqWebsite/html/main.html"> الرئيسية <span class="sr-only">(current)</span></a>
+        </li>
+        <li   class="nav-item active">
+          <a class="nav-link fontar " href="http://157.230.25.241/SouqWebsite/html/apps-.html"> مزاد التطبيقات </a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link fontar " href="http://157.230.25.241/SouqWebsite/html/add-app.html"> أضف تطبيق </a>
+        </li>
+        <li   class="nav-item ">
+          <a class="nav-link fontar" href="http://157.230.25.241/SouqWebsite/html/contact-us.html"> تواصل معنا </a>
+        </li>
+      </ul>
+    <ul  class="navbar-nav mr-auto ">
+
+     
+      <li   class="nav-item   ml-5 mt-2">
+        <a style="border-radius: 5px !important; background-color: transparent;" class="nav-link-signIn-button  fontar"
+        href="http://157.230.25.241/SouqWebsite/html/signIn.html" id="navID55"> تسجيل الدخول <span class="sr-only">(current)</span>
+        </a>
+      </li>
+     
+
+      <li class="nav-item nav-lang navLangUl m-1">
+        <a id="navIDLangeAr" class="nav-link  nav-link-sign " ng-click="changeLang('ar')" href="#"> AR <span class=" sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item nav-lang navLangUl  m-1">
+        <a id="navIDLangeEn" class="nav-link  nav-link-sign " ng-click="changeLang('en')" href="#"> EN <span class=" sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  
+  
+<div ng-if="souqLang == 'ar'" style="min-height: 500px;">
+    <div style="margin-top: 58px;"></div>
+    <div class="container">
+      <div class="row">
+              
+      </div>
+    </div>
+  
+
+    <div class=" Exhibition container">
+      <div style="margin-top: 100px;" class="row">
+        <div   ng-repeat="app in apps"   class="col-lg-4 col-md-6 col-sm-12  col-xs-12 my-5 auctionAppCard" >
+              <div class="card defaultShadow m-auto" >
+                  <div style="height: 250px; overflow: hidden; position: relative;">
+                      <img style="cursor: pointer; height: 250px;"  src="{{app.img1}}" class="card-img-top" alt="car">
+
+                    </div>
+
+                  <div class="card-body pt-0">
+                    <div class="pb-4"  style="position: relative;">
+                            <a ng-click="loginRequired()"  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="" class="btn btn-primary px-4 py-2 ml-auto">{{app.appName }}</a>
+
+                    </div>
+                    <h6 style="font-size: 0.8rem;" class="card-title pr-5 mb-0 mt-2 text-right">أنتهاء المزاد</h6>
+                    <div class="clearfix"></div>
+                    <div class="d-block w-50 float-right mt-2" style="position: relative;">
+                        <div class="my-1" style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1 hoverImg" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-1" style="position: absolute; right: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">{{app.endDate| cmdate:'yyyy-MM-dd' }}</span>
+                        </div>
+                        <div style="position: relative;">
+                                <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                        <img class="mt-1 hoverImg" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                        
+                                </div>
+                                <span class=" py-1" style="position: absolute; right: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center; direction: ltr !important;">
+                                
+                                  <h style="direction: ltr !important; text-align: left  !important; " ng-if="app.endH > 12">   {{app.endH - 12}} : 00  am</h>
+                                  <h style="direction: ltr !important; text-align: left  !important;" ng-if="app.endH < 12">    {{app.endH }} : 00 pm </h>
+                                  <h style="direction: ltr !important; text-align: left  !important;" ng-if="app.endH == 12">    12 : 00  pm </h>
+                                </span>
+                        </div>
+                    </div> 
+                    <div class="d-block w-50 float-left text-center " style="position: relative;">
+                            <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary py-2 ml-auto colors-white fontar">أعلى سعر</a>
+                            <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto">{{app.highestPrice || 0}} ريال</a>
+
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="p-2">
+
+                    </div>
+                        
+                  </div>
+                </div>
+        </div>
+
+         
+      </div>
+    </div>
+  
+
+  
+</div>
+
+
+  <!-- FOOTER -->
+  <footer style="background-color: #868988;" class="px-3 py-5">
+    <div class="container">
+        <div class="row"> 
+            <div class="col-xs-12 col-sm-12 col-md-5 text-center m-auto pb-3 fontar">
+                <h6 class="colors-white text-center m-auto pb-2 fontar">تابعنا على قنوات التواصل الاجتماعي الخاصة بنا</h6>
+
+              <div class="row text-center m-auto">
+                <a class="px-1 text-center m-auto" href="">
+                  <img src="http://157.230.25.241/SouqWebsite/images/facebook.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/instagram.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/pintreest.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/google-pales.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/in.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/whats-app.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/tweetr.png" alt="">
+                </a>
+                <a class="px-1 text-center m-auto" href="">
+                    <img src="http://157.230.25.241/SouqWebsite/images/youtuob.png" alt="">
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7">
+              <div class="row text-center m-auto ">
+                  <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                      <i class="fas fa-map-marker-alt fa-lg d-block m-auto colors-white"></i>
+                      <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">العنوان</h6>
+                      <h6 class="colors-white text-sm">الرياض - السعودية</h6>
+                    </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 fontar" >
+                      <i class="fas fa-envelope fa-lg d-block m-auto colors-white"></i>
+                      <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">البريد الألكترونى</h6>
+                      <h6 class="colors-white text-sm">Info@Mazad.com</h6>
+                    </div>
+                  <div class="col-xs-4 col-sm-4 col-md-4 fontar">
+                      <i class="fas fa-phone fa-lg d-block m-auto colors-white"></i>
+                      <h6 style="font-weight: 800;" class="colors-white pt-3 pb-1">رقم الهاتف</h6>
+                      <h6 class="colors-white text-sm">966 24376756</h6>
+                  </div>
+            
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+</footer>
+
+<!-- DIVIDER -->
+<div style="background-color: #F67534; height: 50px;">
+
+</div>
+  </div>
+
+
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+
+ 
+</body>
+
+</html>

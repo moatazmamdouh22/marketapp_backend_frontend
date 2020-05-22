@@ -1,0 +1,116 @@
+<div class="col-lg-12 col-md-12 col-xs-12" style="width:100%;"> 
+                <p style="font-family: 'Baloo Bhaijaan';font-size:24px;font-weight:bold;text-align:center;color:#000000">بيانات المستخدم    &nbsp;<span class="glyphicon glyphicon-plus-sign" style="margin-left: 10px;vertical-align: text-top;"></span></p>        <hr>
+                <form  ng-submit="editData()" style="direction: rtl;">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="form-group text-right">
+                                <h4 >الأسـم   </h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="form-group">
+                                <input disabled id="fullname" type="text" class="form-control"  value="{{user.fullname}}" required>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                                <div class="form-group text-right">
+                                    <h4 >الهاتف    </h4>
+                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                    <input disabled id="mobile"  class="form-control"  value="{{user.mobile}}" required>
+                                </div>
+                        </div>
+                            
+                    </div>
+                  
+                    <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                    <div class="form-group text-right">
+                                        <h4 >الايميل     </h4>
+                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <input  disabled id="email" type="email" class="form-control"  value="{{user.email}}" required>
+                                    </div>
+                            </div>
+                                
+                    </div>
+            
+                    <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                    <div class="form-group text-right">
+                                        <h4 >الحالة       </h4>
+                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                            <select disabled  id="status" class="form-control">
+                                                    <option ng-selected="user.status == 1" value="1">نشط  </option>
+                                                    <option ng-selected="user.status == 2" value="2" >غير نشط   </option>
+            
+                                            </select>
+                                    </div>
+                            </div>
+                                
+                    </div>
+            
+                    <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                    <div class="form-group text-right">
+                                        <h4 >تاريخ الميلاد      </h4>
+                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                    <div class="form-group">
+                                        <input disabled value="{{user.birthday | cmdate:'yyyy-MM-dd'}}"  id="birthday" type="date" class="form-control"  value="{{user.birthday | cmdate:'yyyy-MM-dd' }}" required>
+                                    </div>
+                            </div>
+                                
+                    </div>
+            
+                    <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                                <div  class="form-group text-right">
+                                    <h4 >الفئة        </h4>
+                                </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                                <div class="form-group">
+                                        <select disabled id="categoryID" class="form-control">
+                                                <option ng-repeat="c in categories" ng-selected="user.categoryID == c._id" value="{{c._id}}">{{c.titleAR || c.titleEN}}</option>
+        
+                                        </select>
+                                </div>
+                        </div>
+                            
+                    </div>
+                   
+        
+                 
+                    <div  class="row">
+                            <div class="col-md-3 col-sm-6">
+                                    <div class="form-group text-right">
+                                        <h4 >الصورة الشخصية             </h4>
+                                    </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 text-right">
+                                    <div class="form-group text-right">
+                                        <img style="height: 100px; width: 100px;border-radius: 50%;" src="{{user.personalImg}}" required>
+                                       
+                                    </div>
+                            </div>
+                    </div>
+                    
+                    
+        
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                            <a href back-button class="btn-danger px-4" style="font-size:2vh; text-align:center; border: 1px solid rgba(0, 0, 0, 0.5);font-family: 'Cairo';margin-bottom: 8px;padding: 8px 4px;  z-index: 3;opacity:0.6;border-radius:5px;font-weight:bold;display:inline-block;margin-right: 5px; margin-left: 5px">رجـــوع</a>
+                        </div>
+                </form>
+            </div>

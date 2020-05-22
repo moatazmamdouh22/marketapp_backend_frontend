@@ -1,0 +1,73 @@
+
+   <div class="col-lg-12 col-md-12 col-xs-12" >
+   
+       
+  
+        <p style="font-family: 'Baloo Bhaijaan';font-size:24px;font-weight:bold;text-align:center;color:#000">التطبيقات  
+                
+              </p>
+  
+    <div style="width: 100%; overflow-x: scroll;">
+            <table style="border: 1px solid #000; direction: rtl; " class="table table-bordered table-hover  text-center">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <!-- <th scope="col">الصورة  </th> -->
+
+                        <th scope="col">اسم التطبيق  </th>
+                        <th scope="col">تاريخ البداية  </th>
+                        <th scope="col">تاريخ النهاية  </th>
+
+                        <th scope="col">أقل سعر     </th>
+                        <th scope="col">بداية السعر      </th>
+
+                      
+                        <th scope="col">قيمة الاشتراك     </th>
+
+
+
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr dir-paginate="c in subscribtions |filter:searchText |itemsPerPage:20">
+                        <th scope="row">{{$index+1}}</th>
+                        <!-- <td>
+                            <img style="width: 70px; height: 70px; border-radius: 50%;" src="{{c.personalImg}}" alt="">
+                        </td> -->
+                        <td>{{c.auctionID.appName}}</td>
+                        <td>{{c.auctionID.startDate | cmdate:'yyyy-MM-dd'}}</td>
+                        <td>{{c.auctionID.endDate | cmdate:'yyyy-MM-dd'}}</td>
+
+                        <td>{{c.auctionID.minimumPrice}}</td>
+                        
+                        <td>{{c.auctionID.startPrice}}</td>
+                        <td>{{c.subscriptionPrice}}</td>
+
+
+
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                 
+    
+    
+        </div>
+        <div class="clearfix">
+
+        </div>
+       
+       <div style="width: 100%;" class="row">
+            <dir-pagination-controls max-size="8"
+            direction-links="true"
+            boundary-links="true">
+            </dir-pagination-controls>
+       </div>
+        
+    </div>
+    
+   
+ 
+

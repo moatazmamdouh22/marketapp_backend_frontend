@@ -1,0 +1,145 @@
+
+
+<div ng-if="!souqLang || souqLang == 'en'">
+
+  <div>
+    <div style="margin-top: 58px;"></div>
+    <div class="container">
+      <div class="row">
+              
+      </div>
+  </div>
+  
+  <div class=" Exhibition container">
+          <div style="margin-top: 100px;" class="row">
+              <div  ng-repeat="app in apps"  class="col-lg-4 col-md-6 col-sm-12  col-xs-12 my-5 auctionAppCard" >
+                      <div class="card defaultShadow m-auto" >
+                          <div style="height: 250px; overflow: hidden; position: relative;">
+                              <img style="cursor: pointer; height: 250px;"  src="{{app.img1}}" class="card-img-top" alt="">
+        
+                            </div>
+        
+                          <div class="card-body pt-0">
+                            <div class="pb-4"  style="position: relative;">
+                                    <a  style=" text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px;  border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="/appDetails/{{app._id}}" class="btn btn-primary  py-2 ml-auto">{{app.appName}}</a>
+        
+                            </div>
+                            <h6 style="font-size: 0.8rem;" class="card-title pl-5 mb-0 mt-2">auction ends</h6>
+                            <div class="clearfix"></div>
+                            <div class="d-block w-50 float-left mt-2" style="position: relative;">
+                                <div class="my-1" style="position: relative;">
+                                        <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                                <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                                
+                                        </div>
+                                        <span class=" py-1" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">{{app.endDate| cmdate:'yyyy-MM-dd' }}</span>
+                                </div>
+                                <div style="position: relative;">
+                                        <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                                <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                                
+                                        </div>
+                                        <span class=" py-1" style="position: absolute; left: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">
+                                         <h ng-if="app.endH > 12">{{app.endH - 12}} : 00 PM</h>
+                                         <h ng-if="app.endH < 12">{{app.endH }} : 00  AM</h>
+                                         <h ng-if="app.endH == 12"> 12 : 00 PM</h>
+                                        </span>
+                                </div>
+                            </div> 
+                            <div class="d-block w-50 float-right text-center " style="position: relative;">
+                                    <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none;font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto colors-white">highest price</a>
+                                    <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534;font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto">{{app.highestPrice || 0}} SAR</a>
+        
+                                </div>
+                            <div class="clearfix"></div>
+                            <div class="p-2">
+        
+                            </div>
+                                
+                          </div>
+                        </div>
+              </div>
+           
+          </div>
+    </div>
+  
+  
+  </div>
+  
+</div>
+
+
+
+
+
+
+<div ng-if="souqLang == 'ar'">
+  <div style="margin-top: 58px;"></div>
+  <div class="container">
+    <div class="row">
+            
+    </div>
+  </div>
+
+  <div class=" Exhibition container">
+        <div style="margin-top: 100px;" class="row">
+          <div   ng-repeat="app in apps"   class="col-lg-4 col-md-6 col-sm-12  col-xs-12 my-5 auctionAppCard" >
+                <div class="card defaultShadow m-auto" >
+                    <div style="height: 250px; overflow: hidden; position: relative;">
+                        <img style="cursor: pointer; height: 250px;"  src="{{app.img1}}" class="card-img-top" alt="car">
+
+                      </div>
+
+                    <div class="card-body pt-0">
+                      <div class="pb-4"  style="position: relative;">
+                              <a  style="text-transform: uppercase; width: 90%; top: -20px; position: absolute; border-radius: 0; background-color: #32657B; text-align: center; border-radius: 10px; border: 1px solid #32657B; color: #fff; left: 5%; font-weight: 900; font-weight: bolder;"  href="/appDetails/{{app._id}}" class="btn btn-primary  py-2 ml-auto">{{app.appName }}</a>
+
+                      </div>
+                      <h6 style="font-size: 0.8rem;" class="card-title pr-5 mb-0 mt-2 text-right">أنتهاء المزاد</h6>
+                      <div class="clearfix"></div>
+                      <div class="d-block w-50 float-right mt-2" style="position: relative;">
+                          <div class="my-1" style="position: relative;">
+                                  <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                          <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                          
+                                  </div>
+                                  <span class=" py-1" style="position: absolute; right: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center;">{{app.endDate| cmdate:'yyyy-MM-dd' }}</span>
+                          </div>
+                          <div style="position: relative;">
+                                  <div class="text-center" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                          <img class="mt-1" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                          
+                                  </div>
+                                  <span class=" py-1" style="position: absolute; right: 50px; top: 0px; font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 60%; margin: auto; text-align: center; direction: ltr !important;">
+                                  
+                                    <h style="direction: ltr !important; text-align: left  !important; " ng-if="app.endH > 12">   {{app.endH - 12}} : 00  am</h>
+                                    <h style="direction: ltr !important; text-align: left  !important;" ng-if="app.endH < 12">    {{app.endH }} : 00 pm </h>
+                                    <h style="direction: ltr !important; text-align: left  !important;" ng-if="app.endH == 12">    12 : 00  pm </h>
+                                  </span>
+                          </div>
+                      </div> 
+                      <div class="d-block w-50 float-left text-center " style="position: relative;">
+                              <a style="width: 90%; margin: -20px; margin-bottom: -40px; border-radius: 0; background-color: #F67534; text-align: center; border-radius: 10px; cursor: none; font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto colors-white fontar">أعلى سعر</a>
+                              <a style="width: 90%; margin: -20px;  margin-bottom: -80px; border-radius: 0; background-color: #fff; text-align: center; border-radius: 10px; cursor: none; border: 1px solid #F67534; color: #F67534; font-weight: bolder;" disabled  class="btn btn-primary  py-2 ml-auto">{{app.highestPrice || 0}} ريال</a>
+
+                          </div>
+                      <div class="clearfix"></div>
+                      <div class="p-2">
+
+                      </div>
+                          
+                    </div>
+                  </div>
+          </div>
+
+           
+        </div>
+  </div>
+
+
+</div>
+
+
+
+
+

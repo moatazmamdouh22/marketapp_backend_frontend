@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="mazadAdmin">
+
+<head>
+    <title>Mazad Login</title>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="icon" href="images/icon-.png">
+ 
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ 
+   <!-- Fontawesome CSS -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+     integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+ 
+ 
+   <!-- Modified  Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+   <!-- Modified  CSS -->
+   <link rel="stylesheet" href="../css/login.css">
+ 
+   <script src="../generaljs/angular.min.js"></script>
+   <script src="../generaljs/dirPagination.js"></script>
+   <script src="../generaljs/angular-cookies.min.js"></script>
+   <script src="../generaljs/angular-route.min.js"></script>
+ 
+ 
+   <script src="../generaljs/login.js"></script>
+</head>
+<style>
+.half2 {
+    position: relative;
+    height: 100vh;
+    max-width: 100vw;
+    background: url(http://157.230.25.241/SouqWebsite/images/mazadwebsite-011.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+</style>
+<body style="background-color: #fff !important;
+  background: url(http://157.230.25.241/SouqWebsite/images/coverflip.png);
+    background-position: center;
+    
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;" ng-controller="SignInCtrl">
+    <div class="half2">
+
+   
+
+    <div class='container' >
+    <div class="clearfix"></div>
+       <div class="row ">
+        <div class="col-sm-12 col-md-7">
+
+        </div>
+        <div class='col-sm-12 col-md-5 pt-4'>
+            <div class='container_inner__login'>
+                    <div class='login_desc'>
+                        <h3>
+                            <img src="Internal/images/techno-1.png" alt="" style="width: 5%;display: inline-block">
+                        </h3>
+                    </div>
+                    <div class='login_inputs'>
+                        <form ng-submit="loginFun()">
+                            <div class='tip'>
+                                
+                            </div>
+                            <input placeholder='Your mobile or email' required='required' type='text' id="emailid">
+                            <input placeholder='Your password' required='required' type='password' id="passwordid">
+                            <input type='submit' value='Log in' style="    width: 50%;
+                            background: #F67534;">
+                        </form>
+                        <!-- <div class='forgotten'>
+                            <a href='#' style="color: #000">Forgotten your password?</a>
+                        </div> -->
+                    </div>
+                </div>
+                <div class='tick'>
+                    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/vtick.svg'>
+                </div>
+            </div>
+        </div>
+       
+       </div>
+    </div>
+
+
+
+    
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+</body>
+
+</html>

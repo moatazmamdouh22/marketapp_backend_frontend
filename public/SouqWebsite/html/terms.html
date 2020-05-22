@@ -1,0 +1,133 @@
+
+<div  ng-if="!souqLang || souqLang == 'en'" class="addAppDiv">
+    <div style="margin-top: 58px;"></div>
+    <div class="addAppDiv-overlay">
+        <div class="container">
+                <form class="" >
+                    <div class="row">
+                        <div class="col-md-1">
+    
+                        </div>
+                        <div style="background-color: #fff; border-radius: 7px; min-height:450px ;" class="col-md-10 col-sm-12 pb-4">
+                                <div class="row  text-center py-4 px-3">
+                                            <div class="col-md-1 col-sm-12">
+    
+                                            </div>
+                                            <div class="col-md-3 col-sm-12">
+                                                    <div class="mt-3 text-right" style="border-bottom: 1px solid #000;">
+                                                   
+                                                        </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="text-center m-auto">
+                                                    <span style="color: #000; font-size: 20px; font-weight: bolder; font-size: 1.5rem;">                           
+                                                         Terms & Conditions 
+                                                    </span>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="col-md-3 col-sm-12">
+                                                    <div class="mt-3 text-left" style="border-bottom: 1px solid #000;">
+                                                   
+                                                    </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-12">
+    
+                                            </div>
+                                           
+                                    </div>
+                                    <div class="container py-3 ">
+                                      <div class="row px-4">
+                                        <p ng-repeat = "c in terms">
+                                          {{c.titleEN}}
+                                        </p>
+                                        
+                                
+                                      </div>      
+                                   </div>
+                        </div>
+    
+                        <div class="col-md-1">
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </form>
+    
+            </div>
+    
+    
+    
+    </div>
+      
+  </div>
+
+
+  <div  ng-if="souqLang == 'ar'" class="addAppDiv ">
+    <div style="margin-top: 58px;"></div>
+    <div class="addAppDiv-overlay">
+        <div class="container">
+                <form class="" >
+                    <div class="row">
+                        <div class="col-md-1">
+    
+                        </div>
+                        <div style="background-color: #fff; border-radius: 7px;min-height:450px " class="col-md-10 col-sm-12 pb-4">
+                                <div class="row  text-center py-4 px-3">
+                                            <div class="col-md-1 col-sm-12">
+    
+                                            </div>
+                                            <div class="col-md-3 col-sm-12">
+                                                    <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                                   
+                                                        </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12">
+                                                <div class="text-center m-auto">
+                                                    <span class="fontar" style="color: #000; font-size: 20px; font-weight: bolder; font-size: 1.5rem;">                           
+                                                        الشروط و الأحكام 
+                                                    </span>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="col-md-3 col-sm-12">
+                                                    <div class="mt-3 text-right" style="border-bottom: 1px solid #000;">
+                                                   
+                                                    </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-12">
+    
+                                            </div>
+                                           
+                                    </div>
+                                    <div class="container py-3 ">
+                                      <div class="row px-4">
+                                        <p ng-repeat = "c in terms ">
+                                          {{c.titleAr}}
+                                        </p>
+                                
+                                      </div>      
+                                   </div>
+                        </div>
+    
+                        <div class="col-md-1">
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </form>
+    
+            </div>
+    
+    
+    
+    </div>
+      
+  </div>
+  
+
+

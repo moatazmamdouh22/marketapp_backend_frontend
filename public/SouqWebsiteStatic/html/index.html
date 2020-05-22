@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en" ng-app="souqUser">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <!-- <link rel="stylesheet" href="../css/style.css"> -->
+
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+
+
+  <script src="../generaljs/SouqUserGeneral.js"></script>
+
+  <title> Souq</title>
+</head>
+<style>
+html {
+	box-sizing: border-box;
+}
+
+*, *::before, ::after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	font-family: 'Nunito', sans-serif;
+	font-weight: 300;
+	background-color: #91CEFE;
+	background-image: linear-gradient( 45deg, #6fafe6 0%, #91CEFE 50%, #6fafe6 100%);
+	height: 100%;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.box {
+	position: relative;
+	max-width: 360px;
+	background: #FFF;
+	border-radius: .375em;
+	padding: 64px 24px 24px;
+	text-align: center;
+	transition: transform 300ms ease-in;
+	transition-delay: 500ms;
+	transform: translate3d( 0, 100vh, 0);
+	box-shadow: 0 0 3px rgba( 0, 0, 0, .1 );
+}
+	.box--animate {
+			transform: translate3d( 0, 0, 0);
+	}
+	
+	.box__logo {
+		position: absolute;
+		top: -24px;
+		left: 50%;
+		transform: translate3d( -50%, 0, 0) rotate(-5deg);
+		animation: swing ease-in-out 1s infinite alternate;
+    transform-origin: top center;
+	}
+	
+	.box__title {
+		font-size: 1.75rem;
+		line-height: 1.2;
+		margin: 24px 0;
+		color: #F68523;
+		font-weight: 700;
+	}
+  .box__info {
+		opacity: .87;
+		font-size: .875rem;
+		line-height: 1.5;
+		color: #212121;
+	}
+	
+	.box__btn {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		color: #212121;
+		font-weight: 700;
+		text-decoration: none;
+		overflow: hidden;
+		opacity: .87;
+		color: #FFF;
+		background-color: #212121;
+		font-size: 14px;
+		line-height: 24px;
+		padding: .75em 1.5em;
+		border-radius: 1.5em;
+		text-transform: uppercase;
+		transition: opacity 300ms ease-in;
+		box-shadow: 0 3px 3px rgba( 0, 0, 0, .3);
+		background-image: linear-gradient( 90deg, #212121 0%, #121212 100%);
+  }
+		.box:hover,
+		.box:focus,
+		.box:active {
+			opacity: 1;
+		}
+	
+
+
+@keyframes swing {
+    0% { transform: translate3d( -50%, 0, 0 ) rotate(5deg); }
+    100% { transform: translate3d( -50%, 0, 0 ) rotate(-5deg); }
+}
+</style>
+
+<script>
+var callback = function(){
+  var box = document.getElementById('box');
+	
+	box.classList.add('box--animate');
+};
+
+if (
+    document.readyState === "complete" ||
+    (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  callback();
+} else {
+  document.addEventListener("DOMContentLoaded", callback);
+}
+</script>
+
+<body ng-controller="HomeCtrl" style="overflow-x: hiddden">
+
+  <div class="wrapper">
+    <div class="box" id="box">
+      <img style="width: 160px;  height: 160px;" class="box__logo" src="../images/mazad.png" alt=""/>
+      <h1 class="box__title">Sorry!, Site Maintance</h2>
+      <p class="box__info">Sorry for the inconvenience, we are currently undergoing maintenance. However, If you have any queries please wait until we finish :P</p>
+      <a  disabled class="box__btn" style="cursor: none; text-decoration: none;" href="">THANK YOU </a>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {
+          families: ['Nunito:300,700&display=swap']
+        }
+      });
+    </script>
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+  
+        // $('#sidebararCollapse').on('click', function () {
+        //   $('#sidebarar').toggleClass('activeSidebarar');
+        // });
+        // $('#sidebararCollapseOut').on('click', function () {
+        //   $('#sidebarar').toggleClass('activeSidebarar');
+        // });
+  
+  
+        // $('#sidebarCollapseOut').on('click', function () {
+        //   $('#sidebar').toggleClass('activeSidebar');
+        // });
+  
+        // $('#sidebarCollapse').on('click', function () {
+        //   $('#sidebar').toggleClass('activeSidebar');
+        // });
+  
+  
+        // $('#loginCollapseOuten').on('click', function () {
+        //   $('.loginCollapseen').toggleClass('activeLoginen');
+          
+        // });
+  
+        // $('#loginCollapseOutar').on('click', function () {
+        
+        //   $('.loginCollapsear').toggleClass('activeLoginar');
+          
+        // });
+  
+  
+        
+  
+      });
+    </script>
+  
+</body>
+
+</html>

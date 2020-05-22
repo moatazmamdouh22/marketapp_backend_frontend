@@ -1,0 +1,51 @@
+<div class="col-lg-12 col-md-12 col-xs-12" style="width:100%;">
+        <div class="col-lg-12 col-md-12 col-xs-12" style="padding:30px;float:right;">
+            <a href="" style="text-decoration:none;"><p style="font-family: 'Baloo Bhaijaan';font-size:24px;font-weight:bold;text-align:center;color:#000">Edit Account&nbsp;
+            </p></a>
+                 <hr>
+            <form ng-submit="EditUser()">
+                <table style="border:1px;float: right;direction: rtl;font-family:'Changa';" id="UserDetailsTable">
+                    <tr class="info">
+                        <th>
+                            <label for="input">الأسم بالكامل:</label>
+                        </th>
+                        <td>
+                            <span>
+                                <input type="text" id="fullname" value="{{userDetail.fullname}}" required readonly/>
+    
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="input">رقم الجوال :</label>
+                        </th>
+                        <td>
+                            <span><input type="text" id="mobileID" value="{{userDetail.mobile}}" required /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="input">البريد الاليكترونى:</label>
+                        </th>
+                        <td>
+                            <span><input type="text" id="EmailID" value="{{userDetail.email}}" required /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="input"> الرقم السرى:</label>
+                        </th>
+                        <td>
+                            <span><input type="text" id="PassWord" value="{{userDetail.password}}" required disabled /></span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <button type="submit" class="btn-success" style="width: 10%; text-align:center; border: 1px solid rgba(0, 0, 0, 0.5);font-family: 'Cairo';margin-bottom: 8px;padding: 8px 4px;  z-index: 3;opacity:0.6;border-radius:5px;display:inline-block;float:left;margin-right: 5px;">حفظ</button>
+                    <a href="AlUsers" class="btn-danger" style="width: 10%; text-align:center; border: 1px solid rgba(0, 0, 0, 0.5);font-family: 'Cairo';margin-bottom: 8px;padding: 8px 4px;  z-index: 3;opacity:0.6;border-radius:5px;font-weight:bold;display:inline-block;float:left;">رجـــوع</a>
+                </div>
+            </form>
+    
+        </div>
+    </div>

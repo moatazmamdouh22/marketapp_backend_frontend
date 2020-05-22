@@ -1,0 +1,941 @@
+
+<style>
+.modal-backdrop.show{
+    opacity: 0;
+}
+.modal-sm{
+    min-width: 400px;
+}
+</style>
+
+<div ng-if="!souqLang || souqLang == 'en'">
+
+  <div>
+    <div style="margin-top: 58px;"></div>
+    <div class="container">
+      <div class="row">
+              
+      </div>
+  </div>
+
+
+
+  </div>
+      
+     
+<div class="container">
+    <div class="row py-5 ">
+        <div class="col-sm-12 col-md-7 pb-4 pl-5">
+            <div class="row text-sm-center">
+                    <button style="border-radius: 30px; background-color: #F67534;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Subscribe auction
+                    </button>
+                    <button style="border-radius: 10px; background-color: #fff; border: 1px solid #ddd; color: #000;" type="button" class="btn btn-primary mx-3" data-toggle="modal" data-target="#exampleModalCenter3">
+                            subscribers
+                    </button>
+            </div>
+
+            <div class="row py-4   text-center">
+                <span  style="border: 1px solid #7C7C7C !important; border-radius: 8px; " class="py-2">
+                    <span  class="py-2 px-3 " style="background-color: #7C7C7C; color: #fff; border: 1px solid #7C7C7C !important; border-top-left-radius: 8px;  border-bottom-left-radius: 8px">app Category </span>
+                    <span  class="py-2 px-3 " style="background-color: #fff; color: #7C7C7C; border: 1px solid #7C7C7C !important;   border-top-right-radius: 8px;  border-bottom-right-radius: 8px"> {{app.categoryID.titleEN}} </span>
+
+                </span>
+            </div>
+
+            <div class="row pr-5 pt-3">
+               <span class="font-weight-bold py-3 d-block w-100">App Describtion </span>
+               <p class="text-justify font-weight-normal pr-5 text-left clearfix">
+                {{app.description}}
+                </p>
+            </div>
+
+            <div class="row pr-5 pt-3">
+                    <span class="font-weight-bold py-3 d-block w-100">App auction terms </span>
+                    <p class="text-justify font-weight-normal pr-5 text-left clearfix">
+                      {{app.conditions}}
+                    </p>
+            </div>
+
+            <div class="row pr-5 pt-3">
+                    <span class="font-weight-bold py-3">Download App </span>
+                    <div class="row">
+                            <a target="_blank" class="mr-3" style="width:20%;"  href="{{app.appstoreLink}}">
+                                <img  class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/appstore.png" alt="">
+                            </a>
+                            <a target="_blank" style="width:20%;" href="{{app.playstoreLink}}">
+                                    <img  class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/playstore.png" alt=""  >
+                                </a>
+                    </div>
+                   
+                    
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-12 col-md-5 ">
+                <!-- IMAGES-->
+                <div id="carouselExampleCaptions" class="carousel carousel-appDetails slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
+
+                        </ol>
+                        <div class="carousel-inner">
+                           
+                            <div class="carousel-item active">
+                                <img src="{{img1}}" class="d-block w-100" alt="SOUQ IMAGE"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img2}}" class="d-block w-100" alt="SOUQ IMAGE"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img3}}" class="d-block w-100" alt="SOUQ IMAGE"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img4}}" class="d-block w-100" alt="SOUQ IMAGE"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img5}}" class="d-block w-100" alt="SOUQ IMAGE"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img6}}" class="d-block w-100" alt="SOUQ IMAGE"
+                                    style="width: 364px; height: 364px;">
+                          </div>
+                           
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                        <span data-toggle="modal" data-target="#exampleModalCenter2" ng-if="app.isInsurance == 1" style="color: #000; font-size: 20px; font-weight: bold; position: absolute; left: -45px; top: 0; cursor: pointer;">     
+                            <img src="http://157.230.25.241/SouqWebsite/images/star.png" alt="">                    
+                         </span>
+                </div>
+
+
+                <!--   TIME  && MONEY -->
+                <div style="border: 1px solid #F67534; border-bottom: 1px solid #F67534 !important; background-color: #EDEDED; border-radius: 5px;"> 
+                    <!-- TIME -->
+                    <div  class="py-4" >
+                        <div class="row  text-center px-3">
+                                    <div class="col-5 ">
+                                          <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                                          </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="text-center m-auto" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                            <img class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                            <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                        
+                                            </div>
+                                    </div>
+                        </div>
+
+                        <div  class="row px-3 py-1 pt-2">
+                            <div class="col-3">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: center; ">Start Date</span>
+
+                            </div>
+                            <div class="col-4">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.startDate | cmdate:'yyyy-MM-dd'}}</span>
+
+                            </div>
+                            <div class="col-1 mt-1">
+                                    <div class="text-center m-auto" style="width: 30px; height: 30px; background-color: #F67534; border-radius: 50%; ">
+                                            <img style="width: 19px; height: 19px;" class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt=""> 
+                                    </div>
+                            </div>
+                            <div class="col-4">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 90%; margin: auto; text-align: center; background-color: #ffffff;">
+                                        <h ng-if="app.startH > 12">{{app.startH - 12}} : 00 PM</h>
+                                         <h ng-if="app.startH < 12">{{app.startH }} : 00  AM</h>
+                                         <h ng-if="app.startH == 12"> 12 : 00 PM</h>
+                                    </span>
+
+                            </div>
+                        </div>
+                        <div  class="row px-3 py-1 ">
+                                <div class="col-3">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: center; ">End Date</span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.endDate | cmdate:'yyyy-MM-dd'}}</span>
+                                </div>
+                                <div class="col-1 mt-1">
+                                      <div class="text-center m-auto" style="width: 30px; height: 30px; background-color: #F67534; border-radius: 50%; ">
+                                              <img style="width: 19px; height: 19px;" class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                      </div>
+                                </div>
+                                <div class="col-4">
+                                        <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 90%; margin: auto; text-align: center; background-color: #ffffff;">
+                                          <h ng-if="app.endH > 12">{{app.endH - 12}} : 00 PM</h>
+                                          <h ng-if="app.endH < 12">{{app.endH }} : 00  AM</h>
+                                          <h ng-if="app.endH == 12"> 12 : 00 PM</h>
+                                        </span>
+
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- MONEY -->
+                    <div class="pb-4">
+                            <div class="row  text-center px-3">
+                                    <div class="col-5 ">
+                                            <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                                        
+                                                </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="text-center m-auto" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                            <img style="width: 23px;  height: 23px;" class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/money.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                            <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                        
+                                            </div>
+                                    </div>
+                        </div>
+
+                        <div  class="row px-3 py-1 pt-2">
+                            <div class="col-6">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: left;  padding-left: 15px;"> value of opening auction</span>
+                            </div>
+                            <div class="col-6">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.startPrice}} SAR</span>
+                            </div>
+                            
+                        </div>
+                        <div  class="row px-3 py-1 pt-2">
+                                <div class="col-6">
+                                        <span class="py-2  d-block"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: left; padding-left: 15px;"> highest Price </span>
+                                </div>
+                                <div class="col-6">
+                                        <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.highestPrice}} SAR</span>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+</div>
+
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <form  ng-if="userSubscribeObj.message == 2" style="width: 100% !important; margin: 0 !important; padding: 0 !important;" class="m-0 p-0" ng-submit="subscribeAuction()">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content pb-5">
+            <div style="border-bottom: none;" class="modal-header">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close ml-auto " data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row  text-center px-3">
+                <div class="col-3 ">
+                      <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                      
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center m-auto">
+                        <span style="color: #F67534; font-size: 20px; font-weight: bold;">                            Enter Subscribe value
+                            
+                        </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                        <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                        </div>
+                </div>
+            </div>
+
+            <div class="row text-center py-5 px-5">
+                <p class="text-lead  px-5">The amount will be automatically deducted from your account in the event the auction fails you</p>
+            </div>
+            <div class="row text-center px-5">
+                <p class="text-lead  px-5  center m-auto">Enter the amount you wish to enter the auction</p>
+            </div>
+            <div class="row text-center px-5 pt-3 ">
+
+                <div class="col-3">
+
+                </div>
+                <div class="col-6 text-center pr-0">
+                        <form  class="form-inline text-center">
+                            <div class="form-group mb-2  text-center">
+                                    <input style="border: 1px solid #ddd;" type="number" class="form-control m-auto text-center" id="subscriptionPrice" placeholder="Amount ">
+
+                            </div>
+                                <!-- <button type="submit" class="btn btn-primary mb-2">Confirm identity</button> -->
+                        </form>
+
+                </div>
+                <div class="col-3  pl-0 pt-1 mr-auto text-left">
+                  <label style="color: #F67534;" class="px-2 text-left mr-auto pl-0" for="subscriptionPrice" >SAR</label>
+
+                    </div>
+
+            <div class="col-12">
+                    <button style="width: 70%; background-color: #F67534; border: none;" type="submit" class="btn btn-primary mb-2 text-center m-auto py-2">Subscribe now</button>
+
+            </div>
+          
+            </div>
+            
+           
+          </div>
+        </div>
+      </form>
+
+      <form  ng-if="userSubscribeObj.message == 1" style="width: 100% !important; margin: 0 !important; padding: 0 !important;" class="m-0 p-0" ng-submit="editSubscribeAuction()">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content pb-5">
+            <div style="border-bottom: none;" class="modal-header">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close ml-auto " data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row  text-center px-3">
+                <div class="col-3 ">
+                      <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                      
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center m-auto">
+                        <span style="color: #F67534; font-size: 20px; font-weight: bold;">                            Edit Subscribe value
+                            
+                        </span>
+                    </div>
+                </div>
+                <div class="col-3">
+                        <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                        </div>
+                </div>
+            </div>
+
+            <div class="row text-center py-5 px-5">
+                <p class="text-lead  px-5">The amount will be automatically deducted from your account in the event the auction fails you</p>
+            </div>
+            <div class="row text-center px-5">
+                <p class="text-lead  px-5  center m-auto">Edit the amount you wish to enter the auction</p>
+            </div>
+            <div class="row text-center px-5 pt-3 ">
+
+                <div class="col-3">
+
+                </div>
+                <div class="col-6 text-center pr-0">
+                        <form  class="form-inline text-center">
+                            <div class="form-group mb-2  text-center">
+                                    <input style="border: 1px solid #ddd;" type="number" value="{{userSubscribeObj.record}}" class="form-control m-auto text-center" id="subscriptionPriceEdit" placeholder="Amount ">
+
+                            </div>
+                                <!-- <button type="submit" class="btn btn-primary mb-2">Confirm identity</button> -->
+                        </form>
+
+                </div>
+                <div class="col-3  pl-0 pt-1 mr-auto text-left">
+                  <label style="color: #F67534;" class="px-2 text-left mr-auto pl-0" for="subscriptionPrice" >SAR</label>
+
+                    </div>
+
+            <div class="col-12">
+                    <button style="width: 70%; background-color: #F67534; border: none;" type="submit" class="btn btn-primary mb-2 text-center m-auto py-2">edit subscribe </button>
+
+            </div>
+          
+            </div>
+            
+           
+          </div>
+        </div>
+      </form>
+</div>
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm  " role="document">
+          <div class="modal-content shadow-sm pb-4">
+            <div style="border-bottom: none;" class="modal-header pt-3 pb-0">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close ml-auto " data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row  text-center px-3 pb-2">
+                    <div class="col-5 ">
+                            <div class="mt-3 text-right" style="border-bottom: 1px solid #000;">
+                           
+                                </div>
+                    </div>
+                    <div class="col-2 text-center">
+                        <div class="text-center m-auto">
+                            <span style="color: #000; font-size: 20px; font-weight: bold;">     
+                               <img src="http://157.230.25.241/SouqWebsite/images/star.png" alt="">                    
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                            <div class="mt-3 text-left" style="border-bottom: 1px solid #000;">
+                           
+                            </div>
+                    </div>
+            </div>
+
+            <div class="row text-center pb-3 px-5">
+                <p class="text-muted font-weight-light">The amount will be automatically deducted from your account in the event the auction fails you</p>
+            </div>
+            <div class="row text-center px-5">
+                <p class="text-lead   center m-auto">Enter the amount you wish to enter the auction</p>
+            </div>
+            <div class="row text-center pt-5">
+                    <p class="text-lead   center m-auto font-weight-bold" style="color: #000 !important; font-size: 14px;">Insurance Amount </p>
+             
+           
+            
+            </div>
+            <div class="row text-center">
+                  
+                 <span style="background-color: #ddd; border-radius: 5px;"  class="d-block w-25 ml-auto text-center py-2  ">{{app.insurance}}</span> 
+                 <span   class="d-block w-25 mr-auto text-left py-2 px-1">SAR</span> 
+            </div>
+          
+            <!-- <div class="modal-body">
+              
+            </div> -->
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div style="max-width: 300px;" class="modal-dialog modal-dialog-centered modal-sm  " role="document">
+          <div class="modal-content shadow-sm pb-4">
+            <div style="border-bottom: none;" class="modal-header pt-3 pb-0">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close ml-auto " data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row text-center">
+                    <span style="background-color: #fff; border-radius: 5px; width: 80%; color: #F67534;"  class="d-block m-auto text-center pb-2 font-weight-bold">subscribers names </span> 
+            </div>
+          
+            <div style="max-height: 250px ; overflow-y: scroll; overflow-x: hidden;" class="row text-center mx-0">
+                  
+                 <span ng-repeat="subscriper in auctioSubscripers" style="background-color: #fff; border-radius: 5px; width: 80%; border: 1px solid #ddd; margin-top: 10px !important;"  class="d-block m-auto text-center py-2">{{subscriper.userID.fullname}} </span> 
+                 
+              
+                 <!-- <span style="background-color: #fff; border-radius: 5px; width: 80%; border: 1px solid #ddd; margin-top: 10px !important;"  class="d-block m-auto text-center py-2 ">Ahmed Ali </span>  -->
+            </div>
+          </div>
+        </div>
+</div>
+
+</div>
+
+
+<div ng-if="souqLang == 'ar'">
+
+  <div>
+    <div style="margin-top: 58px;"></div>
+    <div class="container">
+      <div class="row">
+              
+      </div>
+  </div>
+
+
+
+  </div>
+      
+     
+<div class="container">
+    <div class="row py-5 ">
+        <div class="col-sm-12 col-md-7 pb-4 pl-5">
+            <div class="row text-sm-center">
+                    <button style="border-radius: 30px; background-color: #F67534; font-weight: bold;" type="button" class="btn btn-primary fontar px-5 shadow" data-toggle="modal" data-target="#exampleModalCenter">
+                        أشترك بالمزاد
+                    </button>
+                    <button style="border-radius: 10px; background-color: #fff; border: 1px solid #ddd; color: #000;" type="button" class="btn btn-primary mx-3 fontar" data-toggle="modal" data-target="#exampleModalCenter3">
+                        المشتركين
+                    </button>
+            </div>
+
+            <div class="row py-4   text-center">
+                <span  style="border: 1px solid #7C7C7C !important; border-radius: 8px; " class="py-2">
+                    <span  class="py-2 px-3 fontar" style="background-color: #7C7C7C; color: #fff; border: 1px solid #7C7C7C !important; border-top-right-radius: 8px;  border-bottom-right-radius: 8px">فئة التطبيق </span>
+                    <span  class="py-2 px-3 " style="background-color: #fff; color: #7C7C7C; border: 1px solid #7C7C7C !important;   border-top-left-radius: 8px;  border-bottom-left-radius: 8px">  {{app.categoryID.titleAR}} </span>
+
+                </span>
+            </div>
+
+            <div class="row pl-5 pt-3">
+               <span class="font-weight-bold py-3 fontar d-block w-100 text-right">وصف التطبيق </span>
+            
+               <p  class="text-justify font-weight-normal pl-5 clearfix fontar clearfix">{{app.description}}
+                </p>
+            </div>
+
+            <div class="row pl-5 pt-3">
+              <!-- <span class="font-weight-bold py-3">حمل التطبيق </span> -->
+
+                    <span class="font-weight-bold py-3 fontar d-block w-100 text-right">شروط مزاد التطبيق
+                        </span>
+                    <p  class="text-justify font-weight-normal pl-5 fontar clearfix">
+                           
+                            {{app.conditions}}
+                          </p>
+            </div>
+
+            <div class="row pl-5 pt-3">
+              <span class="font-weight-bold py-3 fontar d-block w-100 text-right">حمل التطبيق </span>
+
+                    <!-- <span class="font-weight-bold py-3"> </span> -->
+                    <div class="row">
+                            <a target="_blank" class="ml-3" style="width:20%;" href="{{app.appstoreLink}}">
+                                <img  class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/appstore.png" alt="">
+                            </a>
+                            <a  target="_blank"  style="width:20%;" href="{{app.playstoreLink}}">
+                                <img  class="img-fluid" src="http://157.230.25.241/SouqWebsite/images/playstore.png" alt="">
+                            </a>
+                    </div>
+                   
+                    
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-12 col-md-5 ">
+                <!-- IMAGES-->
+                <div id="carouselExampleCaptions" class="carousel carousel-appDetails slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+                            <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
+
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="{{img1}}" class="d-block w-100" alt="صورة التطبيق"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item active">
+                                <img src="{{img2}}" class="d-block w-100" alt="صورة التطبيق"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img3}}" class="d-block w-100" alt="صورة التطبيق"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img4}}" class="d-block w-100" alt="صورة التطبيق"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img5}}" class="d-block w-100" alt="صورة التطبيق"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{img6}}" class="d-block w-100" alt="صورة التطبيق"
+                                    style="width: 364px; height: 364px;">
+                            </div>
+                            
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+               
+                        <span data-toggle="modal" data-target="#exampleModalCenter2" ng-if="app.isInsurance == 1" style="color: #000; font-size: 20px; font-weight: bold; position: absolute; right: -45px; top: 0; cursor: pointer;">     
+                            <img src="http://157.230.25.241/SouqWebsite/images/star.png" alt="">                    
+                         </span>
+                </div>
+
+                <!--   TIME  && MONEY -->
+                <div style="border: 1px solid #F67534; border-bottom: 1px solid #F67534 !important; background-color: #EDEDED; border-radius: 5px;"> 
+                    <!-- TIME -->
+                    <div  class="py-4" >
+                        <div class="row  text-center px-3">
+                                    <div class="col-5 ">
+                                            <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                                        
+                                            </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="text-center m-auto" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                            <img class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/calendar.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                            <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                        
+                                            </div>
+                                    </div>
+                        </div>
+
+                        <div  class="row px-3 py-1 pt-2">
+                            <div class="col-3">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: center; ">تاريخ بداية المزاد</span>
+
+                            </div>
+                            <div class="col-4">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.startDate | cmdate:'yyyy-MM-dd'}}</span>
+
+                            </div>
+                            <div class="col-1 mt-1">
+                                    <div class="text-center m-auto" style="width: 30px; height: 30px; background-color: #F67534; border-radius: 50%; ">
+                                            <img style="width: 19px; height: 19px;" class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                    </div>
+                            </div>
+                            <div class="col-4">
+                                    <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 90%; margin: auto; text-align: center; background-color: #ffffff; direction: ltr;">
+                             
+                                        <h ng-if="app.startH > 12">{{app.startH - 12}} : 00 PM</h>
+                                         <h ng-if="app.startH < 12">{{app.startH }} : 00  AM</h>
+                                         <h ng-if="app.startH == 12"> 12 : 00 PM</h>
+                                    </span>
+
+                            </div>
+                        </div>
+                        <div  class="row px-3 py-1 ">
+                                <div class="col-3">
+                                        <span class="py-2  d-block"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: center; ">تاريخ أنتهاء المزاد</span>
+                                </div>
+                                <div class="col-4">
+                                        <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">
+                                          {{app.endDate | cmdate:'yyyy-MM-dd'}}
+                                        </span>
+
+                                </div>
+                                <div class="col-1 mt-1">
+                                        <div class="text-center m-auto" style="width: 30px; height: 30px; background-color: #F67534; border-radius: 50%; ">
+                                                <img style="width: 19px; height: 19px;" class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/clock.png" alt="">
+                                                
+                                        </div>
+                                </div>
+                                <div class="col-4">
+                                        <span class="py-2  d-block"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 90%; margin: auto; text-align: center; background-color: #ffffff;direction: ltr;">
+                                         
+                                          <h ng-if="app.endH > 12">{{app.endH - 12}} : 00 PM</h>
+                                          <h ng-if="app.endH < 12">{{app.endH }} : 00  AM</h>
+                                          <h ng-if="app.endH == 12"> 12 : 00 PM</h>
+                                          <!-- {{app.endH}} -->
+                                        </span>
+
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- MONEY -->
+                    <div class="pb-4">
+                            <div class="row  text-center px-3">
+                                    <div class="col-5 ">
+                                            <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                                        
+                                                </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="text-center m-auto" style="width: 35px; height: 35px; background-color: #F67534; border-radius: 50%; ">
+                                            <img style="width: 23px;  height: 23px;" class="mt-1 ml-auto mr-auto text-center" src="http://157.230.25.241/SouqWebsite/images/money.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                            <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                                        
+                                            </div>
+                                    </div>
+                        </div>
+
+                        <div  class="row px-3 py-1 pt-2">
+                            <div class="col-6">
+                                    <span class="py-2  d-block fontar"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: right; padding-right: 15px; "> قيمة فتح المزاد</span>
+                            </div>
+                            <div class="col-6">
+                                    <span class="py-2  d-block fontar"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.startPrice}} ريال</span>
+                            </div>
+                            
+                        </div>
+                        <div  class="row px-3 py-1 pt-2">
+                                <div class="col-6">
+                                        <span class="py-2  d-block fontar"  style=" font-size: 0.8rem; border-radius: 5px;width: 100%; margin: auto; text-align: right;padding-right: 15px; "> أعلى سعر  حتى الأن</span>
+                                </div>
+                                <div class="col-6">
+                                        <span class="py-2  d-block fontar"  style=" font-size: 0.8rem; border: 0.5px solid #ddd; border-radius: 5px;width: 100%; margin: auto; text-align: center; background-color: #ffffff;">{{app.highestPrice}} ريال</span>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+</div>
+
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <form ng-if="userSubscribeObj.message == 2" ng-submit="subscribeAuction()" >      
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content pb-5">
+            <div style="border-bottom: none;" class="modal-header text-left mr-auto">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close mr-auto text-left" data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row  text-center px-3">
+                    <div class="col-3 ">
+                            <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                           
+                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center m-auto">
+                            <span class="fontar" style="color: #F67534; font-size: 20px; font-weight: bolder;">                           أدخل قيمة الأشتراك
+                                
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                            <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                           
+                            </div>
+                    </div>
+            </div>
+
+            <div class="row text-center py-5 px-5">
+                <p class="text-lead  px-5 fontar">سيتم خصم المبلغ تلقائيا من حسابك في حالة رصيان المزاد عليك</p>
+            </div>
+            <div class="row text-center px-5">
+                <p class="text-lead  px-5  center m-auto fontar">أدخل المبلغ الذى ترغب دخول المزاد به</p>
+            </div>
+            <div class="row text-center px-5 pt-3 ">
+                <div class="col-3">
+
+                </div>
+                <div class="col-6 text-center">
+                        <form  class="form-inline text-center">
+                            <div class="form-group mb-2  text-center">
+                                    <input style="border: 1px solid #ddd;" type="number" class="form-control m-auto text-center" id="subscriptionPrice" placeholder="قيمة الأشتراك ">
+
+                            </div>
+                                <!-- <button type="submit" class="btn btn-primary mb-2">Confirm identity</button> -->
+                        </form>
+
+                </div>
+                <div style="margin: 0 !important; padding: 0 !important;" class="col-3 ml-auto">
+                  <label style="color: #F67534;" class=" fontar ml-auto" for="subscriptionPrice" >     ريـال سعودى </label>
+
+                </div>
+
+            <div class="col-12">
+                    <button style="width: 70%; background-color: #F67534; border: none;" type="submit" class="btn btn-primary mb-2 text-center m-auto py-2">أشترك الان</button>
+
+            </div>
+               
+            </div>
+           
+          </div>
+        </div>
+    </form>
+
+    <form ng-if="userSubscribeObj.message == 1" ng-submit="editSubscribeAuction()" >      
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content pb-5">
+              <div style="border-bottom: none;" class="modal-header text-left mr-auto">
+                <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+                <button type="button" class="close mr-auto text-left" data-dismiss="modal" aria-label="Close">
+                      <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+                </button>
+              </div>
+  
+              <div class="row  text-center px-3">
+                      <div class="col-3 ">
+                              <div class="mt-3 text-right" style="border-bottom: 1px solid #F67534;">
+                             
+                              </div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-center m-auto">
+                              <span class="fontar" style="color: #F67534; font-size: 20px; font-weight: bolder;">                           أدخل قيمة الأشتراك
+                                  
+                              </span>
+                          </div>
+                      </div>
+                      <div class="col-3">
+                              <div class="mt-3 text-left" style="border-bottom: 1px solid #F67534;">
+                             
+                              </div>
+                      </div>
+              </div>
+  
+              <div class="row text-center py-5 px-5">
+                  <p class="text-lead  px-5 fontar">سيتم خصم المبلغ تلقائيا من حسابك في حالة رصيان المزاد عليك</p>
+              </div>
+              <div class="row text-center px-5">
+                  <p class="text-lead  px-5  center m-auto fontar">عدل المبلغ الذى ترغب دخول المزاد به</p>
+              </div>
+              <div class="row text-center px-5 pt-3 ">
+                  <div class="col-3">
+  
+                  </div>
+                  <div class="col-6 text-center">
+                          <form  class="form-inline text-center">
+                              <div class="form-group mb-2  text-center">
+                                      <input style="border: 1px solid #ddd;" type="number" value="{{userSubscribeObj.record}}" class="form-control m-auto text-center" id="subscriptionPriceEdit" placeholder="قيمة الأشتراك ">
+  
+                              </div>
+                                  <!-- <button type="submit" class="btn btn-primary mb-2">Confirm identity</button> -->
+                          </form>
+  
+                  </div>
+                  <div style="margin: 0 !important; padding: 0 !important;" class="col-3 ml-auto">
+                    <label style="color: #F67534;" class=" fontar ml-auto" for="subscriptionPrice" >     ريـال سعودى </label>
+  
+                  </div>
+  
+              <div class="col-12">
+                      <button style="width: 70%; background-color: #F67534; border: none;" type="submit" class="btn btn-primary mb-2 text-center m-auto py-2 fontar">عدل الاشتراك</button>
+  
+              </div>
+                 
+              </div>
+             
+            </div>
+          </div>
+    </form>
+</div>
+
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter2Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm  " role="document">
+          <div class="modal-content shadow-sm pb-4">
+            <div style="border-bottom: none;" class="modal-header pt-3 pb-0">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close ml-auto " data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row  text-center px-3 pb-2">
+                    <div class="col-5 ">
+                            <div class="mt-3 text-right" style="border-bottom: 1px solid #000;">
+                           
+                                </div>
+                    </div>
+                    <div class="col-2 text-center">
+                        <div class="text-center m-auto">
+                            <span style="color: #000; font-size: 20px; font-weight: bold;">     
+                               <img src="http://157.230.25.241/SouqWebsite/images/star.png" alt="">                    
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                            <div class="mt-3 text-left" style="border-bottom: 1px solid #000;">
+                           
+                            </div>
+                    </div>
+            </div>
+
+            <div class="row text-center pb-3 px-5">
+                <p class="text-lead font-weight-light fontar">ههذا التطبيق يتطلب مبلغ تأمين لدخول المزاد أولا
+                    ويتم استرداده هذا في نهاية المزاد أو يخصم من مبلغ التطبيق أذا رسي المزاد عليك
+                    
+                </p>
+            </div>
+            <div class="row text-center px-5">
+                <p  class="text-lead   center m-auto fontar ">و في حالة الانسحاب من المزاد يتم خصم مبلغ التأمين كغرامة</p>
+            </div>
+            <div class="row text-center pt-5">
+                    <p class="text-lead   center m-auto font-weight-bold fontar" style="color: #000 !important; font-size: 14px;">قيمة مبلغ التأمين </p>
+             
+           
+            
+            </div>
+            <div class="row text-center">
+                  
+                 <span style="background-color: #ddd; border-radius: 5px;"  class="d-block w-25 mr-auto text-center py-2  ">{{app.insurance}}</span> 
+                 <span   class="d-block w-25 ml-auto text-right py-2 px-2 fontar">ريال سعودى</span> 
+            </div>
+          
+            <!-- <div class="modal-body">
+              
+            </div> -->
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+          </div>
+        </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div style="max-width: 300px;" class="modal-dialog modal-dialog-centered modal-sm  " role="document">
+          <div class="modal-content shadow-sm pb-4">
+            <div style="border-bottom: none;" class="modal-header pt-3 pb-0 mr-auto">
+              <!-- <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5> -->
+              <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                    <img style="width: 25px; height: 25px;" src="http://157.230.25.241/SouqWebsite/images/cancel.png" alt="">
+              </button>
+            </div>
+
+            <div class="row text-center">
+                    <span style="background-color: #fff; border-radius: 5px; width: 80%; color: #F67534;"  class="d-block m-auto text-center pb-2 font-weight-bold">subscribers names </span> 
+            </div>
+          
+            <div style="max-height: 250px ; overflow-y: scroll; overflow-x: hidden;" class="row text-center mx-0">
+                 <span  ng-repeat="subscriper in auctioSubscripers"  style="background-color: #fff; border-radius: 5px; width: 80%; border: 1px solid #ddd; margin-top: 10px !important;"  class="d-block m-auto text-center py-2">{{subscriper.userID.fullname}} </span> 
+            </div>
+          </div>
+        </div>
+</div>
+
+</div>

@@ -1,0 +1,791 @@
+<html lang="en" ng-app="RequestModule">
+
+<head>
+
+  
+  
+
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+
+
+
+  <title>Mazad Admin</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+
+  <link rel="stylesheet" href="../css/style.css">
+
+
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+
+
+  <script src="../generaljs/mazadAdmin.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=El+Messiri');
+    @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+.loading-panel-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loading-panel {
+    display: table;
+    width: 200px;
+    height: 80px;
+    padding: 0px 30px;
+    
+    background-color: #ddd;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 2px 0px 0px rgba(238,238,238,1), 0px 1px 1px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: inset 0px 2px 0px 0px rgba(238,238,238,1), 0px 1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0px 2px 0px 0px rgba(238,238,238,1), 0px 1px 1px rgba(0, 0, 0, 0.4);
+    
+    animation: 2s bounce ease infinite;
+    
+}
+
+.loading-panel span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.loading-panel h3 {    
+    color: #666;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+.shadow {
+    position: absolute;
+    width: 175px;
+    height: 20px;
+    bottom: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+    background-color: #464646;
+    opacity: 0.2;
+    
+    transform-origin: -50% -50%;
+    animation: 2s pulsate ease infinite;
+    
+    z-index: -1;
+}
+
+@keyframes bounce {  
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        transform: scale(0.5);
+        opacity: 0.2;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+}
+    @media (min-width:320px) {
+      .menuPc {
+        display: none;
+      }
+
+      .mobTblorderPending {
+        display: block
+      }
+
+      .topnav {
+        display: block;
+      }
+
+      .pcTblAboutApp {
+        display: none;
+      }
+
+      .mobTblAboutApp {
+        display: block;
+      }
+
+      .pcTblorderPending {
+        display: none;
+      }
+    }
+
+    @media (min-width:481px) {
+
+      /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+      .menuPc {
+        display: none;
+      }
+
+      .mobTblorderPending {
+        display: block
+      }
+
+      .topnav {
+        display: block;
+      }
+
+      .pcTblAboutApp {
+        display: none;
+      }
+
+      .mobTblAboutApp {
+        display: block;
+      }
+
+      .pcTblorderPending {
+        display: none;
+      }
+    }
+
+    @media (min-width:641px) {
+
+      /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+      .menuPc {
+        display: none;
+      }
+
+      .mobTblorderPending {
+        display: block
+      }
+
+      .topnav {
+        display: block;
+      }
+
+      .pcTblAboutApp {
+        display: none;
+      }
+
+      .mobTblAboutApp {
+        display: block;
+      }
+
+      .pcTblorderPending {
+        display: none;
+      }
+    }
+
+    @media (min-width:961px) {
+
+      /* tablet, landscape iPad, lo-res laptops ands desktops */
+      .menuPc {
+        display: none;
+      }
+
+      .mobTblorderPending {
+        display: block
+      }
+
+      .topnav {
+        display: block;
+      }
+
+      .pcTblAboutApp {
+        display: none;
+      }
+
+      .pcTblorderPending {
+        display: none;
+      }
+
+      .mobTblAboutApp {
+        display: block;
+      }
+    }
+
+    @media (min-width:1025px) {
+
+      /* big landscape tablets, laptops, and desktops */
+      .menuPc {
+        display: block;
+      }
+
+      .pcTblAboutApp {
+        display: block;
+      }
+
+      .mobTblorderPending {
+        display: none
+      }
+
+      .pcTblorderPending {
+        display: block;
+      }
+
+      .topnav {
+        display: none;
+      }
+
+      .mobTblAboutApp {
+        display: none;
+      }
+
+    }
+
+    @media (min-width:1281px) {
+      .menuPc {
+        display: block;
+      }
+
+      .mobTblorderPending {
+        display: none
+      }
+
+      .topnav {
+        display: none;
+      }
+
+      .pcTblAboutApp {
+        display: block;
+      }
+
+      .mobTblAboutApp {
+        display: none;
+      }
+
+      .pcTblorderPending {
+        display: block;
+      }
+
+      .chat-wrapper {
+        width: 100%;
+      }
+
+      .chat-wrapper:before {
+        content: " ";
+        display: block;
+      }
+
+      .chat-wrapper .chat-content {
+        background-color: #fff;
+      }
+
+      .chat-wrapper .chat-image {
+        float: left;
+        border-style: solid;
+        border-color: #484545;
+        border-width: 1;
+        background: white;
+
+      }
+
+      .chat-wrapper .chat-image.chat-image-default {
+        width: 60px;
+        height: 60px;
+      }
+
+      .chat-wrapper .chat-message {
+        margin-bottom: 20px;
+        width: 100%;
+        display: table;
+        overflow: hidden;
+      }
+
+      .chat-wrapper .chat-message:before {
+        content: " ";
+        display: block;
+      }
+
+      .chat-wrapper .chat-message:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .chat-wrapper .chat-message .chat-message-wrapper {
+        max-width: 70%;
+        display: table;
+        margin: 0 20px;
+        padding-top: 10px;
+        position: relative;
+      }
+
+      .chat-wrapper .chat-message .chat-message-wrapper:before {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border: 12px solid transparent;
+        top: 20px;
+        position: absolute;
+        z-index: 2;
+      }
+
+      .chat-wrapper .chat-message .chat-message-wrapper p {
+        padding: 10px 20px;
+        color: #fff;
+        border-top: 1px solid;
+      }
+
+      .chat-wrapper .chat-message .chat-message-wrapper p:first-of-type {
+        border-top: 0 !important;
+      }
+
+      .chat-wrapper .chat-message.chat-message-recipient .chat-message-wrapper,
+      .chat-wrapper .chat-message.chat-message-recipient .chat-message-content {
+        float: left;
+      }
+
+      .chat-wrapper .chat-message.chat-message-recipient .chat-message-wrapper:before {
+        left: -20px;
+        /* border-right-color: #91D98A; */
+      }
+
+      .chat-wrapper .chat-message.chat-message-recipient p {
+        background: #cdcdcd;
+        border-top-color: #cdcdcd;
+        color: #8d8d8f;
+      }
+
+      .chat-wrapper .chat-message.chat-message-sender .chat-message-wrapper,
+      .chat-wrapper .chat-message.chat-message-sender .chat-message-content {
+        float: right;
+      }
+
+      .chat-wrapper .chat-message.chat-message-sender .chat-message-wrapper:before {
+        right: -20px;
+        /* border-left-color: #8AC0D9; */
+      }
+
+      .chat-wrapper .chat-message.chat-message-sender p {
+        /* background: #cdcdcd;
+          border-top-color: #cdcdcd; */
+        background: #e2e2e2;
+        border-top-color: #cdcdcd;
+
+        color: #8d8d8f;
+
+      }
+
+      .chat-wrapper .chat-message.chat-message-sender img {
+        float: right;
+      }
+
+      .chat-wrapper .chat-message .chat-message-content {
+        display: table;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+
+      .chat-wrapper .chat-message .chat-message-content:before {
+        content: " ";
+        display: block;
+      }
+
+      .chat-wrapper .chat-message .chat-details {
+        clear: both;
+        width: 100px;
+        display: table;
+        overflow: hidden;
+      }
+
+      .chat-wrapper .chat-message .chat-details:before {
+        content: " ";
+        display: block;
+      }
+
+      .chat-wrapper .chat-message .chat-details span {
+        margin-right: 4px;
+        color: #bbb;
+      }
+
+      #chatimg {
+        width: 19vh;
+        position: relative;
+        top: 8vh;
+        right: 10vh;
+
+      }
+
+
+      .asddsa {
+        width: 100%;
+      }
+
+      .slidehome {
+        height: 100vh;
+      }
+
+      .titleSlider {
+        font-size: 4vh;
+      }
+
+      .bodySlider {
+        font-size: 3vh;
+      }
+
+      #heading-slideingD {
+        height: 100vh;
+      }
+
+      .starting-text {
+        min-height: 25vh;
+      }
+    }
+
+    
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapperar {
+    display: flex;
+    min-height: 90vh;
+   
+}
+
+.wrapperar #sidebar {
+    width: 250px;
+    position: fixed;
+    top: 67px;
+    left: 0;
+    min-height: 100vh;
+    z-index: 999;
+    background: #262626;
+    color: #fff;
+    transition: all 0.3s;
+    position: fixed;
+    text-align: left;
+   
+    
+}
+
+.wrapperar #sidebar.active {
+    margin-left: -250px;
+}
+
+.wrapperar #sidebar .sidebar-header {
+    padding: 20px;
+    background: #262626;
+}
+
+.wrapperar #sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+}
+.wrapperar #sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+.wrapperar #sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.wrapperar #sidebar ul li a:hover {
+    color: #000000;
+    background: #fff;
+}
+
+.wrapperar #sidebar ul li.active>a,
+.wrapperar a[aria-expanded="true"] {
+    color: #fff;
+    background: #000000;
+}
+
+
+
+.wrapperar #sidebarar {
+    width: 250px;
+    position: fixed;
+    top: 67px;
+    right: 0;
+    min-height: 100vh !important;
+    z-index: 999;
+    background: #262626;
+    color: #fff;
+    transition: all 0.3s;
+    position: fixed;
+
+    direction: rtl;
+    text-align: right;
+    /* display: none; */
+ 
+   
+}
+.wrapperar #sidebarar.active {
+   
+}
+
+.wrapperar #sidebarar .sidebar-header {
+    padding: 20px;
+    background: #262626;
+}
+
+.wrapperar #sidebarar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #fff;
+}
+.wrapperar #sidebarar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+.wrapperar #sidebarar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.wrapperar #sidebarar ul li a:hover {
+    color: #000000;
+    background: #fff;
+}
+
+.wrapperar #sidebarar ul li.active>a,
+.wrapperar a[aria-expanded="true"] {
+    color: #fff;
+    background: #000000;
+}
+
+.activeSidebarar {
+    /* display: block !important; */
+    margin-right: 0px !important;
+    
+}
+.activeSidebaren {
+    margin-left: 0px !important;
+}
+
+.activeLoginen {
+    margin-right: 0px !important;
+}
+.activeLoginar {
+    margin-left: 0px !important;
+}
+
+
+.selectRequestOption{
+    color: #707070;
+    cursor: pointer !important;
+}
+.selectRequestOptionSelected{
+    color: #000;
+    border: 1px solid #000 !important;
+}
+  </style>
+</head>
+
+<body ng-controller="homeCtrl" style="background-color: #f8f9fa">
+  <aside class="side-nav" id="show-side-navigation1" style="background-color:#787878;    border-left: solid;">
+    <!-- <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i> -->
+    <div class="heading" style="background-color: #fff">
+      <a href="Defualt"><img class="logo" src="../images/mazad.png" style="width: 90px; height: 90px;"></a>
+      <div class="info" style="width: unset;">
+        <h3 style="font-family: 'El Messiri', cursive; padding-top: 15px; color: #000;">{{mazadAdmin.fullname}}<a href=""></a></h3>
+        <hr>
+      </div>
+    </div>
+    <div class="search">
+      <a href="index.html"
+        style="font-family: 'Baloo Bhaijaan', cursive;color:#000;font-size:x-large;text-decoration:none;float:right;">الرئيسيــة</a>
+    </div>
+    <div class="wrapperar">
+
+        <nav id="sidebarar">
+          <!-- <div class="sidebar-header">
+            <i style="cursor: pointer;" ng-click="changeCoverItems('sidebarCollapsear')" class="fas fa-sliders-h fa-2x"></i>
+  
+          </div> -->
+  
+          <ul class="list-unstyled components slideNav">
+            <li id="apps" class="nav-item">
+              <a href="/apps">
+                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                    التطبيقات
+              </a>
+            </li>
+            <li id="addApp" class="nav-item">
+                <a href="/addApp">
+                  <i class="fas fa-mobile"></i>
+                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  أضافة تطبيق 
+                </a>
+              </li>
+          <li id="users" class="nav-item">
+            <a href="/users">
+              <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+              المستخدمين
+            </a>
+          </li>
+        
+  
+         
+            <li id="categories" class="nav-item">
+                <a href="/categories">
+                  <i class="fas fa-database"></i>
+                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  الفئات  
+                </a>
+            </li>
+            <li id="contactUs" class="nav-item">
+                <a href="/contactUs">
+                  <i class="fas fa-comments"></i>                  
+                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  تواصل معنا   
+                </a>
+            </li>
+            <li id="terms" class="nav-item">
+                <a href="/terms">
+                  <i class="fas fa-trademark"></i>
+                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  الشروط و الاحكام    
+                </a>
+            </li>
+            <li id="about" class="nav-item">
+                <a href="/about">
+                  <i class="fas fa-atlas"></i>                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  عن مـزاد
+                </a>
+            </li>
+
+            <li id="ads" class="nav-item">
+                <a href="/ads">
+                  <i class="fab fa-adversal"></i>
+                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  الاعلانات
+                </a>
+            </li>
+           
+            <li id="addNotification" class="nav-item">
+                <a href="/addNotification">
+                  <i class="fas fa-bell"></i>                 
+                  <!-- <i class="fa fa-user fa-fw" aria-hidden="true"></i> -->
+                  الإشـعارات
+                </a>
+            </li>
+           
+                
+         
+          </ul>
+  
+  
+        </nav>
+      </div>
+   
+  </aside>
+  <section id="contents">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              حسـابى الشخصى
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               
+              
+              <a  class="dropdown-item" href="/editAdmin"><i class="fa fa-user-o fw"></i> تعديل </a>
+              <div class="dropdown-divider"></div>
+
+              <a  class="dropdown-item" href="" ng-click="logOutFun()"><i class="fa fa-sign-out"></i> تسجيل الخروج </a>
+              
+            </div>
+          </li>
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a class="navbar-brand ml-auto" href="Defualt"><span class="main-color"
+              style="font-family: 'Baloo Bhaijaan';font-size:24px;font-weight:bold;color: #F67534;">لوحة
+              التحكـــم</span></a>
+          
+        </form>
+      </div>
+    </nav>
+    <section class="main clearfix">
+    </section>
+
+    <div class="welcome" style="text-align: right;direction:rtl">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="content" style="background: #211e1f;">
+              <h2 style="float: left;"><a href="" ng-click="printToCart()"><i class="glyphicon glyphicon-print"></i></a>
+
+                <h2 style="font-family: 'El Messiri', sans-serif;">مرحبـــا <span
+                    style="font-family: 'Baloo Bhaijaan';color: #F67534;">Mazad</span> لوحة الادارة</h2>
+              </h2>
+              <p></p>
+            </div>
+            <h4 style="font-family:'Cairo';color:#000;padding:1vw; margin-left:1vw;direction:rtl;font-weight:bold">
+              &nbsp;&nbsp;<span style="font-family: 'Baloo Bhaijaan';color:#000;font-weight:bold"> بحـــث
+              </span><input type="text" style="width:15vw;border-radius:5%;margin-bottom:auto;border-radius: 10px;"
+                placeholder="" ng-model="searchText" data-role="none" />
+            </h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="statistics">
+
+    </section>
+    <section class="chrt3">
+      <ng-view id="ngView">
+
+      </ng-view>
+
+    </section>
+  </section>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- <script src='js/main.js'></script> -->
+</body>
+
+</html>

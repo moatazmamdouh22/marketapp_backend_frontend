@@ -1,0 +1,359 @@
+
+
+<a style="text-decoration: none !important;" href="/addApp">
+
+    <p style="font-family: 'Baloo Bhaijaan';font-size:24px;font-weight:bold;text-align:center;color:#000">اضف تطبيق 
+            &nbsp;<i class="fa fa-plus" aria-hidden="true"></i><span class="glyphicon glyphicon-plus-sign" style="margin-left: 10px;vertical-align: text-top;"></span>
+          </p>
+
+</a>
+<ul style="direction: rtl;" class="nav nav-tabs text-center m-auto" id="myTab" role="tablist">
+    <li class="nav-item m-auto text-center">
+      <a class=" nav-link-tab nav-link active" id="tab-1" ng-click="selectNav(1)" data-toggle="tab" href="" role="tab" aria-controls="home" aria-selected="true">
+        الكل
+
+      </a>
+    </li>
+    <li class="nav-item m-auto text-center">
+      <a class=" nav-link-tab nav-link" id="tab-2" ng-click="selectNav(2)"  data-toggle="tab" href="" role="tab" aria-controls="profile" aria-selected="false">المقبولة </a>
+    </li>
+    <li class="nav-item m-auto text-center">
+      <a class= " nav-link-tab nav-link" id="tab-3" ng-click="selectNav(3)" data-toggle="tab" href="" role="tab" aria-controls="contact" aria-selected="false">المرفوضة </a>
+    </li>
+    <li class="nav-item m-auto text-center">
+            <a class= " nav-link-tab nav-link" id="tab-4" ng-click="selectNav(4)" data-toggle="tab" href="" role="tab" aria-controls="contact" aria-selected="false">المنتهية  </a>
+          </li>
+</ul>
+<div class="tab-content " id="myTabContent">
+<div class="tab-pane fade show active" id="tab-1-div" role="tabpanel" aria-labelledby="home-tab">
+
+        
+<div style="background-color: #fff;" class="col-lg-12 col-md-12 col-xs-12" >
+    
+<div  style="width: 100%; overflow-x: scroll;">
+        <table style="border: 1px solid #000; direction: rtl; " class="table table-bordered table-hover  text-center">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">#</th>
+                    <!-- <th scope="col">الصورة  </th> -->
+
+                    <th scope="col">أسم التطبيق  </th>
+                    <th scope="col">الجوال  </th>
+                    <th scope="col">اضيف بواسطة  </th>
+                    <th scope="col">تاريخ البداية   </th>
+                    <th scope="col">تاريخ النهاية   </th>
+                    <th scope="col"> الوصـف     </th>
+                    <th scope="col">الشعار    </th>
+                    <th scope="col">التفاصيل  </th>
+                    <th scope="col">التعديل   </th>
+
+                  
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-class="{'table-success': c.status == 2  , 'table-danger': c.status == 3 }" dir-paginate="c in apps |filter:searchText |itemsPerPage:20">
+                    <th scope="row">{{$index+1}}</th>
+                    <!-- <td>
+                        <img style="width: 70px; height: 70px; border-radius: 50%;" src="{{c.personalImg}}" alt="">
+                    </td> -->
+                    <td>{{c.appName}}</td>
+                    <td>{{c.mobile}}</td>
+                    <td>
+                        <span ng-if="c.addedBy == 1">
+                                {{c.userID.fullname}}
+                        </span>
+                        <span ng-if="c.addedBy == 2">
+                                "Admin"
+                        </span>
+                    </td>
+                    <td>{{c.startDate | cmdate:'yyyy-MM-dd' }}</td>
+                    <td>{{c.endDate | cmdate:'yyyy-MM-dd' }}</td>
+                    <td>{{c.description}}</td>
+                    <td>
+                        <img  style="width: 50px; height: 50px;" src="{{c.img1}}"/>
+                    </td>
+                    <td><a href="appDetails/{{c._id}}"><span class="fa fa-info-circle" style="color:#666363"></span></a></td>
+                    <td><a href="editApp/{{c._id}}"><i class="fas fa-edit" style="color:#666363"></i></a></td>
+
+
+
+                    </tr>
+                    
+                </tbody>
+
+                
+                </table>
+             
+</div>
+<div class="clearfix">
+
+</div>
+
+
+    
+</div>
+
+
+<div style="width: 100%;" class="row">
+        <dir-pagination-controls max-size="8"
+        direction-links="true"
+        boundary-links="true">
+        </dir-pagination-controls>
+</div>
+
+
+</div>
+<div class="tab-pane fade" id="tab-2-div" role="tabpanel" aria-labelledby="profile-tab">
+
+        <div style="background-color: #fff;" class="col-lg-12 col-md-12 col-xs-12" >
+
+    
+                <div  style="width: 100%; overflow-x: scroll;">
+                        <table style="border: 1px solid #000; direction: rtl; " class="table table-bordered table-hover  text-center">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <!-- <th scope="col">الصورة  </th> -->
+                
+                                    <th scope="col">أسم التطبيق  </th>
+                                    <th scope="col">الجوال  </th>
+                                    <th scope="col">اضيف بواسطة  </th>
+                                    <th scope="col">تاريخ البداية   </th>
+                                    <th scope="col">تاريخ النهاية   </th>
+                                    <th scope="col"> الوصـف     </th>
+                                    <th scope="col"> اشتراك       </th>
+                                    <th scope="col"> المشتركيين       </th>
+
+
+                                    <th scope="col">الشعار     </th>
+                                    <th scope="col">التفاصيل  </th>
+                                    <th scope="col">التعديل   </th>
+                
+                                  
+                
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-class="{'table-success': c.status == 2  , 'table-danger': c.status == 3 }" dir-paginate="c in apps |filter:searchText |itemsPerPage:20">
+                                    <th scope="row">{{$index+1}}</th>
+                                    <!-- <td>
+                                        <img style="width: 70px; height: 70px; border-radius: 50%;" src="{{c.personalImg}}" alt="">
+                                    </td> -->
+                                    <td>{{c.appName}}</td>
+                                    <td>{{c.mobile}}</td>
+                                    <td>
+                                        <span ng-if="c.addedBy == 1">
+                                                {{c.userID.fullname}}
+                                        </span>
+                                        <span ng-if="c.addedBy == 2">
+                                                "Admin"
+                                        </span>
+                                    </td>
+                                    <td>{{c.startDate | cmdate:'yyyy-MM-dd' }}</td>
+                                    <td>{{c.endDate | cmdate:'yyyy-MM-dd' }}</td>
+                                    <td>{{c.description}}</td>
+                                    <td><a href="appSubscription/{{c._id}}"><i class="fas fa-clone" style="color:#666363"></i></a></td>
+                                    <td><a href="appSubscriptionUsers/{{c._id}}"><i class="fa fa-user fa-fw" style="color:#666363"></i></a></td>
+
+                                    <td>
+                                        <img  style="width: 50px; height: 50px;" src="{{c.img1}}"/>
+                                    </td>
+                                    <td><a href="appDetails/{{c._id}}"><span class="fa fa-info-circle" style="color:#666363"></span></a></td>
+                                    <td><a href="editApp/{{c._id}}"><i class="fas fa-edit" style="color:#666363"></i></a></td>
+                
+                
+                
+                                    </tr>
+                                    
+                                </tbody>
+                                </table>
+                                
+                
+                
+                </div>
+                <div class="clearfix">
+                
+                </div>
+                
+                <div style="width: 100%;" class="row">
+                    <dir-pagination-controls max-size="8"
+                    direction-links="true"
+                    boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+                    
+                </div>
+                
+
+</div>
+<div class="tab-pane fade" id="tab-3-div" role="tabpanel" aria-labelledby="contact-tab"> 
+
+        <div style="background-color: #fff;" class="col-lg-12 col-md-12 col-xs-12" >
+
+    
+                <div  style="width: 100%; overflow-x: scroll;">
+                        <table style="border: 1px solid #000; direction: rtl; " class="table table-bordered table-hover  text-center">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <!-- <th scope="col">الصورة  </th> -->
+                
+                                    <th scope="col">أسم التطبيق  </th>
+                                    <th scope="col">الجوال  </th>
+                                    <th scope="col">اضيف بواسطة  </th>
+                                    <th scope="col">تاريخ البداية   </th>
+                                    <th scope="col">تاريخ النهاية   </th>
+                                    <th scope="col"> الوصـف     </th>
+                
+                                    <th scope="col">الشعار    </th>
+                                    <th scope="col">التفاصيل  </th>
+                                    <th scope="col">التعديل   </th>
+                
+                                  
+                
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-class="{'table-success': c.status == 2  , 'table-danger': c.status == 3 }" dir-paginate="c in apps |filter:searchText |itemsPerPage:20">
+                                    <th scope="row">{{$index+1}}</th>
+                                    <!-- <td>
+                                        <img style="width: 70px; height: 70px; border-radius: 50%;" src="{{c.personalImg}}" alt="">
+                                    </td> -->
+                                    <td>{{c.appName}}</td>
+                                    <td>{{c.mobile}}</td>
+                                    <td>
+                                        <span ng-if="c.addedBy == 1">
+                                                {{c.userID.fullname}}
+                                        </span>
+                                        <span ng-if="c.addedBy == 2">
+                                                "Admin"
+                                        </span>
+                                    </td>
+                                    <td>{{c.startDate | cmdate:'yyyy-MM-dd' }}</td>
+                                    <td>{{c.endDate | cmdate:'yyyy-MM-dd' }}</td>
+                                    <td>{{c.description}}</td>
+                                    <td>
+                                        <img  style="width: 50px; height: 50px;" src="{{c.img1}}"/>
+                                    </td>
+                                    <td><a href="appDetails/{{c._id}}"><span class="fa fa-info-circle" style="color:#666363"></span></a></td>
+                                    <td><a href="editApp/{{c._id}}"><i class="fas fa-edit" style="color:#666363"></i></a></td>
+                
+                
+                
+                                    </tr>
+                                    
+                                </tbody>
+                                </table>
+                                
+                
+                
+                </div>
+                <div class="clearfix">
+                
+                </div>
+                
+                <div style="width: 100%;" class="row">
+                    <dir-pagination-controls max-size="8"
+                    direction-links="true"
+                    boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+                    
+                </div>
+                
+
+</div>
+
+
+
+<div class="tab-pane fade" id="tab-4-div" role="tabpanel" aria-labelledby="profile1-tab">
+
+        <div style="background-color: #fff;" class="col-lg-12 col-md-12 col-xs-12" >
+
+    
+                <div  style="width: 100%; overflow-x: scroll;">
+                        <table style="border: 1px solid #000; direction: rtl; " class="table table-bordered table-hover  text-center">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <!-- <th scope="col">الصورة  </th> -->
+                
+                                    <th scope="col">أسم التطبيق  </th>
+                                    <th scope="col">الجوال  </th>
+                                    <th scope="col">اضيف بواسطة  </th>
+                                    <th scope="col">تاريخ البداية   </th>
+                                    <th scope="col">تاريخ النهاية   </th>
+                                    <th scope="col"> الوصـف     </th>
+                                    <th scope="col"> اشتراك       </th>
+                                    <th scope="col"> المشتركيين       </th>
+
+
+                                    <th scope="col">الشعار     </th>
+                                    <th scope="col">التفاصيل  </th>
+                                    <th scope="col">التعديل   </th>
+                
+                                  
+                
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-show="c.status == 4" ng-class="{'table-success': c.status == 2  , 'table-danger': c.status == 3 }"  dir-paginate="c in apps |filter:searchText |itemsPerPage:20">
+                                    <th scope="row">{{$index+1}}</th>
+                                    <!-- <td>
+                                        <img style="width: 70px; height: 70px; border-radius: 50%;" src="{{c.personalImg}}" alt="">
+                                    </td> -->
+                                    <td>{{c.appName}}</td>
+                                    <td>{{c.mobile}}</td>
+                                    <td>
+                                        <span ng-if="c.addedBy == 1">
+                                                {{c.userID.fullname}}
+                                        </span>
+                                        <span ng-if="c.addedBy == 2">
+                                                "Admin"
+                                        </span>
+                                    </td>
+                                    <td>{{c.startDate | cmdate:'yyyy-MM-dd' }}</td>
+                                    <td>{{c.endDate | cmdate:'yyyy-MM-dd' }}</td>
+                                    <td>{{c.description}}</td>
+                                    <td><a href="appSubscription/{{c._id}}"><i class="fas fa-clone" style="color:#666363"></i></a></td>
+                                    <td><a href="appSubscriptionUsers/{{c._id}}"><i class="fa fa-user fa-fw" style="color:#666363"></i></a></td>
+
+                                    <td>
+                                        <img  style="width: 50px; height: 50px;" src="{{c.img1}}"/>
+                                    </td>
+                                    <td><a href="appDetails/{{c._id}}"><span class="fa fa-info-circle" style="color:#666363"></span></a></td>
+                                    <td><a href="editApp/{{c._id}}"><i class="fas fa-edit" style="color:#666363"></i></a></td>
+                
+                
+                
+                                    </tr>
+                                    
+                                </tbody>
+                                </table>
+                                
+                
+                
+                </div>
+                <div class="clearfix">
+                
+                </div>
+                
+                <div style="width: 100%;" class="row">
+                    <dir-pagination-controls max-size="8"
+                    direction-links="true"
+                    boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+                    
+                </div>
+                
+
+</div>
+</div>  
+
+

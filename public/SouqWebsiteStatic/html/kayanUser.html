@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en" ng-app="souqUser">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="images/icon-.png">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+    integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+  <!-- Modified  Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
+  <!-- Modified  CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script src="../generaljs/angular.min.js"></script>
+  <script src="../generaljs/dirPagination.js"></script>
+  <script src="../generaljs/angular-cookies.min.js"></script>
+  <script src="../generaljs/angular-route.min.js"></script>
+
+
+  <script src="../generaljs/SouqUser.js"></script>
+  <!-- <script src="../generaljs/alertify.min.js"></script> -->
+
+
+  <title> Souq</title>
+
+  
+</head>
+
+<body ng-controller="HomeCtrl" style="overflow-x: hiddden; position: relative;">
+<!-- <div style="position: absolute;  top: 0; left: 0; width: 100%; height: 100%; background-color: #fff; z-index: 999; background-color:rgba(0,0,0,0.5);">
+  <div style="width: 50%; height: 250px; margin: auto; background-color: #fff; margin-top: 200px;">
+      <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+
+         
+          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+            
+              <strong class="mr-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+              <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="toast-body">
+              Hello, world! This is a toast message.
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+   -->
+
+  <!-- Strat Main Nav-->
+  <nav ng-if="!souqLang || souqLang == 'en'" class="navbar  fixed-top navbar-expand-lg  navbar-light bg-light">
+    <a class="ml-lg-5 mr-5" class="navbar-brand"  href="#">
+      <img src="../images/logo-.png" height="57" alt="Kayan">
+
+
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form style="position: relative;" class="form-inline my-2 my-lg-0 mr-auto">
+        <input style="width: 345px; padding-right: 22px !important; border-radius: 0; background-color: #F2F3F5;"
+          class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <i style="position: absolute; right: 15px; color: #343C53;" class="fas fa-search"></i>
+
+      </form>
+      <ul class="navbar-nav ml-auto mr-lg-5">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; position: relative;">
+              <i style="width: 37px; height: 37px; color: #000" class="far fa-bell fa-2x">
+
+              </i>
+              <span
+                style="width: 20px;height: 20px;  position: absolute;right: -5px; top: -10px; border-radius: 50%; background-color: #FF4B4B; color: #fff; font-size: 10px;">
+                1
+              </span>
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a ng-click="changeLang('ar')" class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; background-color: #C8972C; color: #343434">
+              AR
+            </span>
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a ng-if="souqUser && souqUser._id" ng-click="logOut()" class="nav-link" href="#">
+
+            <img style="height: 37px; width: 37px;" src="../images/logout-.png" />
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- on sm & xs sceens only-->
+    <div style="display: block" class="ml-auto  d-xs-block d-md-none">
+      <ul class="navbar-nav ml-auto mr-lg-5">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; position: relative;">
+              <i style="width: 37px; height: 37px; color: #000" class="far fa-bell fa-2x">
+
+              </i>
+              <span
+                style="width: 20px;height: 20px;  position: absolute;right: -5px; top: -10px; border-radius: 50%; background-color: #FF4B4B; color: #fff; font-size: 10px;">
+                1
+              </span>
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a  ng-click="changeLang('ar')"  class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; background-color: #C8972C; color: #343434">
+              AR
+            </span>
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          
+          <a ng-if="souqUser && souqUser._id" ng-click="logOut()" class="nav-link" href="#">
+
+            <img style="height: 37px; width: 37px;" src="../images/logout-.png" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <i ng-if="souqUser && souqUser._id" ng-click="changeCoverItems('sidebarCollapseen')" style="cursor: pointer; position: absolute; left: 10px !important; top: 70px !important; color: #fff; padding: 10px; background-color: #262626;"id="sidebarCollapseOuten" class="fas fa-sliders-h fa-2x"></i>
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <i style="cursor: pointer;" ng-click="changeCoverItems('sidebarCollapseen')" class="fas fa-sliders-h fa-2x"></i>
+  
+        </div>
+  
+        <ul class="list-unstyled components slideNav">
+          <li id="Home" class="nav-item active">
+          <a href="/Home">
+            <i class="far fa-user fa-lg pr-2"></i>
+            Home
+          </a>
+          </li>
+          <li id="addCar" class="nav-item ">
+            <a href="/addCar">
+              <i class="far fa-user fa-lg pr-2"></i>
+              Add Car
+            </a>
+          </li>
+          <li  id="profile" class="nav-item ">
+            <a href="/profile">
+              <i class="far fa-user fa-lg pr-2"></i>
+              Profile
+            </a>
+          </li>
+  
+          <li id="myCars" class="nav-item ">
+            <a href="/myCars">
+  
+              <i class="fas fa-car fa-lg pr-2"></i>
+              My Cars
+            </a>
+          </li>
+          <li id="myCarsRequests" class="nav-item ">
+  
+            <a href="/myCarsRequests">
+              <i class="fas fa-file fa-lg pr-2"></i>
+              Requests</a>
+          </li>
+          <li id="myRequests" class="nav-item ">
+  
+            <a href="/myRequests">
+              <i class="fas fa-file fa-lg pr-2"></i>
+              My Requests</a>
+          </li>
+  
+          <li id="invoicesDue" class="nav-item ">
+            <a href="/invoicesDue">
+              <i class="fas fa-file-invoice-dollar fa-lg pr-2"></i>
+              Invoices Due</a>
+          </li>
+          <li id="contactUs" class="nav-item ">
+            <a href="/contactUs">
+              <i class="far fa-comments fa-lg pr-2"></i>
+  
+              Contact Us</a>
+          </li>
+          <li class="nav-item ">
+            <a href="#">
+              <i class="fas fa-file-alt fa-lg pr-2"></i>
+              About Kayan</a>
+          </li>
+          <li class="nav-item ">
+            <a href="#">
+              <i class="fas fa-file-alt fa-lg pr-2"></i>
+              Terms & Conditions </a>
+          </li>
+          <li  ng-click="logOut()" class="nav-item ">
+            <a href="#">
+              <i class="fas fa-sign-out-alt fa-lg pr-2"></i>
+              Sign Out </a>
+          </li>
+        </ul>
+  
+  
+      </nav>
+    </div>
+
+  </nav>
+  <nav ng-if="souqLang == 'ar'" class="navbar  fixed-top navbar-expand-lg  navbar-light bg-light">
+    <a class="ml-lg-5 ml-5" class="navbar-brand" href="#">
+      <img src="../images/logo-.png" height="57" alt="Kayan">
+
+
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <form style="position: relative;" class="form-inline my-2 my-lg-0 ml-auto">
+        <input style="width: 345px; padding-left: 22px !important; border-radius: 0; background-color: #F2F3F5;"
+          class="form-control ml-sm-2" type="search" placeholder="البحث" aria-label="Search">
+        <i style="position: absolute; left: 15px; color: #343C53;" class="fas fa-search"></i>
+
+      </form>
+      <ul class="navbar-nav mr-auto mr-lg-5">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; position: relative;">
+              <i style="width: 37px; height: 37px; color: #000" class="far fa-bell fa-2x">
+
+              </i>
+              <span
+                style="width: 20px;height: 20px;  position: absolute;right: -5px; top: -10px; border-radius: 50%; background-color: #FF4B4B; color: #fff; font-size: 10px;">
+                1
+              </span>
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a  ng-click="changeLang('en')"  class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; background-color: #C8972C; color: #343434">
+              EN
+            </span>
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a ng-if="souqUser && souqUser._id" ng-click="logOut()" class="nav-link" href="#">
+
+            <img style="height: 37px; width: 37px;" src="../images/logout-.png" />
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!-- on sm & xs sceens only-->
+    <div style="display: block" class="mr-auto  d-xs-block d-md-none">
+      <ul class="navbar-nav mr-auto mr-lg-5">
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; position: relative;">
+              <i style="width: 37px; height: 37px; color: #000" class="far fa-bell fa-2x">
+
+              </i>
+              <span
+                style="width: 20px;height: 20px;  position: absolute;right: -5px; top: -10px; border-radius: 50%; background-color: #FF4B4B; color: #fff; font-size: 10px;">
+                1
+              </span>
+            </span>
+          </a>
+        </li>
+
+        <li class="nav-item mx-2">
+          <a ng-click="changeLang('en')" class="nav-link" href="#">
+
+            <span
+              style="display: block; text-align: center ; margin: auto; line-height: 2.5; width: 37px; height: 37px; border-radius: 50%; background-color: #C8972C; color: #343434">
+              EN
+            </span>
+          </a>
+        </li>
+        <li class="nav-item mx-2">
+          <a ng-if="souqUser && souqUser._id" ng-click="logOut()" class="nav-link" href="#">
+
+            <img style="height: 37px; width: 37px;" src="../images/logout-.png" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+     <!-- Start Slide Bar -->
+    <!-- Sidebar AR  -->
+    <i ng-if="souqUser && souqUser._id" style="cursor: pointer; position: absolute; right: 15px; top: 70px; color: #fff; padding: 10px; background-color: #262626;" ng-click="changeCoverItems('sidebarCollapsear')" class="fas fa-sliders-h fa-2x"></i>
+    <div class="wrapper">
+
+      <nav id="sidebarar">
+        <div class="sidebar-header">
+          <i style="cursor: pointer;" ng-click="changeCoverItems('sidebarCollapsear')" class="fas fa-sliders-h fa-2x"></i>
+
+        </div>
+
+        <ul class="list-unstyled components slideNav">
+         
+      <li id="Home" class="nav-item">
+          <a href="/Home">
+            <i class="far fa-user fa-lg pl-2"></i>
+            الرئيسية 
+          </a>
+        </li>
+        <li  id="addCar" class="nav-item ">
+            <a href="/addCar">
+              <i class="far fa-user fa-lg pl-2"></i>
+              إضافة سيارة  
+            </a>
+          </li>
+          <li  id="profile" class="nav-item ">
+            <a href="/profile">
+              <i class="far fa-user fa-lg pl-2"></i>
+              حسابى
+            </a>
+          </li>
+
+          <li  id="myCars" class="nav-item ">
+            <a href="/myCars">
+
+              <i class="fas fa-car fa-lg pl-2"></i>
+              سيارتى
+            </a>
+          </li>
+          <li  id="myCarsRequests" class="nav-item ">
+ 
+            <a href="/myCarsRequests">
+              <i class="fas fa-file fa-lg pl-2"></i>
+              طلبات واردة
+            </a>
+          </li>
+          <li  id="myRequests" class="nav-item ">
+
+            <a href="/myRequests">
+              <i class="fas fa-file fa-lg pl-2"></i>
+              طلباتى
+            </a>
+          </li>
+
+          <li id="invoicesDue" class="nav-item ">
+            <a href="/invoicesDue">
+              <i class="fas fa-file-invoice-dollar fa-lg pl-2"></i>
+              الفواتير المستحقة
+            </a>
+          </li>
+          <li id="contactUs" class="nav-item ">
+            <a href="/contactUs">
+              <i class="far fa-comments fa-lg pl-2"></i>
+
+              تواصل معنا
+            </a>
+          </li>
+          <li  class="nav-item ">
+            <a href="#">
+              <i class="fas fa-file-alt fa-lg pl-2"></i>
+              عن كيان
+
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a href="#">
+              <i class="fas fa-file-alt fa-lg pl-2"></i>
+              الشروط و الأحكام
+
+            </a>
+          </li>
+          <li ng-click="logOut()" class="nav-item ">
+            <a href="">
+              <i class="fas fa-sign-out-alt fa-lg pl-2"></i>
+              تسجيل الخروج
+            </a>
+          </li>
+        </ul>
+
+
+      </nav>
+    </div>
+
+  </nav>
+  <!-- End Main Nav-->
+
+  <ng-view id="ngView">
+        
+  </ng-view>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Start Footer -->
+
+  <footer>
+    <div class="py-5">
+
+    </div>
+    <div class="py-5">
+
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+  <!-- Optional JavaScript -->
+
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+  
+        // $('#sidebararCollapse').on('click', function () {
+        //   $('#sidebarar').toggleClass('activeSidebarar');
+        // });
+        // $('#sidebararCollapseOut').on('click', function () {
+        //   $('#sidebarar').toggleClass('activeSidebarar');
+        // });
+  
+  
+        // $('#sidebarCollapseOut').on('click', function () {
+        //   $('#sidebar').toggleClass('activeSidebar');
+        // });
+  
+        // $('#sidebarCollapse').on('click', function () {
+        //   $('#sidebar').toggleClass('activeSidebar');
+        // });
+  
+  
+        // $('#loginCollapseOuten').on('click', function () {
+        //   $('.loginCollapseen').toggleClass('activeLoginen');
+          
+        // });
+  
+        // $('#loginCollapseOutar').on('click', function () {
+        
+        //   $('.loginCollapsear').toggleClass('activeLoginar');
+          
+        // });
+  
+  
+        
+  
+      });
+    </script>
+  
+</body>
+
+</html>

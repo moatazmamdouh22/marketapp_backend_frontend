@@ -1,0 +1,462 @@
+
+<div class="howitwork">
+    <div  ng-if="!souqLang || souqLang == 'en'" class="addAppDiv-overlay">
+        <div style="margin-top: 58px;"></div>
+        <div class="container px-5">
+            <div class="px-5" >
+                <div class="row">
+                    <div class="col-md-1">
+    
+                    </div>
+                    <div style="background-color: #fff; border-radius: 7px;" class="col-md-10 col-sm-12 pb-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="position: relative;" class="row pt-5">
+    
+                                    <div  class="col-sm-12 col-md-6 text-center m-auto">
+                                        <h4 class="m-auto font-weight-bolder"
+                                            style="color: #F67534; font-weight: bolder; ">
+                                            <div style="position: relative; " class="m-auto text-center">
+                                                <!-- <img class="rounded-circle" style="width: 170px; height: 170px;  background-color: #fff; border: 2px solid #fff; border: 1px solid #7777;" src="https://www.upwork.com/profile-portraits/c1b7o3uboWlacNrKOhtTb7l2Ty3Q4j79M6FgosaDPSGGwj8NtqlUDWouXqrltxGHqA" /> -->
+                                           
+                                                <div style="margin: auto;">
+                                                    <input type='file' style="display: none;"
+                                                        onchange="document.getElementById('d1').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(1)"
+                                                        id="img1" name="img1" accept=".jpg, .jpeg, .png" multiple />
+                                                </div>
+                                                <div style="width: 150px; height: 150px; background-color: #fff; position: relative; overflow: hidden; border-radius: 50%; border: 1px solid #707070;"
+                                                    class="m-auto">
+                                                    <img style="width: 100%; height: 100%;" id="d1" src="{{user.personalImg}}"  />
+                                                    <label class="rounded-circle" ng-if="!img1_wait || img1_wait == false"
+                                                        style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0; " 
+                                                        for="img1">
+                                
+                                                    </label>
+                                                    <!-- <div ng-if="img1_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                            <img  style="width: 150px; height: 150px;" class="rounded-circle" src="http://157.230.25.241/SouqWebsite/images/spinner.gif" alt="">
+                                                        </div> -->
+                                
+                                                </div>
+                                            </div>
+                                           
+                                        </h4>
+                                        <div class="row text-center pt-2">
+                    
+                                            <div class="col-sm-12 text-center">
+                                                <h5 style="color: #000; font-weight: bold">
+                            
+                                                   {{user.fullname}}
+                                                </h5>
+                                            </div>
+                            
+                                        </div>
+    
+                                        
+                                        <!-- <button   style="border-radius: 50px; height: 50px; line-height: 1; padding-left: 20px; padding-right: 20px; position: absolute; right:  30px ; top:120px; " class="default-button mr-auto "  data-toggle="modal" data-target="#exampleModalCenter">
+                                            edit pass
+                                        </button> -->
+                                    </div>
+    
+                                    <button 
+                                    data-toggle="modal" data-target="#exampleModalCenter"
+                                    style="background-color: #F67534; border-radius: 5px; position: absolute; right:  30px ; top:35px;"
+                                    type="button" class="btn btn-primary px-5">Edit password 
+                                </button>
+                                </div>
+                                <div  class="row py-5 text-center  m-auto">
+                                    
+                                    <div class="col-md-3">
+    
+                                    </div>
+                                    <div class="col-sm-11 col-md-6 text-center m-auto pt-2">
+                                        <form ng-submit="updateUserInfo()">
+                                        <div class="row text-center m-auto pb-3">
+                                            <input type="text" class="form-control text-center custom-input"
+                                                id="fullname" placeholder="Full name" minlength="4" required
+                                                value="{{user.fullname}}"
+                                                autocomplete="off" style="background-color: #fff !important;">
+    
+                                        </div>
+                                        <div class="row text-center m-auto  pb-3">
+                                            <input type="text" class="form-control text-center custom-input"
+                                                id="mobile" placeholder="mobile"  minlength="7"
+                                                value="{{user.mobile}}"
+                                                 required autocomplete="off" 
+                                                 style="background-color: #fff !important;">
+    
+                                        </div>
+    
+    
+                                        <div class="row text-center m-auto  pb-3">
+                                          
+    
+                                            <input type="email" class="form-control text-center custom-input"
+                                                id="email" placeholder="email"
+                                                value="{{user.email}}"
+                                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" required
+                                                autocomplete="off"
+                                                style="background-color: #fff !important;">
+    
+                                        </div>
+                                        <div class="row text-center m-auto  pb-3">
+                            
+                                            <input 
+                                            type="date"
+                                            class="form-control text-center custom-input" 
+                                            id="birthday"
+                                            required
+                                            value="{{user.birthday | cmdate:'yyyy-MM-dd'}}"
+                                            style="background-color: #fff !important;"
+                                            >
+    
+                                        </div>
+                                        <div class="row text-center m-auto  pb-3">
+                                            <select 
+                                            style="background-color: #F0F0F0; border: none; height: 44px;"
+                                            class="form-control" 
+                                            id="categoryID" 
+                                            
+                                            
+                                           
+                                            >
+                                            <option value="" disabled> Category   </option>
+                                            <option ng-selected="user.categoryID._id == c._id" ng-repeat="c in categories" value="{{c._id}}">
+                                            <span class="py-4 d-block w-100">
+                                                    {{c.titleEN}}
+                                            </span>
+                                        </option>
+    
+                                
+                                        </select>
+                                        </div>
+    
+    
+    
+                                        <button style="background-color: #F67534; border-radius: 20px;font-weight: bold; border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                        -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                        box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                            type="submit" class="btn btn-primary px-5">Save 
+                                        </button>
+                                    </form>
+    
+                                    </div>
+                                    <div class="col-md-3">
+    
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                           
+                        </div>
+                        
+                    
+                    </div>
+    
+                    <div class="col-md-1">
+    
+                    </div>
+    
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+              <div class="modal-content">
+                <form ng-submit="editPass()">
+                    <div style="border: none !important;"  class="modal-header m-0 pb-0">
+                        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Edit Password</h5> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="border: none !important;" class="modal-header text-center  m-0 pt-0">
+                        <h5 class="modal-title text-center m-auto" id="exampleModalLongTitle">Edit Password</h5>
+                       
+                    </div>
+                    <div class="modal-body">
+                    
+                    <div class="row text-center m-auto  pb-3">
+                        <input 
+                            type="password" 
+                            class="form-control text-center custom-input" 
+                            id="oldPass" 
+                            placeholder="old password"
+                         
+                            required
+                            autocomplete="off"
+                            >
+            
+                    </div>
+                    <div class="row text-center m-auto  pb-3">
+                        <input 
+                            type="password" 
+                            class="form-control text-center custom-input" 
+                            id="passwordid" 
+                            placeholder="New pass"
+                            minlength="6" 
+                            required
+                            autocomplete="off"
+                            >
+        
+                    </div>
+                    <div class="row text-center m-auto  pb-3">
+                            <input 
+                                type="password" 
+                                class="form-control text-center custom-input" 
+                                id="confirmPasswordid" 
+                                placeholder="confirm new Pass"
+                                minlength="6" 
+                                required
+                                autocomplete="off"
+                                
+                                >
+            
+                        </div>
+                    </div>
+                    <div class="modal-footer m-auto d-block" style=" border: none;">
+                        <div class="row  text-center">
+                            <button  type="submit" style="border-radius: 50px; height: 45px; line-height: 1; padding-left: 30px; padding-right: 30px; font-size: 18px;" class="default-button2 m-auto text-center">
+                                    Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                 
+              </div>
+            </div>
+          </div>
+    </div>
+    
+    <div  ng-if="souqLang == 'ar'" class="addAppDiv-overlay ">
+        <div style="margin-top: 58px;"></div>
+        <div class="container px-5">
+            <div class="px-5" >
+                <div class="row">
+                    <div class="col-md-1">
+    
+                    </div>
+                    <div style="background-color: #fff; border-radius: 7px;" class="col-md-10 col-sm-12 pb-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="position: relative;" class="row pt-5">
+    
+                                    <div  class="col-sm-12 col-md-6 text-center m-auto ">
+                                        <h4 class="m-auto font-weight-bolder "
+                                            style="color: #F67534; font-weight: bolder; ">
+                                            <div style="position: relative; " class="m-auto text-center ">
+                                                <!-- <img class="rounded-circle" style="width: 170px; height: 170px;  background-color: #fff; border: 2px solid #fff; border: 1px solid #7777;" src="{{user.personalImg}}" /> -->
+                                           
+                                                <div style="margin: auto;">
+                                                    <input type='file' style="display: none;"
+                                                        onchange="document.getElementById('d1').src = window.URL.createObjectURL(this.files[0]) ;angular.element(this).scope().changePic(1)"
+                                                        id="img1" name="img1" accept=".jpg, .jpeg, .png" multiple />
+                                                </div>
+                                                <div style="width: 150px; height: 150px; background-color: #fff; position: relative; overflow: hidden; border-radius: 50%; border: 1px solid #707070;"
+                                                    class="m-auto">
+                                                    <img style="width: 100%; height: 100%;" id="d1" src="{{user.personalImg}}"  />
+                                                    <label class="rounded-circle" ng-if="!img1_wait || img1_wait == false"
+                                                        style="background-color: transparent; position: absolute; top: 0;bottom: 0; left: 0; right: 0; " 
+                                                        for="img1">
+                                
+                                                    </label>
+                                                    <!-- <div ng-if="img1_wait == true" style="position: absolute; top: 0;bottom: 0; left: 0; right: 0;">
+                                                            <img  style="width: 150px; height: 150px;" class="rounded-circle" src="http://157.230.25.241/SouqWebsite/images/spinner.gif" alt="">
+                                                        </div> -->
+                                
+                                                </div>
+                                            </div>
+                                           
+                                        </h4>
+                                        <div class="row text-center pt-2">
+                    
+                                            <div class="col-sm-12 text-center">
+                                                <h5 style="color: #000; font-weight: bold">
+                            
+                                                    {{user.fullname}} 
+                                                </h5>
+                                            </div>
+                            
+                                        </div>
+    
+                                        
+                                        <!-- <button   style="border-radius: 50px; height: 50px; line-height: 1; padding-left: 20px; padding-right: 20px; position: absolute; right:  30px ; top:120px; " class="default-button mr-auto "  data-toggle="modal" data-target="#exampleModalCenter">
+                                            edit pass
+                                        </button> -->
+                                    </div>
+    
+                                    <button style="background-color: #F67534; border-radius: 5px; position: absolute; left:  30px ; top:35px;"
+                                    type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary px-5">تعديل كلمة المرور  
+                                </button>
+                                </div>
+                                <div  class="row py-5 text-center  m-auto ">
+                                    <div class="col-md-3">
+    
+                                    </div>
+                                    <div class="col-sm-11 col-md-6 text-center m-auto pt-2">
+                                        <form ng-submit="updateUserInfo()" >
+                                        <div class="row text-center m-auto pb-3">
+                                            <input 
+                                                type="text" 
+                                                class="form-control text-center custom-input"
+                                                id="fullname" 
+                                                placeholder="Full Name" 
+                                                minlength="4" 
+                                                required
+                                                value="{{user.fullname}}"
+                                                autocomplete="off"
+                                                style="background-color: #fff !important;">
+    
+                                        </div>
+                                        <div class="row text-center m-auto  pb-3">
+                                            <input type="text" style="background-color: #fff !important;" class="form-control text-center custom-input"
+                                                id="mobile" minlength="7" placeholder="Mobile" value="{{user.mobile}}" required autocomplete="off">
+                                        </div>
+    
+    
+                                        <div class="row text-center m-auto  pb-3">
+                                          
+    
+                                            <input 
+                                                type="email" class="form-control text-center custom-input"
+                                                id="email" 
+                                                placeholder="Email"
+                                                value="{{user.email}}"
+                                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" 
+                                                required
+                                                autocomplete="off"
+                                                style="background-color: #fff !important;">
+    
+                                        </div>
+                                        <div class="row text-center m-auto  pb-3">
+                            
+                                            <input 
+                                            type="date"
+                                            class="form-control text-center custom-input" 
+                                            id="birthday"
+                                            style="background-color: #fff !important;"
+                                            value="{{user.birthday | cmdate:'yyyy-MM-dd'}}"
+    
+                                            >
+    
+                                        </div>
+                                        <div class="row text-center m-auto  pb-3">
+                                            <select 
+                                            style="background-color: #F0F0F0; border: none; height: 44px;"
+                                            class="form-control" 
+                                            id="categoryID" 
+                                          
+                                           
+                                            >
+                                            <option value="" disabled> الفئة   </option>
+                                            <option ng-selected="user.categoryID._id == c._id" ng-repeat="c in categories" value="{{c._id}}">
+                                            <span class="py-4 d-block w-100">
+                                                    {{c.titleAR}}
+                                            </span>
+                                        </option>
+    
+                                
+                                        </select>
+                                        </div>
+                                        
+    
+    
+                                        <button style="background-color: #F67534; border-radius: 20px;font-weight: bold; border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                        -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                        box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);"
+                                            type="submit" class="btn btn-primary px-5">حـفظ  
+                                        </button>
+    
+                                    </form>
+                                    </div>
+                                    <div class="col-md-3">
+    
+                                    </div>
+    
+    
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+    
+                    <div class="col-md-1">
+    
+                    </div>
+    
+    
+                </div>
+    
+            </div>
+    
+        </div>
+             <!-- Modal -->
+             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                  <div class="modal-content">
+                    <form ng-submit="editPass()">
+                        <div class="modal-header">
+                                <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            <h5 class="modal-title mr-auto" id="exampleModalLongTitle">تعديـل كلمة السر</h5>
+                          
+                        </div>
+                        <div class="modal-body">
+                        
+                        <div class="row text-center m-auto  pb-3">
+                            <input 
+                                type="password" 
+                                class="form-control text-center custom-input" 
+                                id="oldPass" 
+                                placeholder="كلمة السر القديمة "
+                             
+                                required
+                                autocomplete="off"
+                                >
+                
+                        </div>
+                        <div class="row text-center m-auto  pb-3">
+                            <input 
+                                type="password" 
+                                class="form-control text-center custom-input" 
+                                id="passwordid" 
+                                placeholder="كلمة السر الجديدة"
+                                minlength="6" 
+                                required
+                                autocomplete="off"
+                                >
+            
+                        </div>
+                        <div class="row text-center m-auto  pb-3">
+                                <input 
+                                    type="password" 
+                                    class="form-control text-center custom-input" 
+                                    id="confirmPasswordid" 
+                                    placeholder="تأكيد كلمة السر "
+                                    minlength="6" 
+                                    required
+                                    autocomplete="off"
+                                    >
+                
+                            </div>
+                        </div>
+                        <div class="modal-footer m-auto d-block" style=" border: none;">
+                            <div class="row  text-center">
+                                <button  type="submit" style="border-radius: 50px; height: 45px; line-height: 1; padding-left: 30px; padding-right: 30px; font-size: 18px;" class="default-button2 m-auto text-center">
+                                        حـفـظ
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                     
+                  </div>
+                </div>
+        </div>
+    </div>
+</div>

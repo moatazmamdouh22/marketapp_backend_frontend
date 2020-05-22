@@ -1,0 +1,171 @@
+
+<div style="padding: 0; margin: 0;" ng-if="!souqLang || souqLang == 'en'">
+
+
+
+      
+    <style>
+      .addAppDiv{
+        background-image: url(http://157.230.25.241/SouqWebsite/images/contact.png);
+
+      }
+    </style>
+<div style="margin-top: 58px;"></div>
+
+<div class="addAppDiv">
+  <div class="">
+    <div class="container">
+      <div class="row  text-center pt-4 px-3 m-0">
+          
+              
+        <div class="col-sm-12">
+            <div class="text-left m-auto">
+                <span style="color: #F67534; font-size: 20px; font-weight: bolder; font-size: 1.4rem;">                           
+                     contact us
+                       
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-12 pt-1">
+          <div class="text-left m-auto ">
+            <!-- <label  style="font-weight: bolder !important;  color: #F67534;" for="exampleInputPassword1 ">
+              Please fill in this information and we will contact you shortly                     
+
+            </label> -->
+              <span style="color: #F67534;   font-size: 1rem;">                           
+                Please fill in this information and we will contact you shortly                     
+              </span>
+          </div>
+      </div>
+        
+</div>
+    </div>
+      
+      <div class="container pb-3 ">
+        <div class="row">
+                        <div class="col-md-6 px-5 pt-5">
+                                <form ng-submit="addData()">
+                                  <div class="form-group  ">
+                                    <label  style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">Full name</label>
+                                    <input placeholder="full name"  value="{{userDetails.fullname}}" type="text" class="form-control text-left" id="fullname">
+                                  </div>
+                                  <div class="form-group  ">
+                                    <label  style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">Mobile number</label>
+                                    <input placeholder="Mobile"  value="{{userDetails.mobile}}"   type="text" class="form-control text-left" id="mobile">
+                                  </div>
+                                  <div class="form-group  ">
+                                    <label  style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">Email</label>
+                                    <input placeholder="email" value="{{userDetails.email}}"   type="text" class="form-control text-left" id="email">
+                                  </div>
+                                        <div class="form-group">
+                                          <label style="font-weight: bolder !important; color: #707070;" for="exampleInputEmail1">Type your message here
+                                            </label>
+                                            <textarea required class="form-control" id="message" placeholder="Type here " rows="7"></textarea>
+
+                                        </div>
+                                       
+                                      
+                                        <button style="background-color: #F67534; border-radius: 15px;border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                        -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+                                        box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);" type="submit" class="btn btn-primary px-5">Send </button>
+                                      </form>
+                        </div>
+                       
+
+        </div>      
+     </div>
+  </div>
+        
+            
+</div>
+
+
+</div>
+
+
+<div style="padding: 0; margin: 0;" ng-if="souqLang == 'ar'">
+
+      
+    <style>
+      .addAppDiv{
+        background-image: url(http://157.230.25.241/SouqWebsite/images/contact.png);
+
+      }
+    </style>
+<div style="margin-top: 58px;"></div>
+
+<div class="addAppDiv">
+  <div class="">
+    <div class="container">
+      <div class="row  text-center pt-4 px-3 m-0">
+          
+              
+        <div class="col-sm-12">
+            <div class="text-right m-auto">
+                <span class="fontar" style="color: #F67534; font-size: 20px; font-weight: bolder; font-size: 1.4rem;">                           
+                  تواصل معنا
+                       
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-12 pt-1">
+          <div class="text-right m-auto ">
+            <!-- <label  style="font-weight: bolder !important;  color: #F67534;" for="exampleInputPassword1 ">
+              Please fill in this information and we will contact you shortly                     
+
+            </label> -->
+              <span class="fontar" style="color: #F67534;   font-size: 1rem;">                           
+                برجاء ملاء هذه البيانات و سوف يتم التواصل معك في أقرب وقت 
+              </span>
+          </div>
+      </div>
+        
+</div>
+    </div>
+      
+      <div class="container pb-3 ">
+        <div class="row">
+                        <div class="col-md-6 px-5 pt-5">
+                                <form ng-submit="addData()" >
+                                  <div class="form-group  text-right">
+                                    <label  class="text-right fontar" style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">الأسم بالكامل</label>
+                                    <input placeholder="الأسم بالكامل"  value="{{userDetails.fullname}}"  type="text" class="form-control text-right" id="fullname">
+                                  </div>
+                                  <div class="form-group   text-right">
+                                    <label  class="text-right fontar" style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">رقم الجوال</label>
+                                    <input placeholder="رقم الجوال"   value="{{userDetails.mobile}}"  type="text" class="form-control text-right" id="mobile">
+                                  </div>
+                                  <div class="form-group   text-right">
+                                    <label  class="text-right fontar"  style="font-weight: bolder !important;  color: #707070;" for="exampleInputPassword1 ">البريد الألكترونى</label>
+                                    <input placeholder="البريد الألكترونى"  value="{{userDetails.email}}"   type="text" class="form-control text-right" id="email">
+                                  </div>
+                                        <div class="form-group  text-right">
+                                          <label  class="text-right fontar" style="font-weight: bolder !important; color: #707070;" for="exampleInputEmail1">أكتب رسالتك
+                                            </label>
+                                            <textarea required class="form-control" id="message" placeholder="أكتب هنا" rows="7"></textarea>
+
+                                        </div>
+                                       
+                                      
+<div class="text-right">
+  <button style="background-color: #F67534; border-radius: 15px;border: none; -webkit-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);
+  box-shadow: 0px 3px 6px 0px rgba(112,112,112,1);" type="submit" class="btn btn-primary px-5 fontar">ارسال  </button>
+
+</div>                                      </form>
+                        </div>
+                       
+
+        </div>      
+     </div>
+  </div>
+        
+            
+</div>
+
+
+
+
+</div>
+
+
